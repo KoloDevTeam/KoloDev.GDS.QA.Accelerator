@@ -334,28 +334,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                         var validate = document.QuerySelectorAll("input[type='checkbox']");
 
                         TestContext.WriteLine("Found Checkboxes within Page");
-                        try
-                        {
-                            var legend = document.QuerySelector("fieldset > legend");
-                            TestContext.WriteLine("CheckBox Fieldset Legend: " + legend.InnerText.Trim());
-                            TestContext.WriteLine("KoloQA: CheckBox Fieldset Legend: " + legend.InnerText.Trim());
-                            leg = legend.InnerText.Trim();
-                        }
-                        catch (Exception e)
-                        {
-                            TestContext.WriteLine("KoloQA: ---No Legend found for Checkbox Fieldset.");
-                        }
-                        try
-                        {
-                            var hint = document.QuerySelector("fieldset > span[class='govuk-hint']");
-                            TestContext.WriteLine("CheckBox Fieldset Hint: " + hint.InnerText.Trim());
-                            TestContext.WriteLine("KoloQA: CheckBox Fieldset Hint: " + hint.InnerText.Trim());
-                            frmhint = hint.InnerText.Trim();
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Fieldset for checks " + e.Message);
-                        }
                         foreach (var node in validate)
                         {
                             Checkbox chk = new Checkbox();
