@@ -419,18 +419,6 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             {
                 if (ismatch)
                 {
-                    int numeric = int.Parse(trim2);
-                    trim2 = "Page_" + numeric.ToWords().Underscore();
-                }
-            }
-            catch
-            {
-                TestContext.WriteLine("String and Integers");
-            }
-            try
-            {
-                if (ismatch)
-                {
                     trim2.Insert(0, "Attr_");
                 }
             }
