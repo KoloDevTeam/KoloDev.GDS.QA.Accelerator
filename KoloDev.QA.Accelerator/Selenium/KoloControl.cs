@@ -432,8 +432,9 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                 if (Regex.IsMatch(trim2, @"^\d"))
                 {
                     TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
-                    trim2.Insert(0, "Attr_");
+                    string final = trim2.Insert(0, "Attr_");
                     TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
+                    return final;
                 }
             }
             catch
