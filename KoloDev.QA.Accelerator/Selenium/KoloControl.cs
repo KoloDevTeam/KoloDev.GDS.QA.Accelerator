@@ -419,13 +419,13 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             {
                 if (ismatch)
                 {
-                    int numeric = int.Parse(trim);
+                    int numeric = int.Parse(trim2);
                     trim2 = "Page_" + numeric.ToWords().Underscore();
                 }
             }
             catch
             {
-                if (Regex.IsMatch(trim, @"^\d"))
+                if (Regex.IsMatch(trim2, @"^\d"))
                 {
                     trim2.Insert(0, "Attr_");
                 }
