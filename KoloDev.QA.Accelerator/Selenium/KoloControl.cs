@@ -425,10 +425,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             }
             catch
             {
-                if (Regex.IsMatch(trim2, @"^\d"))
-                {
-                    trim2.Insert(0, "Attr_");
-                }
+                TestContext.WriteLine("String and Ints");
+            }
+            if (Regex.IsMatch(trim2, @"^\d"))
+            {
+                trim2.Insert(0, "Attr_");
             }
             TestContext.WriteLine("TRIMMED " + trim2);
             return trim2;
