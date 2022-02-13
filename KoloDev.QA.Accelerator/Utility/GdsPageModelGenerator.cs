@@ -9,14 +9,25 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 {
     public class GdsPageModelGenerator
     {
-        public async Task<GdsPageModel> GDSPageGeneratorAsync(IWebDriver driver)
+        public async Task<GdsPageModel> GDSPageGeneratorAsync(IWebDriver driver, string element = "")
         {
+            string PageHtml;
             // GDS Page Model Creation
             TestContext.WriteLine("GDS PAGE GENERATOR - Started");
             TestContext.WriteLine("KoloQA: ---GDS PAGE GENERATOR----------------------------------------------------------------------");
             TestContext.WriteLine("KoloQA: -------------------------------------------------------------------------------------------");
             GdsPageModel pageModel = new GdsPageModel();
-            string PageHtml = driver.PageSource;
+            if(element.Length > 1)
+            {
+                IWebElement Iweb = driver.FindElement(By.CssSelector(element));
+                PageHtml = Iweb.GetAttribute("innerHTML");
+
+            }
+            else
+            {
+                PageHtml = driver.PageSource;
+            }
+            
             pageModel = AccordianDetect(PageHtml, pageModel);
             pageModel = await BackLinkDetectAsync(PageHtml, pageModel);
             pageModel = await BreadCrumbsDetectAsync(PageHtml, pageModel);

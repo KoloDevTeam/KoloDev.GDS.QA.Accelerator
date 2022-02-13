@@ -430,6 +430,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                     trim2.Insert(0, "Attr_");
                 }
             }
+            TestContext.WriteLine("TRIMMED " + trim2);
             return trim2;
         }
 
