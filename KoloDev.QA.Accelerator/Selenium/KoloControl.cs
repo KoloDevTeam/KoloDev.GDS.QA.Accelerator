@@ -414,10 +414,9 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             string clean = Regex.Replace(inbound, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
             string trim = clean.Replace(" ", "");
             string trim2 = trim.Replace(".", string.Empty);
-            bool ismatch = Regex.IsMatch(trim2, @"^\d+");
             try
             {
-                if (ismatch)
+                if (Regex.IsMatch(trim2, @"^\d"))
                 {
                     trim2.Insert(0, "Attr_");
                 }
