@@ -343,7 +343,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e.Message);
                             TestContext.WriteLine("KoloQA: ---No Legend found for Checkbox Fieldset.");
                         }
                         try
@@ -380,6 +379,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                             {
                                 //ID
                                 chk.Id = node.Id;
+                                TestContext.Write("CHECKBOX ID " + chk.Id);
                             }
                             catch (Exception e)
                             {
