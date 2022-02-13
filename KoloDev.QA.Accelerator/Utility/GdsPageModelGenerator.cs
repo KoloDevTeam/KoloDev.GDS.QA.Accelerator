@@ -832,31 +832,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                         string leg = "";
                         string frmhint = "";
                         var validate = document.QuerySelectorAll("input[class='govuk-input'],input[type=color],input[type=date],input[type=datetime-local],input[type=email],input[type=file],input[type=image],input[type=month],input[type=number],input[type=password],input[type=range],input[type=reset],input[type=search],input[type=submit],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week]");
-
-
-                        TestContext.WriteLine("Found Text Inputs within Page");
-                        try
-                        {
-                            var legend = document.QuerySelector("fieldset > legend");
-                            TestContext.WriteLine("Text Inputs Fieldset Legend: " + legend.InnerText.Trim());
-                            TestContext.WriteLine("KoloQA: Text Inputs Fieldset Legend: " + legend.InnerText.Trim());
-                            leg = legend.InnerText.Trim();
-                        }
-                        catch (Exception e)
-                        {
-                            TestContext.WriteLine("KoloQA: ---No Legend found for Text Inputs Fieldset. " + e.Message);
-                        }
-                        try
-                        {
-                            var hint = document.QuerySelector("fieldset > span[class='govuk-hint']");
-                            TestContext.WriteLine("Text Inputs Fieldset Hint: " + hint.InnerText.Trim());
-                            TestContext.WriteLine("KoloQA: Text Inputs Fieldset Hint: " + hint.InnerText.Trim());
-                            frmhint = hint.InnerText.Trim();
-                        }
-                        catch (Exception e)
-                        {
-                            TestContext.WriteLine("KoloQA: ---No Fieldset Hint found for Text Inputs Fieldset. " + e.Message);
-                        }
                         foreach (var node in validate)
                         {
                             TextInput txt = new TextInput();
@@ -875,10 +850,8 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                             {
 
                             }
-                            //Input
                             try
                             {
-                                //ID
                                 txt.Id = node.Id;
                             }
                             catch (Exception)
