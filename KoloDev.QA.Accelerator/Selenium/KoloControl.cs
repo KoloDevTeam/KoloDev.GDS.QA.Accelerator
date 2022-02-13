@@ -414,11 +414,26 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             string clean = Regex.Replace(inbound, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
             string trim = clean.Replace(" ", "");
             string trim2 = trim.Replace(".", string.Empty);
+            bool ismatch = Regex.IsMatch(trim2, @"^\d+");
+            try
+            {
+                if (ismatch)
+                {
+                    int numeric = int.Parse(trim2);
+                    trim2 = "Page_" + numeric.ToWords().Underscore();
+                }
+            }
+            catch
+            {
+                TestContext.WriteLine("String and Integers");
+            }
             try
             {
                 if (Regex.IsMatch(trim2, @"^\d"))
                 {
+                    TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
                     trim2.Insert(0, "Attr_");
+                    TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
                 }
             }
             catch
