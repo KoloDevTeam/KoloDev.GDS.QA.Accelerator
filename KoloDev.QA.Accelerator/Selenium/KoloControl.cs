@@ -190,7 +190,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                                 AccessModifier = AccessModifier.Public,
                                 KeyWords = new List<KeyWord> { KeyWord.Static },
                                 Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo") },
-                                BodyLines = new List<string> { "kolo.ClickById(\"" + btn.ID + "\");"
+                                BodyLines = new List<string> { "kolo.ClickLinkByLinkText(\"" + btn.ButtonText + "\");"
                                                             , "return kolo; "}
                             };
                             methods.Add(meth);
@@ -332,7 +332,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                                 AccessModifier = AccessModifier.Public,
                                 KeyWords = new List<KeyWord> { KeyWord.Static },
                                 Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo") },
-                                BodyLines = new List<string> { "kolo.ClickById(\"" + btn.ID + "\");"
+                                BodyLines = new List<string> { "kolo.ClickLinkByLinkText(\"" + btn.ButtonText + "\");"
                                                             , "return kolo; "}
                             };
                             methods.Add(meth);
@@ -431,7 +431,6 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             {
                 if (Regex.IsMatch(trim2, @"^\d"))
                 {
-                    TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
                     string final = trim2.Insert(0, "Attr_");
                     TestContext.WriteLine("MATCHED ON STARTS WITH NUM " + trim2);
                     return final;
