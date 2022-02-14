@@ -1333,12 +1333,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             js.ExecuteScript("window.scroll(" + link.Location.X + "," + (link.Location.Y - 200) + ");");
             try
             {
-                link.Click();
+                js.ExecuteScript("arguments[0].click();", link);
             }
             catch(ElementNotInteractableException)
             {
                 IWebElement link2 = fluentWait.Until(x => x.FindElement(By.XPath("//*[contains(text(), '" + LinkText + "')]/..")));
-                link2.Click();
+                js.ExecuteScript("arguments[0].click();", link);
             }
             
             return this;
