@@ -47,7 +47,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             return pageModel;
         }
 
-        public void GetTextFromPage(string PageHtml)
+        public void GetTextFromPage(string PageHtml, GdsPageModel pageModel)
         {
             try
             {
@@ -55,11 +55,15 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
                 var nodes = document.SelectNodes("//*[not(self::script or self::style)]/text()[normalize-space()]");
-
-                foreach(var node in nodes)
+                pageModel.TextOnPage = new List<string>();
+                if (nodes != null)
                 {
-                    TestContext.WriteLine("Page Text " + node.InnerText);
+                    foreach (var node in nodes)
+                    {
+                        pageModel.TextOnPage.Add(node.InnerText);
+                    }
                 }
+                  
             }
             catch (Exception ex)
             {

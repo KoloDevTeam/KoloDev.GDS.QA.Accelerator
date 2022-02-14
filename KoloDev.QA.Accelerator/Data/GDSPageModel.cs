@@ -47,6 +47,7 @@ namespace KoloDev.GDS.QA.Accelerator.Data
         public List<Step>? ProgressSteps { get; set; }
         public List<Span>? Spans { get; set; }
         public List<Validator>? Validator { get; set; }
+        public List<string>? TextOnPage { get; set; }
     }
 
     public class Validator

@@ -258,6 +258,23 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                         }
                     }
                 }
+                if (gdsPageModel.TextOnPage != null)
+                {
+                    foreach (string text in gdsPageModel.TextOnPage)
+                    {
+                            string label = Checker(text);
+
+                            var meth = new Method("KoloQA", ClassName + "_WaitForText_" + label)
+                            {
+                                AccessModifier = AccessModifier.Public,
+                                KeyWords = new List<KeyWord> { KeyWord.Static },
+                                Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo") },
+                                BodyLines = new List<string> { "kolo.WaitForText(\"" + text + "\");"
+                                                            , "return kolo; "}
+                            };
+                            methods.Add(meth);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -398,6 +415,23 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                             };
                             methods.Add(meth);
                         }
+                    }
+                }
+                if (gdsPageModel.TextOnPage != null)
+                {
+                    foreach (string text in gdsPageModel.TextOnPage)
+                    {
+                        string label = Checker(text);
+
+                        var meth = new Method("KoloQA", label + "_WaitForText_" + ClassName)
+                        {
+                            AccessModifier = AccessModifier.Public,
+                            KeyWords = new List<KeyWord> { KeyWord.Static },
+                            Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo") },
+                            BodyLines = new List<string> { "kolo.WaitForText(\"" + text + "\");"
+                                                            , "return kolo; "}
+                        };
+                        methods.Add(meth);
                     }
                 }
             }
