@@ -39,7 +39,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             pageModel = await TextInputsDetectAsync(PageHtml, pageModel);
             pageModel = await HyperLinksDetectAsync(PageHtml, pageModel);
             pageModel = await SelectsDetectAsync(PageHtml, pageModel, ignores);
-            GetTextFromPage(PageHtml);
+            GetTextFromPage(PageHtml, pageModel);
 
             // Serialise Page Model and print out to console.
             var pagejson = JsonConvert.SerializeObject(pageModel, Formatting.Indented);
