@@ -39,10 +39,31 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             pageModel = await TextInputsDetectAsync(PageHtml, pageModel);
             pageModel = await HyperLinksDetectAsync(PageHtml, pageModel);
             pageModel = await SelectsDetectAsync(PageHtml, pageModel, ignores);
+            
             // Serialise Page Model and print out to console.
             var pagejson = JsonConvert.SerializeObject(pageModel, Formatting.Indented);
             // Console.WriteLine(pagejson);
             return pageModel;
+        }
+
+        public void GetTextFromPage(string PageHtml)
+        {
+            try
+            {
+                var pagemaster = new HtmlDocument();
+                pagemaster.LoadHtml(PageHtml);
+                var document = pagemaster.DocumentNode;
+                var nodes = document.SelectNodes("//*[not(self::script or self::style)]/text()[normalize-space()]");
+
+                foreach(var node in nodes)
+                {
+                    TestContext.WriteLine("Page Text " + node.InnerText);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public static int CountHtmlNodes(IEnumerable<HtmlNode> nodes)
@@ -927,6 +948,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+
         //public async Task<GdsPageModel> TextAreasDetect(string PageHtml, GdsPageModel gDSPageModel)
         //{
         //    var pagemaster = new HtmlDocument();
