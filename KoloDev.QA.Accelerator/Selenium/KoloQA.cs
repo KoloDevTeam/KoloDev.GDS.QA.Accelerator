@@ -1337,7 +1337,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
             catch(ElementNotInteractableException)
             {
-                link.Click();
+                IWebElement link2 = fluentWait.Until(x => x.FindElement(By.XPath("//*[contains(text(), '" + LinkText + "'/..)]")));
+                link2.Click();
             }
             
             return this;
