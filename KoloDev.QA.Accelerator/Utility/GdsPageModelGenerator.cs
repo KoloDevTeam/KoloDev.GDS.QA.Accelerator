@@ -9,7 +9,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 {
     public class GdsPageModelGenerator
     {
-        public async Task<GdsPageModel> GDSPageGeneratorAsync(IWebDriver driver, string element = "")
+        public async Task<GdsPageModel> GDSPageGeneratorAsync(IWebDriver driver, string element = "", List<string> ignores = null)
         {
             string PageHtml;
             // GDS Page Model Creation
@@ -29,16 +29,16 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             
             pageModel = AccordianDetect(PageHtml, pageModel);
-            pageModel = await BackLinkDetectAsync(PageHtml, pageModel);
+            pageModel = await BackLinkDetectAsync(PageHtml, pageModel, ignores);
             pageModel = await BreadCrumbsDetectAsync(PageHtml, pageModel);
             pageModel = await ButttonDetectAsync(PageHtml, pageModel);
-            pageModel = await CheckboxDetectAsync(PageHtml, pageModel);
+            pageModel = await CheckboxDetectAsync(PageHtml, pageModel, ignores);
             pageModel = await DateInputDetectAsync(PageHtml, pageModel);
             pageModel = await DetailsDetectAsync(PageHtml, pageModel);
             pageModel = await RadiosDetectAsync(PageHtml, pageModel);
             pageModel = await TextInputsDetectAsync(PageHtml, pageModel);
             pageModel = await HyperLinksDetectAsync(PageHtml, pageModel);
-            pageModel = await SelectsDetectAsync(PageHtml, pageModel);
+            pageModel = await SelectsDetectAsync(PageHtml, pageModel, ignores);
             // Serialise Page Model and print out to console.
             var pagejson = JsonConvert.SerializeObject(pageModel, Formatting.Indented);
             // Console.WriteLine(pagejson);
@@ -135,7 +135,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
-        public async Task<GdsPageModel> BackLinkDetectAsync(string PageHtml, GdsPageModel gDSPage)
+        public async Task<GdsPageModel> BackLinkDetectAsync(string PageHtml, GdsPageModel gDSPage, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
             pagemaster.LoadHtml(PageHtml);
@@ -143,7 +143,11 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             HtmlNode node = document.QuerySelector(".govuk-back-link");
             if (node != null)
             {
-                gDSPage.BackLink = true;
+                if (ignores != null && !ignores.Contains(node.Id))
+                {
+                    gDSPage.BackLink = true;
+                }
+                
             }
             return gDSPage;
         }
@@ -194,7 +198,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
-        public async Task<GdsPageModel> ButttonDetectAsync(string PageHtml, GdsPageModel gDSPage)
+        public async Task<GdsPageModel> ButttonDetectAsync(string PageHtml, GdsPageModel gDSPage, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
             pagemaster.LoadHtml(PageHtml);
@@ -205,117 +209,120 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             {
                 foreach (var button in nodes)
                 {
-                    Button but = new Button();
-                    try
+                    if (ignores != null && !ignores.Contains(button.Id))
                     {
-                        but.Type = "Default";
-                        if (button.InnerText != null)
+                        Button but = new Button();
+                        try
                         {
-                            but.ButtonText = button.InnerText.Trim();
-                            TestContext.WriteLine("KoloQA: Button Text: " + button.InnerText.Trim());
+                            but.Type = "Default";
+                            if (button.InnerText != null)
+                            {
+                                but.ButtonText = button.InnerText.Trim();
+                                TestContext.WriteLine("KoloQA: Button Text: " + button.InnerText.Trim());
+                            }
+                            else if (button.Attributes["value"].ToString() != null)
+                            {
+                                but.ButtonText = button.Attributes["value"].ToString();
+                            }
                         }
-                        else if (button.Attributes["value"].ToString() != null)
+                        catch (Exception e)
                         {
-                            but.ButtonText = button.Attributes["value"].ToString();
+                            Console.WriteLine(e.Message);
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    try
-                    {
-                        if (button.Attributes["class"].Value.ToLower().Contains("secondary"))
+                        try
                         {
-                            but.Type = "Secondary";
+                            if (button.Attributes["class"].Value.ToLower().Contains("secondary"))
+                            {
+                                but.Type = "Secondary";
+                            }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    try
-                    {
-                        if (button.Attributes["class"].Value.ToLower().Contains("warning"))
+                        catch (Exception e)
                         {
-                            but.Type = "Warning";
+                            Console.WriteLine(e.Message);
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-                    if (button.Attributes["class"].Value != null && button.Attributes["class"].Value.ToLower().Contains("disabled"))
-                    {
-                        but.Enabled = false;
-                    }
-                    else
-                    {
-                        but.Enabled = true;
-                    }
-                    try
-                    {
-                        if (button.Attributes["disabled"].Value != null && button.Attributes["disabled"].Value.ToLower().Contains("disabled"))
+                        try
+                        {
+                            if (button.Attributes["class"].Value.ToLower().Contains("warning"))
+                            {
+                                but.Type = "Warning";
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
+                        if (button.Attributes["class"].Value != null && button.Attributes["class"].Value.ToLower().Contains("disabled"))
                         {
                             but.Enabled = false;
                         }
-                    }
-                    catch
-                    {
-                        but.Enabled = true;
-                    }
-                    try
-                    {
-                        if (button.Attributes["data-prevent-double-click"].Value != null && button.Attributes["data-prevent-double-click"].Value.ToLower().Contains("true"))
+                        else
                         {
-                            but.PreventDoubleClick = true;
+                            but.Enabled = true;
                         }
-                    }
-                    catch
-                    {
-                        but.PreventDoubleClick = false;
-                    }
-                    try
-                    {
-                        if (button.Attributes["name"].Value != null)
+                        try
                         {
-                            but.Name = button.Attributes["name"].Value;
+                            if (button.Attributes["disabled"].Value != null && button.Attributes["disabled"].Value.ToLower().Contains("disabled"))
+                            {
+                                but.Enabled = false;
+                            }
                         }
-                    }
-                    catch
-                    {
-                        TestContext.WriteLine("KoloQA: No Name Value fround for Button: " + button.InnerText.Trim());
-                    }
-                    try
-                    {
-                        if (button.Id != null)
+                        catch
                         {
-                            but.ID = button.Id;
+                            but.Enabled = true;
                         }
-                    }
-                    catch
-                    {
-                        TestContext.WriteLine("KoloQA: No ID Value fround for Button: " + button.InnerText.Trim());
-                        but.ID = null;
-                    }
-                    try
-                    {
-                        if (button.Attributes["form"].Value != null)
+                        try
                         {
-                            but.Form = button.Attributes["form"].Value;
+                            if (button.Attributes["data-prevent-double-click"].Value != null && button.Attributes["data-prevent-double-click"].Value.ToLower().Contains("true"))
+                            {
+                                but.PreventDoubleClick = true;
+                            }
                         }
+                        catch
+                        {
+                            but.PreventDoubleClick = false;
+                        }
+                        try
+                        {
+                            if (button.Attributes["name"].Value != null)
+                            {
+                                but.Name = button.Attributes["name"].Value;
+                            }
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: No Name Value fround for Button: " + button.InnerText.Trim());
+                        }
+                        try
+                        {
+                            if (button.Id != null)
+                            {
+                                but.ID = button.Id;
+                            }
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: No ID Value fround for Button: " + button.InnerText.Trim());
+                            but.ID = null;
+                        }
+                        try
+                        {
+                            if (button.Attributes["form"].Value != null)
+                            {
+                                but.Form = button.Attributes["form"].Value;
+                            }
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: No Form Value fround for Button: " + button.InnerText.Trim());
+                            but.Form = null;
+                        }
+                        gDSPage.Buttons.Add(but);
                     }
-                    catch
-                    {
-                        TestContext.WriteLine("KoloQA: No Form Value fround for Button: " + button.InnerText.Trim());
-                        but.Form = null;
-                    }
-                    gDSPage.Buttons.Add(but);
                 }
             }
             return gDSPage;
         }
-        public async Task<GdsPageModel> CheckboxDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
+        public async Task<GdsPageModel> CheckboxDetectAsync(string PageHtml, GdsPageModel gDSPageModel, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
             pagemaster.LoadHtml(PageHtml);
@@ -347,53 +354,56 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                         TestContext.WriteLine("Found Checkboxes within Page");
                         foreach (var node in validate)
                         {
-                            Checkbox chk = new Checkbox();
-                            try
+                            if (ignores != null && !ignores.Contains(node.Id))
                             {
-                                if (leg.Length > 1)
+                                Checkbox chk = new Checkbox();
+                                try
                                 {
-                                    chk.Legend = leg;
+                                    if (leg.Length > 1)
+                                    {
+                                        chk.Legend = leg;
+                                    }
+                                    if (frmhint.Length > 1)
+                                    {
+                                        chk.Fieldsethint = frmhint;
+                                    }
                                 }
-                                if (frmhint.Length > 1)
+                                catch (Exception e)
                                 {
-                                    chk.Fieldsethint = frmhint;
+                                    Console.WriteLine("Fieldset for checks 1 " + e.Message);
                                 }
+                                //Input
+                                try
+                                {
+                                    //ID
+                                    chk.Id = node.Id;
+                                    TestContext.Write("CHECKBOX ID " + chk.Id);
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine("Fieldset for checks 2 " + e.Message);
+                                }
+                                try
+                                {
+                                    //Name
+                                    chk.Name = node.Attributes["name"].Value;
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine("Fieldset for checks 3 " + e.Message);
+                                }
+                                try
+                                {
+                                    //Label
+                                    var label = document.QuerySelector("*[for='" + chk.Id + "']");
+                                    chk.Label = label.InnerText.Trim();
+                                }
+                                catch (Exception e)
+                                {
+                                    Console.WriteLine("Fieldset for checks 4" + e.Message);
+                                }
+                                gDSPageModel.CheckBoxes.Add(chk);
                             }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Fieldset for checks 1 " + e.Message);
-                            }
-                            //Input
-                            try
-                            {
-                                //ID
-                                chk.Id = node.Id;
-                                TestContext.Write("CHECKBOX ID " + chk.Id);
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Fieldset for checks 2 " + e.Message);
-                            }
-                            try
-                            {
-                                //Name
-                                chk.Name = node.Attributes["name"].Value;
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Fieldset for checks 3 " + e.Message);
-                            }
-                            try
-                            {
-                                //Label
-                                var label = document.QuerySelector("*[for='" + chk.Id + "']");
-                                chk.Label = label.InnerText.Trim();
-                            }
-                            catch (Exception e)
-                            {
-                                Console.WriteLine("Fieldset for checks 4" + e.Message);
-                            }
-                            gDSPageModel.CheckBoxes.Add(chk);
                         }
                         return gDSPageModel;
 
@@ -688,7 +698,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             return gDSPageModel;
         }
 
-        public async Task<GdsPageModel> SelectsDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
+        public async Task<GdsPageModel> SelectsDetectAsync(string PageHtml, GdsPageModel gDSPageModel, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
             pagemaster.LoadHtml(PageHtml);
@@ -710,74 +720,77 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 
                     foreach (var selector in selects)
                     {
-                        Select select = new Select();
-                        try
+                        if (ignores != null && !ignores.Contains(selector.Id))
                         {
-                            select.Id = selector.Id;
-                        }
-                        catch (Exception)
-                        {
-
-                        }
-                        try
-                        {
-                            var label = document.QuerySelector("*[for='" + select.Id + "']");
-                            select.Label = label.InnerText.Trim();
-                        }
-                        catch (Exception)
-                        {
-
-                        }
-                        try
-                        {
-                            select.Name = selector.Name;
-                        }
-                        catch (Exception)
-                        {
-
-                        }
-                        try
-                        {
-                            select.Options = new List<SelectOption>();
-                            var choicelist = document.QuerySelectorAll("#" + select.Id + " > option");
-                            foreach (var opt in choicelist)
+                            Select select = new Select();
+                            try
                             {
-                                SelectOption optional = new SelectOption();
-                                try
-                                {
-                                    optional.Value = opt.Attributes["value"].Value;
-                                }
-                                catch (Exception)
-                                {
-
-                                }
-                                try
-                                {
-                                    optional.Text = opt.InnerText.Trim();
-                                    TestContext.WriteLine(opt.InnerText);
-
-                                }
-                                catch (Exception)
-                                {
-
-                                }
-                                select.Options.Add(optional);
+                                select.Id = selector.Id;
                             }
-                        }
-                        catch (Exception)
-                        {
-
-                        }
-                        if (select.Label.Length > 1)
-                        {
-                            string dropdownvalues = "";
-                            foreach (SelectOption opt in select.Options)
+                            catch (Exception)
                             {
-                                dropdownvalues += opt.Text.ToString() + "|";
+
                             }
-                            dropdownvalues = dropdownvalues.Remove(dropdownvalues.Length - 1);
+                            try
+                            {
+                                var label = document.QuerySelector("*[for='" + select.Id + "']");
+                                select.Label = label.InnerText.Trim();
+                            }
+                            catch (Exception)
+                            {
+                                select.Label = "";
+                            }
+                            try
+                            {
+                                select.Name = selector.Name;
+                            }
+                            catch (Exception)
+                            {
+
+                            }
+                            try
+                            {
+                                select.Options = new List<SelectOption>();
+                                var choicelist = document.QuerySelectorAll("#" + select.Id + " > option");
+                                foreach (var opt in choicelist)
+                                {
+                                    SelectOption optional = new SelectOption();
+                                    try
+                                    {
+                                        optional.Value = opt.Attributes["value"].Value;
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+                                    try
+                                    {
+                                        optional.Text = opt.InnerText.Trim();
+                                        TestContext.WriteLine(opt.InnerText);
+
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+                                    select.Options.Add(optional);
+                                }
+                            }
+                            catch (Exception)
+                            {
+
+                            }
+                            if (select.Label.Length > 1)
+                            {
+                                string dropdownvalues = "";
+                                foreach (SelectOption opt in select.Options)
+                                {
+                                    dropdownvalues += opt.Text.ToString() + "|";
+                                }
+                                dropdownvalues = dropdownvalues.Remove(dropdownvalues.Length - 1);
+                            }
+                            gDSPageModel.Selects.Add(select);
                         }
-                        gDSPageModel.Selects.Add(select);
                     }
                 }
             }

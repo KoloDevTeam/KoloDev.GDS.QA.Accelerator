@@ -1431,10 +1431,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         #endregion
 
         #region GdsPageIndexing
-        public async Task<KoloQA> IndexGdsPageModelAsync(string PageModelName, string element = "")
+        public async Task<KoloQA> IndexGdsPageModelAsync(string PageModelName, string Element = "", List<string> Ignores = null)
         {
             GdsPageModelGenerator pageModelGenerator = new GdsPageModelGenerator();
-            GdsPageModel model = await pageModelGenerator.GDSPageGeneratorAsync(Driver, element);
+            GdsPageModel model = await pageModelGenerator.GDSPageGeneratorAsync(Driver, Element);
             KoloControl.GeneratePageClass(PageModelName, model);
             KoloControl.GenerateSimplePageClass(PageModelName, model);
             return this;
