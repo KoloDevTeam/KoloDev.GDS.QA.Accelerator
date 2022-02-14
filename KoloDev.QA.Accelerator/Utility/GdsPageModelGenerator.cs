@@ -165,7 +165,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             HtmlNode node = document.QuerySelector(".govuk-back-link");
             if (node != null)
             {
-                if (ignores != null && !ignores.Contains(node.Id))
+                if (ignores == null || !ignores.Contains(node.Id))
                 {
                     gDSPage.BackLink = true;
                 }
@@ -231,7 +231,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             {
                 foreach (var button in nodes)
                 {
-                    if (ignores != null && !ignores.Contains(button.Id))
+                    if (ignores == null || !ignores.Contains(button.Id))
                     {
                         TestContext.Write("BUTTONS FOUND");
                         Button but = new Button();
@@ -377,7 +377,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                         TestContext.WriteLine("Found Checkboxes within Page");
                         foreach (var node in validate)
                         {
-                            if (ignores != null && !ignores.Contains(node.Id))
+                            if (ignores == null || !ignores.Contains(node.Id))
                             {
                                 Checkbox chk = new Checkbox();
                                 try
@@ -743,7 +743,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 
                     foreach (var selector in selects)
                     {
-                        if (ignores != null && !ignores.Contains(selector.Id))
+                        if (ignores == null || !ignores.Contains(selector.Id))
                         {
                             Select select = new Select();
                             try
