@@ -233,6 +233,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                 {
                     if (ignores != null && !ignores.Contains(button.Id))
                     {
+                        TestContext.Write("BUTTONS FOUND");
                         Button but = new Button();
                         try
                         {
