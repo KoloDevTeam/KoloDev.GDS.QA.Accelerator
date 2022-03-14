@@ -235,116 +235,124 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             {
                 foreach (var button in nodes)
                 {
-                    if (ignores == null || !ignores.Contains(button.Id))
+                    try
                     {
-                        TestContext.Write("BUTTONS FOUND");
-                        Button but = new Button();
-                        try
+                        if (ignores == null || !ignores.Contains(button.Id))
                         {
-                            but.Type = "Default";
-                            if (button.InnerText != null)
+                            TestContext.Write("BUTTONS FOUND");
+                            Button but = new Button();
+                            try
                             {
-                                but.ButtonText = button.InnerText.Trim();
-                                TestContext.WriteLine("KoloQA: Button Text: " + button.InnerText.Trim());
+                                but.Type = "Default";
+                                if (button.InnerText != null)
+                                {
+                                    but.ButtonText = button.InnerText.Trim();
+                                    TestContext.WriteLine("KoloQA: Button Text: " + button.InnerText.Trim());
+                                }
+                                else if (button.Attributes["value"].ToString() != null)
+                                {
+                                    but.ButtonText = button.Attributes["value"].ToString();
+                                }
                             }
-                            else if (button.Attributes["value"].ToString() != null)
+                            catch (Exception e)
                             {
-                                but.ButtonText = button.Attributes["value"].ToString();
+                                Console.WriteLine(e.Message);
                             }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                        try
-                        {
-                            if (button.Attributes["class"].Value.ToLower().Contains("secondary"))
+                            try
                             {
-                                but.Type = "Secondary";
+                                if (button.Attributes["class"].Value.ToLower().Contains("secondary"))
+                                {
+                                    but.Type = "Secondary";
+                                }
                             }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                        try
-                        {
-                            if (button.Attributes["class"].Value.ToLower().Contains("warning"))
+                            catch (Exception e)
                             {
-                                but.Type = "Warning";
+                                Console.WriteLine(e.Message);
                             }
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
-                        if (button.Attributes["class"].Value != null && button.Attributes["class"].Value.ToLower().Contains("disabled"))
-                        {
-                            but.Enabled = false;
-                        }
-                        else
-                        {
-                            but.Enabled = true;
-                        }
-                        try
-                        {
-                            if (button.Attributes["disabled"].Value != null && button.Attributes["disabled"].Value.ToLower().Contains("disabled"))
+                            try
+                            {
+                                if (button.Attributes["class"].Value.ToLower().Contains("warning"))
+                                {
+                                    but.Type = "Warning";
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
+                            if (button.Attributes["class"].Value != null && button.Attributes["class"].Value.ToLower().Contains("disabled"))
                             {
                                 but.Enabled = false;
                             }
-                        }
-                        catch
-                        {
-                            but.Enabled = true;
-                        }
-                        try
-                        {
-                            if (button.Attributes["data-prevent-double-click"].Value != null && button.Attributes["data-prevent-double-click"].Value.ToLower().Contains("true"))
+                            else
                             {
-                                but.PreventDoubleClick = true;
+                                but.Enabled = true;
                             }
-                        }
-                        catch
-                        {
-                            but.PreventDoubleClick = false;
-                        }
-                        try
-                        {
-                            if (button.Attributes["name"].Value != null)
+                            try
                             {
-                                but.Name = button.Attributes["name"].Value;
+                                if (button.Attributes["disabled"].Value != null && button.Attributes["disabled"].Value.ToLower().Contains("disabled"))
+                                {
+                                    but.Enabled = false;
+                                }
                             }
-                        }
-                        catch
-                        {
-                            TestContext.WriteLine("KoloQA: No Name Value fround for Button: " + button.InnerText.Trim());
-                        }
-                        try
-                        {
-                            if (button.Id != null)
+                            catch
                             {
-                                but.ID = button.Id;
+                                but.Enabled = true;
                             }
-                        }
-                        catch
-                        {
-                            TestContext.WriteLine("KoloQA: No ID Value fround for Button: " + button.InnerText.Trim());
-                            but.ID = null;
-                        }
-                        try
-                        {
-                            if (button.Attributes["form"].Value != null)
+                            try
                             {
-                                but.Form = button.Attributes["form"].Value;
+                                if (button.Attributes["data-prevent-double-click"].Value != null && button.Attributes["data-prevent-double-click"].Value.ToLower().Contains("true"))
+                                {
+                                    but.PreventDoubleClick = true;
+                                }
                             }
+                            catch
+                            {
+                                but.PreventDoubleClick = false;
+                            }
+                            try
+                            {
+                                if (button.Attributes["name"].Value != null)
+                                {
+                                    but.Name = button.Attributes["name"].Value;
+                                }
+                            }
+                            catch
+                            {
+                                TestContext.WriteLine("KoloQA: No Name Value fround for Button: " + button.InnerText.Trim());
+                            }
+                            try
+                            {
+                                if (button.Id != null)
+                                {
+                                    but.ID = button.Id;
+                                }
+                            }
+                            catch
+                            {
+                                TestContext.WriteLine("KoloQA: No ID Value fround for Button: " + button.InnerText.Trim());
+                                but.ID = null;
+                            }
+                            try
+                            {
+                                if (button.Attributes["form"].Value != null)
+                                {
+                                    but.Form = button.Attributes["form"].Value;
+                                }
+                            }
+                            catch
+                            {
+                                TestContext.WriteLine("KoloQA: No Form Value fround for Button: " + button.InnerText.Trim());
+                                but.Form = null;
+                            }
+                            gDSPage.Buttons.Add(but);
                         }
-                        catch
-                        {
-                            TestContext.WriteLine("KoloQA: No Form Value fround for Button: " + button.InnerText.Trim());
-                            but.Form = null;
-                        }
-                        gDSPage.Buttons.Add(but);
                     }
+                    catch (Exception e)
+                    {
+                        TestContext.WriteLine(e.Message);
+                    }
+                    
                 }
             }
             return gDSPage;
