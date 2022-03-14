@@ -60,7 +60,8 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                 {
                     foreach (var node in nodes)
                     {
-                        pageModel.TextOnPage.Add(node.InnerText);
+                        string cleaned = node.InnerText.Replace("\n", "").Replace("\r", "").Replace("\"", "'").Trim();
+                        pageModel.TextOnPage.Add(cleaned);
                     }
                 }
                   
