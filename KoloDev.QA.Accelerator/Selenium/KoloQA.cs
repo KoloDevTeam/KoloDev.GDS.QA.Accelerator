@@ -692,7 +692,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="Severity">The Severity of the defect 1-4 with 1 being Highest</param>
         /// <param name="AssignTo">Assign the defect to someone, will default to empty</param>
         /// <returns></returns>
-        public KoloQA RaiseDefect(string Id, Browser Browser, int Priority, int Severity, string AssignTo = "")
+        public KoloQA AzureDevopsRaiseDefect(string Id, Browser Browser, int Priority, int Severity, string AssignTo = "")
         {
             KoloTestCase testCase;
             testCase = TestSuite.TestCases.Single(i => i.Id == Id);
@@ -1155,7 +1155,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Download Videos 
         /// </summary>
         /// <returns></returns>
-        public KoloQA DownloadBrowserStackVideos()
+        public KoloQA BrowserStackDownloadVideos()
         {
             KoloControl.GetTestVideos().Wait();
             return this;
@@ -1448,9 +1448,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             KoloControl.GenerateSimplePageClass(PageModelName, model);
             return this;
         }
-
         #endregion
-
         #endregion
     }
 }
