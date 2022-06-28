@@ -704,13 +704,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="Severity">The Severity of the defect 1-4 with 1 being Highest</param>
         /// <param name="AssignTo">Assign the defect to someone, will default to empty</param>
         /// <returns></returns>
-        public KoloQA AzureDevopsRaiseDefect(string Id, Browser Browser, int Priority, int Severity, string AssignTo = "")
+        public KoloQA AzureDevopsRaiseDefect(string Id, BrowserStackBrowsers Browser, int Priority, int Severity, string AssignTo = "")
         {
             KoloTestCase testCase;
             testCase = TestSuite.TestCases.Single(i => i.Id == Id);
             KoloControl.TakeScreenshot(Driver, testCase + Browser.ToString() + ".png");
             BugRaiser bugRaiser = new BugRaiser();
-            bugRaiser.CreateBugUsingClientLib(testCase, Browser, Priority, Severity, testCase + Browser.ToString() + ".png", AssignTo);
+            bugRaiser.CreateBugUsingClientLib(testCase, BrowserStackBrowsers, Priority, Severity, testCase + Browser.ToString() + ".png", AssignTo);
             return this;
         }
 
@@ -1419,7 +1419,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Passed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA BrowserStackMarkTestPassed(Browser client)
+        public KoloQA BrowserStackMarkTestPassed(BrowserStackBrowsers client)
         {
             try
             {
