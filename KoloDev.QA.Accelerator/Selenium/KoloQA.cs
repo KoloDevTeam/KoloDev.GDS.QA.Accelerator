@@ -257,7 +257,59 @@ namespace KoloDev.GDS.QA.Accelerator
             string device = "";
             if(deviceSim == ChromeDeviceSim.iPadAir)
             {
-                device = "iPad";
+                device = "iPad Air";
+            }
+            if (deviceSim == ChromeDeviceSim.GalaxyFold)
+            {
+                device = "Galaxy Fold";
+            }
+            if (deviceSim == ChromeDeviceSim.iPadMini)
+            {
+                device = "iPad Mini";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhone12Pro)
+            {
+                device = "iPhone 12 Pro";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhoneSE)
+            {
+                device = "iPhone SE";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhoneXr)
+            {
+                device = "iPhone XR";
+            }
+            if (deviceSim == ChromeDeviceSim.NestHub)
+            {
+                device = "Nest Hub";
+            }
+            if (deviceSim == ChromeDeviceSim.NestHubMax)
+            {
+                device = "Nest Hub Max";
+            }
+            if (deviceSim == ChromeDeviceSim.Pixel5)
+            {
+                device = "Pixel 5";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyA5171)
+            {
+                device = "Samsung Galaxy A51/71";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyS20Ultra)
+            {
+                device = "Samsung Galaxy S20 Ultra";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyS8Plus)
+            {
+                device = "Samsung Galaxy S8 Plus";
+            }
+            if (deviceSim == ChromeDeviceSim.SurfaceDuo)
+            {
+                device = "Surface Duo";
+            }
+            if (deviceSim == ChromeDeviceSim.SurfacePro7)
+            {
+                device = "Surface Pro 7";
             }
 
             ChromeOptions chromeOptions = new ChromeOptions();
