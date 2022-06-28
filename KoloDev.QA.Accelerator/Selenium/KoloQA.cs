@@ -6,6 +6,8 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools;
+using OpenQA.Selenium.DevTools.V101.Emulation;
+using OpenQA.Selenium.DevTools.V101.Network;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
@@ -251,7 +253,11 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-
+        /// <summary>
+        /// Simulate devices when testing in chrome
+        /// </summary>
+        /// <param name="deviceSim">The device you wish to simulate</param>
+        /// <returns>KoloQA Instance</returns>
         public KoloQA LaunchChromeDeviceMode(ChromeDeviceSim deviceSim)
         {
             string device = "";
@@ -327,6 +333,25 @@ namespace KoloDev.GDS.QA.Accelerator
             Driver.Manage().Window.Maximize();
             return this;
         }
+
+
+        public async Task<KoloQA> SimulateGeoLocationChromeAsync(ChromeDriver driver)
+        {
+            DevToolsSession devToolsSession = driver.GetDevToolsSession();
+            var geoLocationOverrideCommandSettings = new SetGeolocationOverrideCommandSettings();
+
+            geoLocationOverrideCommandSettings.Latitude = 51.507351;
+            geoLocationOverrideCommandSettings.Longitude = -0.127758;
+            geoLocationOverrideCommandSettings.Accuracy = 1;
+
+            await devToolsSession
+              .GetVersionSpecificDomains<OpenQA.Selenium.DevTools.V101.DevToolsSessionDomains>()
+              .Emulation
+              .SetGeolocationOverride(geoLocationOverrideCommandSettings);
+            return this;
+
+        }
+
 
         /// <summary>
         /// Opens a Local Connection Proxy for Browserstack to route traffic to protected services
