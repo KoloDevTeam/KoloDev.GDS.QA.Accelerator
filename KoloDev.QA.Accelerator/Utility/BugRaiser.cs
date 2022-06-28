@@ -34,7 +34,7 @@
         /// Create a bug using the .NET client library
         /// </summary>
         /// <returns>Microsoft.TeamFoundation.WorkItemTracking.WebApi.Models.WorkItem</returns>    
-        public WorkItem CreateBugUsingClientLib(KoloTestCase testCase, Browser browser, int priority, int severity, string screenshot, string AssignTo = "")
+        public WorkItem CreateBugUsingClientLib(KoloTestCase testCase, BrowserStackBrowsers browser, int priority, int severity, string screenshot, string AssignTo = "")
         {
             Uri uri = new Uri(_uri);
             string personalAccessToken = _personalAccessToken;
