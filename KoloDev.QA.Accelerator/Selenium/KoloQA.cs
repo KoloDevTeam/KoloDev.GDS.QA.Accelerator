@@ -710,7 +710,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             testCase = TestSuite.TestCases.Single(i => i.Id == Id);
             KoloControl.TakeScreenshot(Driver, testCase + Browser.ToString() + ".png");
             BugRaiser bugRaiser = new BugRaiser();
-            bugRaiser.CreateBugUsingClientLib(testCase, BrowserStackBrowsers, Priority, Severity, testCase + Browser.ToString() + ".png", AssignTo);
+            bugRaiser.CreateBugUsingClientLib(testCase, Browser, Priority, Severity, testCase + Browser.ToString() + ".png", AssignTo);
             return this;
         }
 
@@ -1423,7 +1423,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         {
             try
             {
-                if (client != Browser.LocalChrome)
+                if (client != BrowserStackBrowsers.LocalChrome)
                 {
                     ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \" Test Passed \"}}");
                 }
@@ -1440,9 +1440,9 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Failed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA BrowserStackMarkTestFailed(Browser client)
+        public KoloQA BrowserStackMarkTestFailed(BrowserStackBrowsers client)
         {
-            if (client != Browser.LocalChrome)
+            if (client != BrowserStackBrowsers.LocalChrome)
             {
                 ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \" Test Failed \"}}");
             }
