@@ -335,9 +335,9 @@ namespace KoloDev.GDS.QA.Accelerator
         }
 
 
-        public async Task<KoloQA> SimulateGeoLocationChromeAsync(ChromeDriver driver)
+        public async Task<KoloQA> SimulateGeoLocationChromeAsync()
         {
-            DevToolsSession devToolsSession = driver.GetDevToolsSession();
+            DevToolsSession devToolsSession = (DevToolsSession)Driver;
             var geoLocationOverrideCommandSettings = new SetGeolocationOverrideCommandSettings();
 
             geoLocationOverrideCommandSettings.Latitude = 51.507351;
