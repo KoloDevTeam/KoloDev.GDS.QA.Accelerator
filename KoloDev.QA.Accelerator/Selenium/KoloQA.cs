@@ -238,18 +238,6 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <returns>KoloQA Instance</returns>
         public KoloQA LaunchChrome()
         {
-            TestContext.WriteLine(@"
-NNN/  :dNNd- .ohNMMNds:   -NNN.       :sdNMMNdo.  
-MMM/.yMMMo  sMMMmhydMMMd. -MMM.     .dMMMdyymMMMy`
-MMMhNMMh.  yMMm-    `yMMN`-MMM.    `mMMh`    -mMMh
-MMMMMMM/   NMM+      .MMM:-MMM.    -MMM.      +MMM
-MMMMyNMMh. yMMm-    `yMMN`-MMM.    `mMMh.    -mMMy
-MMM+ `hMMN+`sMMMmhydMMMd. -MMMhhhhh/.dMMMdyhmMMMy`
-mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
-            TestContext.WriteLine("--------------------------------------------------------");
-            TestContext.WriteLine("----------Launching Browser Session for Tests-----------");
-            TestContext.WriteLine("--------------------------------------------------------");
-            TestContext.WriteLine("KoloQA: In Web Driver Starter Local Chrome Launching");
             Driver = new ChromeDriver();
             return this;
         }
