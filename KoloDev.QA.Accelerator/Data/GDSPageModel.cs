@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KoloDev.GDS.QA.Accelerator.Data
+﻿namespace KoloDev.GDS.QA.Accelerator.Data
 {
     /// <summary>
     /// GDS Page Model
