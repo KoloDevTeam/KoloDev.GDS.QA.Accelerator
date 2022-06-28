@@ -1399,7 +1399,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Passed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA TestPassed(Browser client)
+        public KoloQA BrowserStackMarkTestPassed(Browser client)
         {
             try
             {
@@ -1420,7 +1420,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Failed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA TestFailed(Browser client)
+        public KoloQA BrowserStackMarkTestFailed(Browser client)
         {
             if (client != Browser.LocalChrome)
             {
