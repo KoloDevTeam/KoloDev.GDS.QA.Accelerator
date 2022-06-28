@@ -5,6 +5,7 @@ using KoloDev.GDS.QA.Accelerator.Utility;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
@@ -13,6 +14,7 @@ using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
+using DevToolsSessionDomains = OpenQA.Selenium.DevTools.DevToolsSessionDomains;
 
 namespace KoloDev.GDS.QA.Accelerator
 {
@@ -21,6 +23,9 @@ namespace KoloDev.GDS.QA.Accelerator
     /// </summary>
     public partial class KoloQA
     {
+        protected IDevToolsSession session;
+        protected DevToolsSessionDomains devToolsSession;
+
         private KoloTestSuite? testSuite;
 
         /// <summary>
@@ -246,6 +251,21 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
+
+        public KoloQA LaunchChromeDeviceMode(ChromeDeviceSim deviceSim)
+        {
+            string device = "";
+            if(deviceSim == ChromeDeviceSim.iPadAir)
+            {
+                device = "iPad";
+            }
+
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.EnableMobileEmulation(device);
+            Driver = new ChromeDriver(chromeOptions);
+            return this;
+        }
+
         /// <summary>
         /// Maximises the Browser Window
         /// </summary>
@@ -293,7 +313,7 @@ namespace KoloDev.GDS.QA.Accelerator
         /// </summary>
         /// <param name="client">A client from the predesignated list of browsers and operating systems</param>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA BrowserStackSession(Browser client)
+        public KoloQA BrowserStackSession(BrowserStackBrowsers client)
         {
             TestContext.WriteLine(@"
 NNN/  :dNNd- .ohNMMNds:   -NNN.       :sdNMMNdo.  

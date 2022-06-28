@@ -16,9 +16,76 @@
     }
 
     /// <summary>
+    /// Chrome Device Simulation
+    /// </summary>
+    public enum ChromeDeviceSim
+    {
+        /// <summary>
+        /// Responsive View
+        /// </summary>
+        Responsive,
+        /// <summary>
+        /// iPhone SE
+        /// </summary>
+        iPhoneSE,
+        /// <summary>
+        /// iPhone XR
+        /// </summary>
+        iPhoneXr,
+        /// <summary>
+        /// iPhone12 Pro
+        /// </summary>
+        iPhone12Pro,
+        /// <summary>
+        /// Pixel 5
+        /// </summary>
+        Pixel5,
+        /// <summary>
+        /// Samsung Galaxy S8 Plus
+        /// </summary>
+        SamsungGalaxyS8Plus,
+        /// <summary>
+        /// Samsung Galaxy S20 Ultra
+        /// </summary>
+        SamsungGalaxyS20Ultra,
+        /// <summary>
+        /// iPadAir
+        /// </summary>
+        iPadAir,
+        /// <summary>
+        /// iPad Mini
+        /// </summary>
+        iPadMini,
+        /// <summary>
+        /// Surface Pro 7
+        /// </summary>
+        SurfacePro7,
+        /// <summary>
+        /// Surface Duo
+        /// </summary>
+        SurfaceDuo,
+        /// <summary>
+        /// Galaxy Fold
+        /// </summary>
+        GalaxyFold,
+        /// <summary>
+        /// Samsung Galaxy A51/71
+        /// </summary>
+        SamsungGalaxyA5171,
+        /// <summary>
+        /// Nest Hub
+        /// </summary>
+        NestHub,
+        /// <summary>
+        /// Nest Hub Max
+        /// </summary>
+        NestHubMax
+    }
+
+    /// <summary>
     /// BrowserStack Browser List
     /// </summary>
-    public enum Browser
+    public enum BrowserStackBrowsers
     {
         /// <summary>
         /// Launch a Local Chrome
