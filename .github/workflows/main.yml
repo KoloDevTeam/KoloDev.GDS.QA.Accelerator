@@ -40,11 +40,6 @@ jobs:
     - name: Setup .NET
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$VERSION --no-restore
     
-    - name: Generate Documentation
-      # You may pin to the exact commit or the version.
-      # uses: vargiuscuola/genshdoc@0f2a1895670c474de679631a33eae9369743af5f
-      uses: vargiuscuola/genshdoc@v1.0
-    
     - name: SonarScanner for .NET 6 with pull request decoration support
       uses: highbyte/sonarscan-dotnet@v2.1.2
       with:
@@ -58,37 +53,7 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    name: Docs
-
-  generate-docs:
-
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup .NET 6.0
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 6.0.x
-
-    - name: Setup DocFX
-      uses: crazy-max/ghaction-chocolatey@v1
-      with:
-        args: install docfx
-
-    - name: DocFX Build
-      working-directory: docs
-      run: docfx .\docfx.json
-      continue-on-error: false
-
-    - name: Publish
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/_site
-        force_orphan: true
+        
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/master')
       run: nuget push **\*.nupkg -SkipDuplicate -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_KEY}}
