@@ -120,28 +120,28 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <summary>
         /// Check the Accessibility of the Page
         /// </summary>
-        /// <param name="PageName"></param>
+        /// <param name="pageName"></param>
         /// <param name="wcagLevel"></param>
         /// <returns></returns>
-        public KoloQA AccessibilityOnPage(string PageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
+        public KoloQA AccessibilityOnPage(string pageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
             try
             {
-                string folderName = @"../../../AccessibilityReports";
+                var folderName = @"../../../AccessibilityReports";
                 // If directory does not exist, create it
                 if (!Directory.Exists(folderName))
                 {
                     Directory.CreateDirectory(folderName);
                 }
 
-                AxeResult axeResult = new AxeBuilder(Driver)
+                var axeResult = new AxeBuilder(Driver)
                 .WithTags(wcagLevel.ToString())
                 .Analyze();
-                Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + PageName + ".html");
-                string accessibility = File.ReadAllText("../../../AccessibilityReports/" + PageName + ".html");
-                string header = "<body><div style='display: flex; justify - content: flex - start; align - content: baseline;'><img src = 'https://www.kolodev.com/logo.png' alt = 'Kolo Logo' style = 'width:10%;height:10%;'><h1 style = 'font-family:verdana;' > " + PageName + " Accesibility Report </h1 ></div>";
-                accessibility = accessibility.Replace("<body>", header);
-                File.WriteAllText("../../../AccessibilityReports/" + PageName + ".html", accessibility);
+                Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + pageName + ".html");
+                var accessibility = File.ReadAllText("../../../AccessibilityReports/" + pageName + ".html");
+
+                accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
+                File.WriteAllText("../../../AccessibilityReports/" + pageName + ".html", accessibility);
             }
             catch (Exception e)
             {
