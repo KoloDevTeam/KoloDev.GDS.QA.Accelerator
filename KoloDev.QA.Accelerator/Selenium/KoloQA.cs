@@ -5,9 +5,6 @@ using KoloDev.GDS.QA.Accelerator.Utility;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools;
-using OpenQA.Selenium.DevTools.V101.Emulation;
-using OpenQA.Selenium.DevTools.V101.Network;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
@@ -16,7 +13,7 @@ using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
-using DevToolsSessionDomains = OpenQA.Selenium.DevTools.DevToolsSessionDomains;
+
 
 namespace KoloDev.GDS.QA.Accelerator
 {
@@ -25,8 +22,7 @@ namespace KoloDev.GDS.QA.Accelerator
     /// </summary>
     public partial class KoloQA
     {
-        protected IDevToolsSession session;
-        protected DevToolsSessionDomains devToolsSession;
+
 
         private KoloTestSuite? testSuite;
 
@@ -334,23 +330,6 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-
-        public async Task<KoloQA> SimulateGeoLocationChromeAsync()
-        {
-            DevToolsSession devToolsSession = (DevToolsSession)Driver;
-            var geoLocationOverrideCommandSettings = new SetGeolocationOverrideCommandSettings();
-
-            geoLocationOverrideCommandSettings.Latitude = 51.507351;
-            geoLocationOverrideCommandSettings.Longitude = -0.127758;
-            geoLocationOverrideCommandSettings.Accuracy = 1;
-
-            await devToolsSession
-              .GetVersionSpecificDomains<OpenQA.Selenium.DevTools.V101.DevToolsSessionDomains>()
-              .Emulation
-              .SetGeolocationOverride(geoLocationOverrideCommandSettings);
-            return this;
-
-        }
 
 
         /// <summary>
