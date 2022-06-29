@@ -40,8 +40,10 @@ jobs:
     - name: Setup .NET
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$VERSION --no-restore
     
-    - name: C# Documentation Generator
-      uses: FuLagann/csharp-docs-generator@master
+    - name: Generate Documentation
+      # You may pin to the exact commit or the version.
+      # uses: vargiuscuola/genshdoc@0f2a1895670c474de679631a33eae9369743af5f
+      uses: vargiuscuola/genshdoc@v1.0
     
     - name: SonarScanner for .NET 6 with pull request decoration support
       uses: highbyte/sonarscan-dotnet@v2.1.2
