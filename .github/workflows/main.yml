@@ -39,7 +39,10 @@ jobs:
 
     - name: Setup .NET
       run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$VERSION --no-restore
-      
+    
+    - name: C# Documentation Generator
+      uses: FuLagann/csharp-docs-generator@master
+    
     - name: SonarScanner for .NET 6 with pull request decoration support
       uses: highbyte/sonarscan-dotnet@v2.1.2
       with:
