@@ -46,7 +46,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             // Console.WriteLine(pagejson);
             return pageModel;
         }
-
         public void GetTextFromPage(string PageHtml, GdsPageModel pageModel)
         {
             try
@@ -71,7 +70,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 
             }
         }
-
         public static int CountHtmlNodes(IEnumerable<HtmlNode> nodes)
         {
             int count = 0;
@@ -81,7 +79,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return count;
         }
-
         public GdsPageModel AccordianDetect(string PageHtml, GdsPageModel gDSPage)
         {
             var pagemaster = new HtmlDocument();
@@ -240,14 +237,15 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                     {
                         if (ignores == null || !ignores.Contains(button.Id))
                         {
-                            TestContext.Write("BUTTONS FOUND");
                             Button but = new Button();
                             try
                             {
                                 but.Type = "Default";
                                 if (button.InnerText != null)
                                 {
-                                    but.ButtonText = button.InnerText.Trim();
+                                    string test = button.InnerText.Trim();
+                                    string cleaned = test.Replace("\n", "").Replace("\r", "");
+                                    but.ButtonText = cleaned;
                                     TestContext.WriteLine("KoloQA: Button Text: " + button.InnerText.Trim());
                                 }
                                 else if (button.Attributes["value"].ToString() != null)
@@ -733,7 +731,6 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
-
         public async Task<GdsPageModel> SelectsDetectAsync(string PageHtml, GdsPageModel gDSPageModel, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();

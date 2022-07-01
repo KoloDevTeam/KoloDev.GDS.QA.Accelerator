@@ -14,6 +14,7 @@ using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
+
 namespace KoloDev.GDS.QA.Accelerator
 {
     /// <summary>
@@ -21,6 +22,8 @@ namespace KoloDev.GDS.QA.Accelerator
     /// </summary>
     public partial class KoloQA
     {
+
+
         private KoloTestSuite? testSuite;
 
         /// <summary>
@@ -125,15 +128,11 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <returns></returns>
         public KoloQA AccessibilityOnPage(string pageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
-            try
+            if (TestContext.Parameters["Accessibility"] == "true")
             {
                 var folderName = @"../../../AccessibilityReports";
                 // If directory does not exist, create it
                 if (!Directory.Exists(folderName))
-                {
-                    Directory.CreateDirectory(folderName);
-                }
-
                 var axeResult = new AxeBuilder(Driver)
                 .WithTags(wcagLevel.ToString())
                 .Analyze();
@@ -146,6 +145,19 @@ namespace KoloDev.GDS.QA.Accelerator
             catch (Exception e)
             {
                 Console.Write(e.Message);
+                    AxeResult axeResult = new AxeBuilder(Driver)
+                    .WithTags(wcagLevel.ToString())
+                    .Analyze();
+                    Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + PageName + ".html");
+                    string accessibility = File.ReadAllText("../../../AccessibilityReports/" + PageName + ".html");
+                    string header = "<body><div style='display: flex; justify - content: flex - start; align - content: baseline;'><img src = 'https://www.kolodev.com/logo.png' alt = 'Kolo Logo' style = 'width:10%;height:10%;'><h1 style = 'font-family:verdana;' > " + PageName + " Accesibility Report </h1 ></div>";
+                    accessibility = accessibility.Replace("<body>", header);
+                    File.WriteAllText("../../../AccessibilityReports/" + PageName + ".html", accessibility);
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
             }
             return this;
         }
@@ -238,19 +250,78 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <returns>KoloQA Instance</returns>
         public KoloQA LaunchChrome()
         {
-            TestContext.WriteLine(@"
-NNN/  :dNNd- .ohNMMNds:   -NNN.       :sdNMMNdo.  
-MMM/.yMMMo  sMMMmhydMMMd. -MMM.     .dMMMdyymMMMy`
-MMMhNMMh.  yMMm-    `yMMN`-MMM.    `mMMh`    -mMMh
-MMMMMMM/   NMM+      .MMM:-MMM.    -MMM.      +MMM
-MMMMyNMMh. yMMm-    `yMMN`-MMM.    `mMMh.    -mMMy
-MMM+ `hMMN+`sMMMmhydMMMd. -MMMhhhhh/.dMMMdyhmMMMy`
-mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
-            TestContext.WriteLine("--------------------------------------------------------");
-            TestContext.WriteLine("----------Launching Browser Session for Tests-----------");
-            TestContext.WriteLine("--------------------------------------------------------");
-            TestContext.WriteLine("KoloQA: In Web Driver Starter Local Chrome Launching");
             Driver = new ChromeDriver();
+            return this;
+        }
+
+        /// <summary>
+        /// Simulate devices when testing in chrome
+        /// </summary>
+        /// <param name="deviceSim">The device you wish to simulate</param>
+        /// <returns>KoloQA Instance</returns>
+        public KoloQA LaunchChromeDeviceMode(ChromeDeviceSim deviceSim)
+        {
+            string device = "";
+            if(deviceSim == ChromeDeviceSim.iPadAir)
+            {
+                device = "iPad Air";
+            }
+            if (deviceSim == ChromeDeviceSim.GalaxyFold)
+            {
+                device = "Galaxy Fold";
+            }
+            if (deviceSim == ChromeDeviceSim.iPadMini)
+            {
+                device = "iPad Mini";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhone12Pro)
+            {
+                device = "iPhone 12 Pro";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhoneSE)
+            {
+                device = "iPhone SE";
+            }
+            if (deviceSim == ChromeDeviceSim.iPhoneXr)
+            {
+                device = "iPhone XR";
+            }
+            if (deviceSim == ChromeDeviceSim.NestHub)
+            {
+                device = "Nest Hub";
+            }
+            if (deviceSim == ChromeDeviceSim.NestHubMax)
+            {
+                device = "Nest Hub Max";
+            }
+            if (deviceSim == ChromeDeviceSim.Pixel5)
+            {
+                device = "Pixel 5";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyA5171)
+            {
+                device = "Samsung Galaxy A51/71";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyS20Ultra)
+            {
+                device = "Samsung Galaxy S20 Ultra";
+            }
+            if (deviceSim == ChromeDeviceSim.SamsungGalaxyS8Plus)
+            {
+                device = "Samsung Galaxy S8 Plus";
+            }
+            if (deviceSim == ChromeDeviceSim.SurfaceDuo)
+            {
+                device = "Surface Duo";
+            }
+            if (deviceSim == ChromeDeviceSim.SurfacePro7)
+            {
+                device = "Surface Pro 7";
+            }
+
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.EnableMobileEmulation(device);
+            Driver = new ChromeDriver(chromeOptions);
             return this;
         }
 
@@ -263,6 +334,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             Driver.Manage().Window.Maximize();
             return this;
         }
+
+
 
         /// <summary>
         /// Opens a Local Connection Proxy for Browserstack to route traffic to protected services
@@ -301,7 +374,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="client">A client from the predesignated list of browsers and operating systems</param>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA BrowserStackSession(Browser client)
+        public KoloQA BrowserStackSession(BrowserStackBrowsers client)
         {
             TestContext.WriteLine(@"
 NNN/  :dNNd- .ohNMMNds:   -NNN.       :sdNMMNdo.  
@@ -692,7 +765,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="Severity">The Severity of the defect 1-4 with 1 being Highest</param>
         /// <param name="AssignTo">Assign the defect to someone, will default to empty</param>
         /// <returns></returns>
-        public KoloQA AzureDevopsRaiseDefect(string Id, Browser Browser, int Priority, int Severity, string AssignTo = "")
+        public KoloQA AzureDevopsRaiseDefect(string Id, BrowserStackBrowsers Browser, int Priority, int Severity, string AssignTo = "")
         {
             KoloTestCase testCase;
             testCase = TestSuite.TestCases.Single(i => i.Id == Id);
@@ -1407,11 +1480,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Passed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA TestPassed(Browser client)
+        public KoloQA BrowserStackMarkTestPassed(BrowserStackBrowsers client)
         {
             try
             {
-                if (client != Browser.LocalChrome)
+                if (client != BrowserStackBrowsers.LocalChrome)
                 {
                     ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \" Test Passed \"}}");
                 }
@@ -1428,9 +1501,9 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Marks the Test as Failed on BrowserStack
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA TestFailed(Browser client)
+        public KoloQA BrowserStackMarkTestFailed(BrowserStackBrowsers client)
         {
-            if (client != Browser.LocalChrome)
+            if (client != BrowserStackBrowsers.LocalChrome)
             {
                 ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \" Test Failed \"}}");
             }
