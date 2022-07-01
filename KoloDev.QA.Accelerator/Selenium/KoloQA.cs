@@ -123,23 +123,28 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <summary>
         /// Check the Accessibility of the Page
         /// </summary>
-        /// <param name="PageName"></param>
+        /// <param name="pageName"></param>
         /// <param name="wcagLevel"></param>
         /// <returns></returns>
-        public KoloQA AccessibilityOnPage(string PageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
+        public KoloQA AccessibilityOnPage(string pageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
             if (TestContext.Parameters["Accessibility"] == "true")
             {
+                var folderName = @"../../../AccessibilityReports";
+                // If directory does not exist, create it
+                if (!Directory.Exists(folderName))
+                var axeResult = new AxeBuilder(Driver)
+                .WithTags(wcagLevel.ToString())
+                .Analyze();
+                Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + pageName + ".html");
+                var accessibility = File.ReadAllText("../../../AccessibilityReports/" + pageName + ".html");
 
-                try
-                {
-                    string folderName = @"../../../AccessibilityReports";
-                    // If directory does not exist, create it
-                    if (!Directory.Exists(folderName))
-                    {
-                        Directory.CreateDirectory(folderName);
-                    }
-
+                accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
+                File.WriteAllText("../../../AccessibilityReports/" + pageName + ".html", accessibility);
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
                     AxeResult axeResult = new AxeBuilder(Driver)
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
