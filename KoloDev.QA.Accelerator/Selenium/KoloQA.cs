@@ -22,8 +22,6 @@ namespace KoloDev.GDS.QA.Accelerator
     /// </summary>
     public partial class KoloQA
     {
-
-
         private KoloTestSuite? testSuite;
 
         /// <summary>
@@ -130,29 +128,23 @@ namespace KoloDev.GDS.QA.Accelerator
         {
             if (TestContext.Parameters["Accessibility"] == "true")
             {
-                var folderName = @"../../../AccessibilityReports";
-                // If directory does not exist, create it
-                if (!Directory.Exists(folderName))
-                var axeResult = new AxeBuilder(Driver)
-                .WithTags(wcagLevel.ToString())
-                .Analyze();
-                Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + pageName + ".html");
-                var accessibility = File.ReadAllText("../../../AccessibilityReports/" + pageName + ".html");
+                try
+                {
+                    var folderName = @"../../../AccessibilityReports";
+                    // If directory does not exist, create it
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
 
-                accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
-                File.WriteAllText("../../../AccessibilityReports/" + pageName + ".html", accessibility);
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-                    AxeResult axeResult = new AxeBuilder(Driver)
+                    var axeResult = new AxeBuilder(Driver)
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
-                    Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + PageName + ".html");
-                    string accessibility = File.ReadAllText("../../../AccessibilityReports/" + PageName + ".html");
-                    string header = "<body><div style='display: flex; justify - content: flex - start; align - content: baseline;'><img src = 'https://www.kolodev.com/logo.png' alt = 'Kolo Logo' style = 'width:10%;height:10%;'><h1 style = 'font-family:verdana;' > " + PageName + " Accesibility Report </h1 ></div>";
-                    accessibility = accessibility.Replace("<body>", header);
-                    File.WriteAllText("../../../AccessibilityReports/" + PageName + ".html", accessibility);
+                    Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + pageName + ".html");
+                    var accessibility = File.ReadAllText("../../../AccessibilityReports/" + pageName + ".html");
+
+                    accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
+                    File.WriteAllText("../../../AccessibilityReports/" + pageName + ".html", accessibility);
                 }
                 catch (Exception e)
                 {
@@ -162,12 +154,12 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-        /// <summary>
-        /// Outputs the Completed Steps to this Point
-        /// </summary>
-        /// <param name="Id">The Id given to the test</param>
-        /// <returns>KoloQA Instance</returns>
-        public KoloQA OutputCompletedStepsToThisPoint(string Id)
+            /// <summary>
+            /// Outputs the Completed Steps to this Point
+            /// </summary>
+            /// <param name="Id">The Id given to the test</param>
+            /// <returns>KoloQA Instance</returns>
+            public KoloQA OutputCompletedStepsToThisPoint(string Id)
         {
             KoloTestCase testCase;
             testCase = testSuite.TestCases.Single(i => i.Id == Id);
