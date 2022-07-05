@@ -321,9 +321,12 @@ namespace KoloDev.GDS.QA.Accelerator
         /// Maximises the Browser Window
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA MaximiseBrowser()
+        public KoloQA MaximiseBrowser(BrowserStackBrowsers client)
         {
-            Driver.Manage().Window.Maximize();
+            if(!client.ToString().Contains("iPhone"))
+            {
+                Driver.Manage().Window.Maximize();
+            }
             return this;
         }
 
