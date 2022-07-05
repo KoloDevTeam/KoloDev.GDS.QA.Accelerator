@@ -790,7 +790,8 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
                                     SelectOption optional = new SelectOption();
                                     try
                                     {
-                                        optional.Value = opt.Attributes["value"].Value;
+                                        string option = opt.Attributes["value"].Value;
+                                        optional.Value = option.Replace("\"", "'");
                                     }
                                     catch (Exception)
                                     {
