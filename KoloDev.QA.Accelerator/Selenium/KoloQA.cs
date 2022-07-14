@@ -330,7 +330,16 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-
+        /// <summary>
+        /// Set Implicit Timeout
+        /// </summary>
+        /// <param name="TimeOut">Timeout in seconds</param>
+        /// <returns>KoloQA Instance</returns>
+        public KoloQA SetImplicitTimeout(int TimeOut)
+        {
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(TimeOut);
+            return this;
+        }
 
         /// <summary>
         /// Opens a Local Connection Proxy for Browserstack to route traffic to protected services
@@ -1403,7 +1412,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 js.ExecuteScript("arguments[0].click();", link);
             }
-            catch(ElementNotInteractableException)
+            catch(Exception)
             {
                 IWebElement link2 = fluentWait.Until(x => x.FindElement(By.XPath("//*[contains(text(), '" + LinkText + "')]/..")));
                 js.ExecuteScript("arguments[0].click();", link);
