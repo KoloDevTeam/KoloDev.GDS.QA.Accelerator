@@ -321,9 +321,12 @@ namespace KoloDev.GDS.QA.Accelerator
         /// Maximises the Browser Window
         /// </summary>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA MaximiseBrowser()
+        public KoloQA MaximiseBrowser(BrowserStackBrowsers client)
         {
-            Driver.Manage().Window.Maximize();
+            if(!client.ToString().Contains("iPhone"))
+            {
+                Driver.Manage().Window.Maximize();
+            }
             return this;
         }
 
@@ -1516,10 +1519,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         #region GdsPageIndexing
         public async Task<KoloQA> IndexGdsPageModelAsync(string PageModelName, string Element = "", List<string> Ignores = null)
         {
-            GdsPageModelGenerator pageModelGenerator = new GdsPageModelGenerator();
-            GdsPageModel model = await pageModelGenerator.GDSPageGeneratorAsync(Driver, Element);
-            KoloControl.GeneratePageClass(PageModelName, model);
-            KoloControl.GenerateSimplePageClass(PageModelName, model);
+            if (TestContext.Parameters["GeneratePages"] == "true")
+            {
+                GdsPageModelGenerator pageModelGenerator = new GdsPageModelGenerator();
+                GdsPageModel model = await pageModelGenerator.GDSPageGeneratorAsync(Driver, Element);
+                KoloControl.GeneratePageClass(PageModelName, model);
+                KoloControl.GenerateSimplePageClass(PageModelName, model);
+            }  
             return this;
         }
         #endregion
