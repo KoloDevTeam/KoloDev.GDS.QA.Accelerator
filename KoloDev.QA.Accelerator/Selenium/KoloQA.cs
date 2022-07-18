@@ -1,4 +1,7 @@
 ﻿using BrowserStack;
+using Fizzler;
+using Fizzler.Systems.HtmlAgilityPack;
+using HtmlAgilityPack;
 using KoloDev.GDS.QA.Accelerator.Data;
 using KoloDev.GDS.QA.Accelerator.Selenium;
 using KoloDev.GDS.QA.Accelerator.Utility;
@@ -1024,6 +1027,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindCSSSelectorThenClick(string CSSSelector)
         {
+            var pagemaster = new HtmlDocument();
+            string PageHtml = Driver.PageSource;
+            pagemaster.LoadHtml(PageHtml);
+            var document = pagemaster.DocumentNode;
+            HtmlNode node = document.QuerySelector(CSSSelector);
+            string xpath = node.XPath;
+            TestContext.WriteLine(xpath);
+
             try
             {
                 DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
@@ -1156,7 +1167,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="SelectListName">The select list name attribute</param>
         /// <param name="ValueInList">The value to select in the list</param>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA DropDownByNameThenSelectValue(string SelectListName, string ValueInList)
+        public KoloQA DropDownByNameThenSelectValue(string SelectListName, string ValueInList, bool appium = false)
         {
             try
             {
