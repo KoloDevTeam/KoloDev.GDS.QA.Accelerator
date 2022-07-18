@@ -1021,32 +1021,81 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
         /// <summary>
+        /// Retrieves XPath from CSS Selector provided
+        /// </summary>
+        /// <param name="CSSSelector">CSS Selector for the element</param>
+        /// <returns></returns>
+        public string GetXpathFromCSS(string CSSSelector)
+        {
+            string xpath = "";
+
+            try
+            {
+                var pagemaster = new HtmlDocument();
+                string PageHtml = Driver.PageSource;
+                pagemaster.LoadHtml(PageHtml);
+                var document = pagemaster.DocumentNode;
+                HtmlNode node = document.QuerySelector(CSSSelector);
+                xpath = node.XPath;
+            }
+            catch(Exception e)
+            {
+                TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
+            }
+
+            return xpath;
+        }
+
+        /// <summary>
         /// Find by CSS Selector then Click
         /// </summary>
         /// <param name="CSSSelector">CSS Selector to find</param>
         /// <returns>KoloQA Instance</returns>
-        public KoloQA FindCSSSelectorThenClick(string CSSSelector)
+        public KoloQA FindCSSSelectorThenClick(string CSSSelector, BrowserStackBrowsers client)
         {
-            var pagemaster = new HtmlDocument();
-            string PageHtml = Driver.PageSource;
-            pagemaster.LoadHtml(PageHtml);
-            var document = pagemaster.DocumentNode;
-            HtmlNode node = document.QuerySelector(CSSSelector);
-            string xpath = node.XPath;
-            TestContext.WriteLine(xpath);
-
-            try
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
             {
-                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
-                ScrollIntoViewAndClick(link);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                string xpath = GetXpathFromCSS(CSSSelector);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    ScrollIntoViewAndClick(link);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                }
+
             }
-            catch
+            else
             {
                 try
                 {
@@ -1061,14 +1110,28 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 }
                 catch
                 {
-                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                    IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
-                    ScrollIntoViewAndClick(link);
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
                 }
             }
             return this;
@@ -1080,20 +1143,50 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="SelectListCSS">CSS Selector of the List</param>
         /// <param name="ValueInList">The Value to select</param>
         /// <returns></returns>
-        public KoloQA DropDownByCSSSelectorThenSelectValue(string SelectListCSS, string ValueInList)
+        public KoloQA DropDownByCSSSelectorThenSelectValue(string SelectListCSS, string ValueInList, BrowserStackBrowsers client)
         {
-            try
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
             {
-                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(SelectListCSS)));
-                ScrollIntoViewUsingJavaScript(link);
-                SelectElement select = new SelectElement(link);
-                select.SelectByText(ValueInList);
+                string xpath = GetXpathFromCSS(SelectListCSS);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    ScrollIntoViewUsingJavaScript(link);
+                    SelectElement select = new SelectElement(link);
+                    select.SelectByText(ValueInList);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewUsingJavaScript(link);
+                        SelectElement select = new SelectElement(link);
+                        select.SelectByText(ValueInList);
+                    }
+                    catch
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewUsingJavaScript(link);
+                        SelectElement select = new SelectElement(link);
+                        select.SelectByText(ValueInList);
+                    }
+                }
             }
-            catch (Exception)
+            else
             {
                 try
                 {
@@ -1106,16 +1199,30 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     SelectElement select = new SelectElement(link);
                     select.SelectByText(ValueInList);
                 }
-                catch
+                catch (Exception)
                 {
-                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                    IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(SelectListCSS)));
-                    ScrollIntoViewUsingJavaScript(link);
-                    SelectElement select = new SelectElement(link);
-                    select.SelectByText(ValueInList);
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(SelectListCSS)));
+                        ScrollIntoViewUsingJavaScript(link);
+                        SelectElement select = new SelectElement(link);
+                        select.SelectByText(ValueInList);
+                    }
+                    catch
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(SelectListCSS)));
+                        ScrollIntoViewUsingJavaScript(link);
+                        SelectElement select = new SelectElement(link);
+                        select.SelectByText(ValueInList);
+                    }
                 }
             }
             return this;
@@ -1207,19 +1314,41 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="CSSSelector">The CSS Selector of the element</param>
         /// <param name="ValueToType">The value to type into the element</param>
         /// <returns></returns>
-        public KoloQA FindByCSSSelectorThenType(string CSSSelector, string ValueToType)
+        public KoloQA FindByCSSSelectorThenType(string CSSSelector, string ValueToType, BrowserStackBrowsers client)
         {
             ValueToType = KoloControl.StringTranslater(ValueToType);
-            try
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
             {
-                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
-                ScrollIntoViewAndType(link, ValueToType);
+                string xpath = GetXpathFromCSS(CSSSelector);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    ScrollIntoViewAndType(link, ValueToType);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewAndType(link, ValueToType);
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                }
             }
-            catch (Exception)
+
+            else
             {
                 try
                 {
@@ -1230,11 +1359,24 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
                     ScrollIntoViewAndType(link, ValueToType);
                 }
-                catch
+                catch (Exception)
                 {
-                    throw;
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        ScrollIntoViewAndType(link, ValueToType);
+                    }
+                    catch
+                    {
+                        throw;
+                    }
                 }
             }
+            
             return this;
         }
 
