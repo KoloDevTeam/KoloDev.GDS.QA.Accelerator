@@ -1040,6 +1040,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
             catch(Exception e)
             {
+                TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
             }
 
