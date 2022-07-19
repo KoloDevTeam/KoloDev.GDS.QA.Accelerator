@@ -115,8 +115,8 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                             {
                                 AccessModifier = AccessModifier.Public,
                                 KeyWords = new List<KeyWord> { KeyWord.Static },
-                                Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo"), new Parameter("string", "InputText") },
-                                BodyLines = new List<string> { "kolo.FindByCSSSelectorThenType(\"" + input.CSSSelector + "\", InputText);"
+                                Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo"), new Parameter("string", "InputText"), new Parameter("BrowserStackBrowsers", "client") },
+                                BodyLines = new List<string> { "kolo.FindByCSSSelectorThenType(\"" + input.CSSSelector + "\", InputText, client);"
                                                             , "return kolo; "}
                             };
                             methods.Add(meth);
@@ -301,7 +301,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                             {
                                 AccessModifier = AccessModifier.Public,
                                 KeyWords = new List<KeyWord> { KeyWord.Static },
-                                Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo"), new Parameter("string", "InputText") },
+                                Parameters = new List<Parameter> { new Parameter("this KoloQA", "kolo"), new Parameter("string", "InputText"), new Parameter("BrowserStackBrowsers", "client") },
                                 BodyLines = new List<string> { "try \r\n" +
                             "            { \r\n" +
                             "               kolo.FindByIdThenType(\"" + input.Id + "\", InputText); \r\n" +
@@ -309,7 +309,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                             "            }\r\n" +
                             "            catch\r\n" +
                             "            {\r\n" +
-                            "               kolo.FindByCSSSelectorThenType(\"" + input.CSSSelector + "\", InputText);\r\n" +
+                            "               kolo.FindByCSSSelectorThenType(\"" + input.CSSSelector + "\", InputText, client);\r\n" +
                             "               return kolo; \r\n" +
                             "            }"}
                             };
