@@ -1037,9 +1037,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 var document = pagemaster.DocumentNode;
                 HtmlNode node = document.QuerySelector(CSSSelector);
                 xpath = node.XPath;
+                TestContext.WriteLine(xpath);
             }
             catch(Exception e)
             {
+                TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
             }
 
