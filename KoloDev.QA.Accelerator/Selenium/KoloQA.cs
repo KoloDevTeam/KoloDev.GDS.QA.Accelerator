@@ -1037,6 +1037,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 var document = pagemaster.DocumentNode;
                 HtmlNode node = document.QuerySelector(CSSSelector);
                 xpath = node.XPath;
+                TestContext.WriteLine(xpath);
             }
             catch(Exception e)
             {
