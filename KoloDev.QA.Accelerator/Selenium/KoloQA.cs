@@ -1029,11 +1029,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         {
             string xpath = "";
 
-            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-            fluentWait.Timeout = TimeSpan.FromSeconds(20);
-            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-            IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+            
 
             try
             {
@@ -1327,6 +1323,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             ValueToType = KoloControl.StringTranslater(ValueToType);
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
             {
+                TestContext.WriteLine("KoloQA: Detected Appium");
                 string xpath = GetXpathFromCSS(CSSSelector);
 
                 try
