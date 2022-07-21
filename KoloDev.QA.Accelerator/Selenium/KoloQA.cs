@@ -1033,10 +1033,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
             try
             {
+                TestContext.WriteLine("KoloQA: " + Driver.PageSource);
                 var pagemaster = new HtmlDocument();
                 string PageHtml = Driver.PageSource;
+                
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
+                TestContext.WriteLine("KoloQA: " + document.ToString());
                 HtmlNode node = document.QuerySelector(CSSSelector);
                 xpath = node.XPath;
                 TestContext.WriteLine(xpath);
