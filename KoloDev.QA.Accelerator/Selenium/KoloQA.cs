@@ -1033,6 +1033,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
             try
             {
+                Thread.Sleep(5000);
                 TestContext.WriteLine("KoloQA: " + Driver.PageSource);
                 var pagemaster = new HtmlDocument();
                 string PageHtml = Driver.PageSource;
