@@ -1033,7 +1033,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 IWebElement element = Driver.FindElement(By.XPath("//*"));
                 string PageHtml = element.GetAttribute("innerHTML");
-
+                TestContext.WriteLine("KoloQA: " + PageHtml);
 
                 var pagemaster = new HtmlDocument();
                 pagemaster.LoadHtml(PageHtml);
