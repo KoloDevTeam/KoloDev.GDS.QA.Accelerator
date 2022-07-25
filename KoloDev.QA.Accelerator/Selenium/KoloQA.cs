@@ -1031,10 +1031,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
             try
             {
-                IWebElement element = Driver.FindElement(By.XPath("//*"));
-                string PageHtml = element.GetAttribute("innerHTML");
-                TestContext.WriteLine("KoloQA: " + PageHtml);
-
+                var js = (IJavaScriptExecutor)Driver;
+                var newHtml = js.ExecuteScript("return document.documentElement.outerHTML;");
+                TestContext.WriteLine("KoloQA: " + newHtml.ToString());
+                string PageHtml = newHtml.ToString();
                 var pagemaster = new HtmlDocument();
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
@@ -1047,9 +1047,6 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
-                IWebElement element = Driver.FindElement(By.XPath("//*"));
-                string PageHtml = element.GetAttribute("innerHTML");
-                TestContext.WriteLine("KoloQA: " + PageHtml);
             }
 
             return xpath;
