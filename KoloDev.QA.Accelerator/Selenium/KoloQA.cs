@@ -1029,15 +1029,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         {
             string xpath = "";
 
-            
-
             try
             {
-                Thread.Sleep(5000);
-                TestContext.WriteLine("KoloQA: " + Driver.PageSource);
+                IWebElement element = Driver.FindElement(By.XPath("//*"));
+                string PageHtml = element.GetAttribute("innerHTML");
+
+
                 var pagemaster = new HtmlDocument();
-                string PageHtml = Driver.PageSource;
-                
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
                 TestContext.WriteLine("KoloQA: " + document.ToString());
