@@ -1,7 +1,6 @@
 ﻿using BrowserStack;
-using Fizzler;
-using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
+using HtmlAgilityPack.CssSelectors.NetCore;
 using KoloDev.GDS.QA.Accelerator.Data;
 using KoloDev.GDS.QA.Accelerator.Selenium;
 using KoloDev.GDS.QA.Accelerator.Utility;
@@ -1050,6 +1049,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
             return xpath;
         }
+
 
         /// <summary>
         /// Find by CSS Selector then Click
