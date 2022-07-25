@@ -1032,7 +1032,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             try
             {
                 IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-                var newHtml = js.ExecuteScript("return document.getElementsByTagName('html')[0].innerHTML");
+                var newHtml = js.ExecuteScript("return document.getElementsByTagName('body')[0].innerHTML");
                 TestContext.WriteLine("KoloQA: " + newHtml.ToString());
                 string PageHtml = newHtml.ToString();
                 var pagemaster = new HtmlDocument();
