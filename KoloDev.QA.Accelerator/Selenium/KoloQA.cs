@@ -14,6 +14,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
+using System.Text.RegularExpressions;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
 
