@@ -239,6 +239,12 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
+        public static string RandomString()
+        {
+            string randomString = KoloControl.RandomStringGenerator();
+            return randomString;
+        }
+
         /// <summary>
         /// Starts a Local Chrome Instance
         /// </summary>
