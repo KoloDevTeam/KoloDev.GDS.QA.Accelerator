@@ -1,6 +1,6 @@
 ﻿using BrowserStack;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
-using HtmlAgilityPack.CssSelectors.NetCore;
 using KoloDev.GDS.QA.Accelerator.Data;
 using KoloDev.GDS.QA.Accelerator.Selenium;
 using KoloDev.GDS.QA.Accelerator.Utility;
