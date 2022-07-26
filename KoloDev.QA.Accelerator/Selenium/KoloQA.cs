@@ -1038,9 +1038,17 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
                 TestContext.WriteLine("KoloQA: " + document.ToString());
-                HtmlNode node = document.QuerySelector(CSSSelector);
-                xpath = node.XPath;
-                TestContext.WriteLine(xpath);
+                if (CSSSelector.Contains("nth-of-type"))
+                {
+                    HtmlNode nodenth = document.NthOfTypeQuerySelector(CSSSelector);
+                    xpath = nodenth.XPath;
+                }
+                else
+                {
+                    HtmlNode node = document.QuerySelector(CSSSelector);
+                    xpath = node.XPath;
+                    TestContext.WriteLine(xpath);
+                }
             }
             catch(Exception e)
             {

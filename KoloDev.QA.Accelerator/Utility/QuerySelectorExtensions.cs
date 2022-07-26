@@ -1,16 +1,17 @@
 ﻿using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace KoloDev.GDS.QA.Accelerator.Utility
 {
     public static class QuerySelectorExtensions
     {
+        /// <summary>
+        /// Override to handle 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="selector"></param>
+        /// <returns></returns>
         public static HtmlNode NthOfTypeQuerySelector(this HtmlNode element, string selector)
         {
             if (selector.Contains("nth-of-type"))
