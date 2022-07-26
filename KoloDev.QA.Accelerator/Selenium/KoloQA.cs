@@ -157,12 +157,12 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-            /// <summary>
-            /// Outputs the Completed Steps to this Point
-            /// </summary>
-            /// <param name="Id">The Id given to the test</param>
-            /// <returns>KoloQA Instance</returns>
-            public KoloQA OutputCompletedStepsToThisPoint(string Id)
+        /// <summary>
+        /// Outputs the Completed Steps to this Point
+        /// </summary>
+        /// <param name="Id">The Id given to the test</param>
+        /// <returns>KoloQA Instance</returns>
+        public KoloQA OutputCompletedStepsToThisPoint(string Id)
         {
             KoloTestCase testCase;
             testCase = testSuite.TestCases.Single(i => i.Id == Id);
@@ -1053,7 +1053,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
             }
-
+            TestContext.WriteLine((xpath));
             return xpath;
         }
 
