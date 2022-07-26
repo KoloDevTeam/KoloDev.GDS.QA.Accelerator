@@ -427,7 +427,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 {
                     SafariOptions capabilities = new SafariOptions();
                     browserstackOptions.Add("osVersion", "15");
-                    browserstackOptions.Add("device", "iPhone 13");
+                    browserstackOptions.Add("deviceName", "iPhone 13");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
