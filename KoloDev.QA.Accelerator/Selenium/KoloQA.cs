@@ -439,7 +439,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 }
                 if (client.ToString() == "iPhonePortrait")
                 {
-                    SafariOptions capabilities = new SafariOptions();
+                    var capabilities = new SafariOptions();
                     browserstackOptions.Add("osVersion", "15");
                     browserstackOptions.Add("deviceName", "iPhone 13");
                     browserstackOptions.Add("realMobile", "true");
@@ -448,7 +448,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "iPadPortrait")
