@@ -127,9 +127,9 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <param name="pageName"></param>
         /// <param name="wcagLevel"></param>
         /// <returns></returns>
-        public KoloQA AccessibilityOnPage(string pageName, WcagLevel wcagLevel = WcagLevel.wcag2aa)
+        public KoloQA AccessibilityOnPage(string pageName, BrowserStackBrowsers client, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
-            if (TestContext.Parameters["Accessibility"] == "true")
+            if (TestContext.Parameters["Accessibility"] == "true" && !client.ToString().Contains("iP"))
             {
                 try
                 {
@@ -1033,11 +1033,9 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 WaitUntilPageFullyLoaded();
                 string PageHtml = Driver.PageSource;
-                TestContext.WriteLine("KoloQA: PAGE SOURCE" + Driver.PageSource);
                 var pagemaster = new HtmlDocument();
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
-                TestContext.WriteLine("KoloQA: " + document.ToString());
                 if (CSSSelector.Contains("nth-of-type"))
                 {
                     HtmlNode nodenth = document.NthOfTypeQuerySelector(CSSSelector);
