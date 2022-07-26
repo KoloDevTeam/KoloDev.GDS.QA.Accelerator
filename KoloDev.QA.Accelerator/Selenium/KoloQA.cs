@@ -239,7 +239,7 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
-        public static string RandomString()
+        public string RandomString()
         {
             string randomString = KoloControl.RandomStringGenerator();
             return randomString;
@@ -332,7 +332,11 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <returns>KoloQA Instance</returns>
         public KoloQA MaximiseBrowser(BrowserStackBrowsers client)
         {
-            if(!client.ToString().Contains("iPhone"))
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape || client == BrowserStackBrowsers.iPadLandscape || client == BrowserStackBrowsers.iPadPortrait)
+            {
+                return this;
+            }
+            else
             {
                 Driver.Manage().Window.Maximize();
             }
