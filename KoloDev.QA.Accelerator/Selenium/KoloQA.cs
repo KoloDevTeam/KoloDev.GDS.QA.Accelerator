@@ -427,13 +427,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 {
                     SafariOptions capabilities = new SafariOptions();
                     browserstackOptions.Add("osVersion", "15");
-                    browserstackOptions.Add("device", "iPhone 13");
+                    browserstackOptions.Add("deviceName", "iPhone 13");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                        new Uri("https://hub-cloud.browserstack.com/wd/hub/"), (ICapabilities)capabilities, TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "iPhonePortrait")
@@ -446,7 +446,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), (ICapabilities)capabilities, TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "iPadPortrait")
