@@ -433,7 +433,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                        new Uri("https://hub-cloud.browserstack.com/wd/hub/"), (ICapabilities)capabilities, TimeSpan.FromSeconds(120));
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     return this;
                 }
                 if (client.ToString() == "iPhonePortrait")
@@ -446,7 +446,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), (ICapabilities)capabilities, TimeSpan.FromSeconds(120));
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     return this;
                 }
                 if (client.ToString() == "iPadPortrait")
