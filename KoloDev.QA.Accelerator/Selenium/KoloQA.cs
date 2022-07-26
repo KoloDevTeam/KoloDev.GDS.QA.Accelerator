@@ -430,6 +430,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "iPhone 13");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -443,6 +444,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "iPhone 13");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "portrait");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -455,6 +457,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("osVersion", "14");
                     browserstackOptions.Add("deviceName", "iPad Air 4");
                     browserstackOptions.Add("realMobile", "true");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -467,6 +470,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("osVersion", "14");
                     browserstackOptions.Add("deviceName", "iPad Air 4");
                     browserstackOptions.Add("realMobile", "true");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     browserstackOptions.Add("deviceOrientation", "landscape");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
@@ -481,6 +485,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "Samsung Galaxy S21");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -494,6 +499,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "Samsung Galaxy S21");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "portrait");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -507,6 +513,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "Google Pixel 4 XL");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
@@ -520,6 +527,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceName", "Google Pixel 4 XL");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "portrait");
+                    browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
