@@ -14,6 +14,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
+using System.Text.RegularExpressions;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
 
@@ -1037,9 +1038,17 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 pagemaster.LoadHtml(PageHtml);
                 var document = pagemaster.DocumentNode;
                 TestContext.WriteLine("KoloQA: " + document.ToString());
-                HtmlNode node = document.QuerySelector(CSSSelector);
-                xpath = node.XPath;
-                TestContext.WriteLine(xpath);
+                if (CSSSelector.Contains("nth-of-type"))
+                {
+                    HtmlNode nodenth = document.NthOfTypeQuerySelector(CSSSelector);
+                    xpath = nodenth.XPath;
+                }
+                else
+                {
+                    HtmlNode node = document.QuerySelector(CSSSelector);
+                    xpath = node.XPath;
+                    TestContext.WriteLine(xpath);
+                }
             }
             catch(Exception e)
             {
