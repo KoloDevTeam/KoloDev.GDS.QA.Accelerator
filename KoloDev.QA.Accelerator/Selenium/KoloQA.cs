@@ -1153,14 +1153,22 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
-                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
-                        ScrollIntoViewAndClick(link);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                            ScrollIntoViewAndClick(link);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector;
+                            throw;
+                        }
                     }
                 }
             }
@@ -1347,9 +1355,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         public KoloQA FindByCSSSelectorThenType(string CSSSelector, string ValueToType, BrowserStackBrowsers client)
         {
             ValueToType = KoloControl.StringTranslater(ValueToType);
-            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape || client == BrowserStackBrowsers.iPadLandscape || client == BrowserStackBrowsers.iPadPortrait)
             {
-                TestContext.WriteLine("KoloQA: Detected Appium");
                 string xpath = GetXpathFromCSS(CSSSelector);
 
                 try
@@ -1403,6 +1410,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
+                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector + " Value to Type Was: " + ValueToType);
                         throw;
                     }
                 }
