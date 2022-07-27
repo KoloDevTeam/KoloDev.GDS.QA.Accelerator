@@ -1389,6 +1389,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 }
                 catch
                 {
+                    TestContext.WriteLine("KoloQA Error: DropDownByXpathThenSelectValue, Selector " + SelectListName);
                     throw;
                 }
             }
@@ -1430,7 +1431,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
-                        TestContext.WriteLine("KoloQA Error: DropDownByXpath, Selector " + CSSSelector + " Value to Type Was: " + ValueToType);
+                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector + " Value to Type Was: " + ValueToType);
                         throw; throw;
                     }
                 }
