@@ -1533,9 +1533,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="CSSSelector">The CSS Selector of the element</param>
         /// <param name="ValueToType">The value to type into the element</param>
         /// <returns></returns>
-        public KoloQA FindByCSSSelectorThenTypeThenPressEnter(string CSSSelector, BrowserStackBrowsers client)
+        public KoloQA FindByCSSSelectorThenPressEnter(string CSSSelector, BrowserStackBrowsers client)
         {
-            ValueToType = KoloControl.StringTranslater(ValueToType);
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape || client == BrowserStackBrowsers.iPadLandscape || client == BrowserStackBrowsers.iPadPortrait)
             {
                 string xpath = GetXpathFromCSS(CSSSelector);
@@ -1562,7 +1561,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
-                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenPressEnter, Selector " + CSSSelector);
                         throw; throw;
                     }
                 }
