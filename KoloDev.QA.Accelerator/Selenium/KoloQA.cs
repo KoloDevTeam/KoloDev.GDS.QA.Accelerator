@@ -1591,12 +1591,27 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="element">The Element to be scrolled in to view</param>
         /// <param name="input">The Value to be typed into the element</param>
         /// <returns></returns>
-        public KoloQA ScrollIntoViewAndType(IWebElement element, string input)
+        public KoloQA ScrollIntoViewAndTypeThenTab(IWebElement element, string input)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
             js.ExecuteScript("arguments[0].click(); ", element);
             element.SendKeys(input + Keys.Tab);
+            return this;
+        }
+
+        /// <summary>
+        /// Scroll into view and the type
+        /// </summary>
+        /// <param name="element">The Element to be scrolled in to view</param>
+        /// <param name="input">The Value to be typed into the element</param>
+        /// <returns></returns>
+        public KoloQA ScrollIntoViewAndType(IWebElement element, string input)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+            js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
+            js.ExecuteScript("arguments[0].click(); ", element);
+            element.SendKeys(input);
             return this;
         }
 
