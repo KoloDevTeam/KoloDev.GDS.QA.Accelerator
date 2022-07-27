@@ -1063,7 +1063,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 {
                     HtmlNode node = document.QuerySelector(CSSSelector);
                     xpath = node.XPath;
-                    TestContext.WriteLine(xpath);
+                    TestContext.WriteLine("KoloQA: Calculated XPath: " + xpath);
                 }
             }
             catch(Exception e)
