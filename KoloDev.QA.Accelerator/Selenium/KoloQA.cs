@@ -1185,6 +1185,63 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
         /// <summary>
+        /// Find by XPath Selector then Click
+        /// </summary>
+        /// <param name="XPath">XPath to find</param>
+        /// <returns>KoloQA Instance</returns>
+        public KoloQA FindXPathThenClick(string XPath, BrowserStackBrowsers client)
+        {
+
+            try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(Xpath)));
+                    ScrollIntoViewAndClick(link);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                            ScrollIntoViewAndClick(link);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: Error FindByXPathThenClick, Selector " + XPath);
+                            throw;
+                        }
+
+                    }
+                }
+
+            return this;
+        }
+
+        /// <summary>
         /// Find Drop Down By Css Selector then Select the Value Provided
         /// </summary>
         /// <param name="SelectListCSS">CSS Selector of the List</param>
