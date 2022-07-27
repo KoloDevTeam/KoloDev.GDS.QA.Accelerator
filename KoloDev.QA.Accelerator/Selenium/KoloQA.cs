@@ -1198,7 +1198,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     fluentWait.Timeout = TimeSpan.FromSeconds(20);
                     fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
                     fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(Xpath)));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
                     ScrollIntoViewAndClick(link);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
