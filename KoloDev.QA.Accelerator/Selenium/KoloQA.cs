@@ -1113,14 +1113,23 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
-                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
-                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
-                        ScrollIntoViewAndClick(link);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                            ScrollIntoViewAndClick(link);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                            throw;
+                        }
+                        
                     }
                 }
 
