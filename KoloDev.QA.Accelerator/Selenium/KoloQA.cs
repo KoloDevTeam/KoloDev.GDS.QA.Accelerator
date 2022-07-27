@@ -1430,7 +1430,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                     catch
                     {
-                        throw;
+                        TestContext.WriteLine("KoloQA Error: DropDownByXpath, Selector " + CSSSelector + " Value to Type Was: " + ValueToType);
+                        throw; throw;
                     }
                 }
             }
