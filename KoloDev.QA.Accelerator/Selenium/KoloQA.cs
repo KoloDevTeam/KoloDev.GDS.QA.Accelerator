@@ -1356,6 +1356,46 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
         /// <summary>
+        /// Select a Drop Down Value by Xpath
+        /// </summary>
+        /// <param name="SelectListName">The Select List XPath</param>
+        /// <param name="ValueInList">The Value to Select</param>
+        /// <returns></returns>
+        public KoloQA DropDownByXpathThenSelectValue(string SelectListName, string ValueInList)
+        {
+            try
+            {
+                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(SelectListName)));
+                ScrollIntoViewUsingJavaScript(link);
+                SelectElement select = new SelectElement(link);
+                select.SelectByText(ValueInList);
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(SelectListName)));
+                    ScrollIntoViewUsingJavaScript(link);
+                    SelectElement select = new SelectElement(link);
+                    select.SelectByText(ValueInList);
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+            return this;
+        }
+
+        /// <summary>
         /// Find an Element by CSS Selector and then type the value provided into it
         /// </summary>
         /// <param name="CSSSelector">The CSS Selector of the element</param>
