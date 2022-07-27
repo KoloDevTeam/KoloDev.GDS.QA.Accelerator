@@ -1527,6 +1527,80 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Find an Element by CSS Selector and then type the value provided into it
+        /// </summary>
+        /// <param name="CSSSelector">The CSS Selector of the element</param>
+        /// <param name="ValueToType">The value to type into the element</param>
+        /// <returns></returns>
+        public KoloQA FindByCSSSelectorThenTypeThenPressEnter(string CSSSelector, BrowserStackBrowsers client)
+        {
+            ValueToType = KoloControl.StringTranslater(ValueToType);
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape || client == BrowserStackBrowsers.iPadLandscape || client == BrowserStackBrowsers.iPadPortrait)
+            {
+                string xpath = GetXpathFromCSS(CSSSelector);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    ScrollIntoViewAndTypeThePressEnter(link);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewAndTypeThePressEnter(link);
+                    }
+                    catch
+                    {
+                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                        throw; throw;
+                    }
+                }
+            }
+
+            else
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                    ScrollIntoViewAndTypeThePressEnter(link);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        ScrollIntoViewAndTypeThePressEnter(link);
+                    }
+                    catch
+                    {
+                        TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                        throw;
+                    }
+                }
+            }
+
+            return this;
+        }
+
         #region Controls
         /// <summary>
         /// Download Videos 
@@ -1611,7 +1685,16 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
             js.ExecuteScript("arguments[0].click(); ", element);
-            element.SendKeys(input + Keys.Enter);
+            element.SendKeys(input);
+            return this;
+        }
+
+        public KoloQA ScrollIntoViewAndTypeThePressEnter(IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+            js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
+            js.ExecuteScript("arguments[0].click(); ", element);
+            element.SendKeys(Keys.Enter);
             return this;
         }
 
