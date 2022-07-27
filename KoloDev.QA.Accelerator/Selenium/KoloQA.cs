@@ -1611,7 +1611,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
             js.ExecuteScript("arguments[0].click(); ", element);
-            element.SendKeys(input);
+            element.SendKeys(input + Keys.Enter);
             return this;
         }
 
