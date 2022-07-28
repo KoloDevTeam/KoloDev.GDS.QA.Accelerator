@@ -1528,6 +1528,45 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
         /// <summary>
+        /// Find an Element by Xpath Selector and then type the value provided into it
+        /// </summary>
+        /// <param name="XPath">The XPath of the element</param>
+        /// <param name="ValueToType">The value to type into the element</param>
+        /// <returns></returns>
+        public KoloQA FindByXPathThenType(string XPath, string ValueToType, BrowserStackBrowsers client)
+        {
+            ValueToType = KoloControl.StringTranslater(ValueToType);
+
+            try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                    ScrollIntoViewAndType(link, ValueToType);
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                        ScrollIntoViewAndType(link, ValueToType);
+                    }
+                    catch
+                    {
+                        TestContext.WriteLine("KoloQA Error: FindByXPathThenType, Selector " + XPath + " Value to Type Was: " + ValueToType);
+                        throw; throw;
+                    }
+                }
+            return this;
+        }
+
+        /// <summary>
         /// Find an Element by CSS Selector and then type the value provided into it
         /// </summary>
         /// <param name="CSSSelector">The CSS Selector of the element</param>
