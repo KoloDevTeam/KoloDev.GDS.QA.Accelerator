@@ -1185,6 +1185,114 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
         /// <summary>
+        /// Find by CSS Selector then Click Without Scroll Into View
+        /// </summary>
+        /// <param name="CSSSelector">CSS Selector to find</param>
+        /// <returns>KoloQA Instance</returns>
+        public KoloQA FindCSSSelectorThenClickWithoutScrollIntoView(string CSSSelector, BrowserStackBrowsers client)
+        {
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
+            {
+                string xpath = GetXpathFromCSS(CSSSelector);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    link.Click();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        link.Click();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                            link.Click();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: Error FindByCSSSelectorThenType, Selector " + CSSSelector);
+                            throw;
+                        }
+
+                    }
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                    link.Click();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        link.Click();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                            link.Click();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                            throw;
+                        }
+                    }
+                }
+            }
+            return this;
+        }
+
+        /// <summary>
         /// Find by XPath Selector then Click
         /// </summary>
         /// <param name="XPath">XPath to find</param>
