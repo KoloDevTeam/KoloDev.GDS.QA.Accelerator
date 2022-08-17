@@ -1993,8 +1993,6 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
                     fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                     IWebElement link = fluentWait.Until(x => x.FindElement(By.PartialLinkText(LinkText)));
-                    IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-                    js.ExecuteScript("window.scroll(" + link.Location.X + "," + (link.Location.Y - 200) + ");");
                     link.Click();
                 }
                 catch
