@@ -1987,7 +1987,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 try
                 {
-                    
+                    RefreshPage();
                     DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
                     fluentWait.Timeout = TimeSpan.FromSeconds(20);
                     fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
