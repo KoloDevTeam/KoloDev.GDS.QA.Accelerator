@@ -1987,6 +1987,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             {
                 try
                 {
+                    
                     DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
                     fluentWait.Timeout = TimeSpan.FromSeconds(20);
                     fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
@@ -1998,7 +1999,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 }
                 catch
                 {
-
+                    TestContext.WriteLine("KoloQA Error: ClickByPartialLinkText, Link " + LinkText);
+                    throw;
                 }
             }
             return this;
