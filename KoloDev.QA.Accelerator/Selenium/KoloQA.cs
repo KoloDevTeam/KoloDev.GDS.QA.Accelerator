@@ -1972,14 +1972,35 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <returns>KoloQA Instance</returns>
         public KoloQA ClickLinkByPartialLinkText(string LinkText)
         {
-            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-            fluentWait.Timeout = TimeSpan.FromSeconds(20);
-            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-            IWebElement link = fluentWait.Until(x => x.FindElement(By.PartialLinkText(LinkText)));
-            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-            js.ExecuteScript("window.scroll(" + link.Location.X + "," + (link.Location.Y - 200) + ");");
-            link.Click();
+            try
+            {
+                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement link = fluentWait.Until(x => x.FindElement(By.PartialLinkText(LinkText)));
+                IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                js.ExecuteScript("window.scroll(" + link.Location.X + "," + (link.Location.Y - 200) + ");");
+                link.Click();
+            }
+            catch
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.PartialLinkText(LinkText)));
+                    IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                    js.ExecuteScript("window.scroll(" + link.Location.X + "," + (link.Location.Y - 200) + ");");
+                    link.Click();
+                }
+                catch
+                {
+
+                }
+            }
             return this;
         }
 
