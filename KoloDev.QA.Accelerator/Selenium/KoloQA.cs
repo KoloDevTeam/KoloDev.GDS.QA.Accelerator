@@ -1090,7 +1090,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                     IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
                     Actions move = new Actions(Driver);
-                    move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                    move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                 }
@@ -1104,7 +1104,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                         fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                         IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
                         Actions move = new Actions(Driver);
-                        move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                        move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                     }
@@ -1118,7 +1118,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                             IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
                             Actions move = new Actions(Driver);
-                            move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                            move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                         }
@@ -1142,7 +1142,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                     IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
                     Actions move = new Actions(Driver);
-                    move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                    move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                 }
@@ -1156,7 +1156,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                         fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                         IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
                         Actions move = new Actions(Driver);
-                        move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                        move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                     }
@@ -1170,7 +1170,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
                             IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
                             Actions move = new Actions(Driver);
-                            move.MoveToElement(link).MoveByOffset(X, Y).Click();
+                            move.MoveToElement(link).MoveByOffset(X, Y).Click().Perform();
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
                         }
