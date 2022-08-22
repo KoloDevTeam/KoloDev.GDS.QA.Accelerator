@@ -525,22 +525,18 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                         await vidurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + ".mp4");
                         string json = JsonSerializer.Serialize(session);
                         File.WriteAllText("TestResults/" + filename + ".json", json);
-                        string log = await seleniumurl.WithBasicAuth(username, password).GetJsonAsync();
-                        string seleniumlog = JsonSerializer.Serialize(log);
-                        File.WriteAllText("TestResults/" + filename + "_SeleniumLog" + ".json", seleniumlog);
+                        await seleniumurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + "_SeleniumLogs.json");
 
                     }
                     catch (Exception e)
                     {
-                        TestContext.Out.WriteLine(e.Message);
-                        Console.WriteLine(e.Message);
+                        TestContext.WriteLine(e.Message);
                     }
                 }
             }
             catch (Exception e)
             {
-                TestContext.Out.WriteLine(e.Message);
-                Console.WriteLine(e.Message);
+                TestContext.WriteLine(e.Message);
             }
         }
 
