@@ -14,6 +14,7 @@ using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
@@ -133,7 +134,7 @@ namespace KoloDev.GDS.QA.Accelerator
             {
                 try
                 {
-                    var folderName = @"../../../AccessibilityReports";
+                    var folderName = @"TestReports";
                     // If directory does not exist, create it
                     if (!Directory.Exists(folderName))
                     {
@@ -143,11 +144,38 @@ namespace KoloDev.GDS.QA.Accelerator
                     var axeResult = new AxeBuilder(Driver)
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
-                    Driver.CreateAxeHtmlReport(axeResult, "../../../AccessibilityReports/" + pageName + ".html");
-                    var accessibility = File.ReadAllText("../../../AccessibilityReports/" + pageName + ".html");
+                    Driver.CreateAxeHtmlReport(axeResult, "TestReports/" + pageName + ".html");
+                    var accessibility = File.ReadAllText("TestReports/" + pageName + ".html");
 
                     accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
-                    File.WriteAllText("../../../AccessibilityReports/" + pageName + ".html", accessibility);
+                    File.WriteAllText("TestReports/" + pageName + ".html", accessibility);
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
+            return this;
+        }
+
+        public KoloQA AccessibilityOnPageJson(string pageName, BrowserStackBrowsers client, WcagLevel wcagLevel = WcagLevel.wcag2aa)
+        {
+            if (TestContext.Parameters["Accessibility"] == "true" && !client.ToString().Contains("iP"))
+            {
+                try
+                {
+                    var folderName = @"TestReports";
+                    // If directory does not exist, create it
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    AxeResult axeResult = new AxeBuilder(Driver)
+                    .WithTags(wcagLevel.ToString())
+                    .Analyze();
+                    string json = JsonSerializer.Serialize(axeResult);
+                    File.WriteAllText("TestReports/" + pageName + ".json", json);
                 }
                 catch (Exception e)
                 {
