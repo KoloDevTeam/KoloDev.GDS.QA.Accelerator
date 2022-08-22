@@ -41,14 +41,8 @@ enabling selenium, accessibility, cross browser testing and more.</Description>
     <DefineConstants>$(DefineConstants)TRACE;_PUBLISH_CHROMEDRIVER</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Template\GdsPageTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Licence.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Template\GdsPageTemplate.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -81,5 +75,8 @@ enabling selenium, accessibility, cross browser testing and more.</Description>
       <PackagePath>\</PackagePath>
     </None>
     <None Update="Licence.txt" Pack="true" />
+    <None Update="Template\GdsPageTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
