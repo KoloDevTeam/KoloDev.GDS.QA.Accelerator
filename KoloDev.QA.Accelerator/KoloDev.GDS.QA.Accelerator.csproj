@@ -75,5 +75,8 @@ enabling selenium, accessibility, cross browser testing and more.</Description>
       <PackagePath>\</PackagePath>
     </None>
     <None Update="Licence.txt" Pack="true" />
+    <None Update="Template\GdsPageTemplate.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
