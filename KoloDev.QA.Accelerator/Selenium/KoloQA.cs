@@ -134,7 +134,7 @@ namespace KoloDev.GDS.QA.Accelerator
             {
                 try
                 {
-                    var folderName = @"TestReports";
+                    var folderName = @"TestResults";
                     // If directory does not exist, create it
                     if (!Directory.Exists(folderName))
                     {
@@ -144,11 +144,11 @@ namespace KoloDev.GDS.QA.Accelerator
                     var axeResult = new AxeBuilder(Driver)
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
-                    Driver.CreateAxeHtmlReport(axeResult, "TestReports/" + pageName + ".html");
-                    var accessibility = File.ReadAllText("TestReports/" + pageName + ".html");
+                    Driver.CreateAxeHtmlReport(axeResult, "TestResults/" + pageName + ".html");
+                    var accessibility = File.ReadAllText("TestResults/" + pageName + ".html");
 
                     accessibility = GdsHtmlPage.ApplyGdsStylingToAccessibilityReport(accessibility, pageName);
-                    File.WriteAllText("TestReports/" + pageName + ".html", accessibility);
+                    File.WriteAllText("TestResults/" + pageName + ".html", accessibility);
                 }
                 catch (Exception e)
                 {
@@ -164,7 +164,7 @@ namespace KoloDev.GDS.QA.Accelerator
             {
                 try
                 {
-                    var folderName = @"TestReports";
+                    var folderName = @"TestResults";
                     // If directory does not exist, create it
                     if (!Directory.Exists(folderName))
                     {
@@ -175,7 +175,7 @@ namespace KoloDev.GDS.QA.Accelerator
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
                     string json = JsonSerializer.Serialize(axeResult);
-                    File.WriteAllText("TestReports/" + pageName + ".json", json);
+                    File.WriteAllText("TestResults/" + pageName + ".json", json);
                 }
                 catch (Exception e)
                 {

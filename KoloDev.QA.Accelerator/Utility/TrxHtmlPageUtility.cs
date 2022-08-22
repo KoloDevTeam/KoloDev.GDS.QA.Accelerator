@@ -47,8 +47,8 @@ public static class TrxHtmlPageUtility
         template = template.Replace("##FAILEDRESULTS##", CreateResultSetAccordion(trxResultSet.Failed, TestOutcome.Failed));
         template = template.Replace("##NOTEXECUTEDRESULTS##", CreateResultSetAccordion(trxResultSet.NotExecuted, TestOutcome.NotExecuted));
 
-        if (!Directory.Exists("TestReports")) Directory.CreateDirectory("TestReports");
-        File.WriteAllText(@"TestReports\" + Path.GetFileNameWithoutExtension(file.Name) + ".html", template);
+        if (!Directory.Exists("TestResults")) Directory.CreateDirectory("TestResults");
+        File.WriteAllText(@"TestResults\" + Path.GetFileNameWithoutExtension(file.Name) + ".html", template);
     }
 
     private static string GetGdsTagForOutcome(TestOutcome outcome)
