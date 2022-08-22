@@ -7,6 +7,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Globalization;
 using System.Linq;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using static KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels;
 
@@ -519,7 +520,9 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                         string vidurl = session.AutomationSession.VideoUrl.ToString();
                         var array = new[] { session.AutomationSession.Name.Trim(), session.AutomationSession.Os.ToUpper(), session.AutomationSession.OsVersion, session.AutomationSession.Device, session.AutomationSession.Browser, session.AutomationSession.BrowserVersion, session.AutomationSession.Status };
                         string filename = string.Join("-", array.Where(s => !string.IsNullOrEmpty(s))).Trim();
-                        await vidurl.WithBasicAuth(username, password).DownloadFileAsync(".", filename + ".mp4");
+                        await vidurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + ".mp4");
+                        string json = JsonSerializer.Serialize(session);
+                        File.WriteAllText("TestReports/" + session.AutomationSession.Name + ".json", json);
 
                     }
                     catch (Exception e)
