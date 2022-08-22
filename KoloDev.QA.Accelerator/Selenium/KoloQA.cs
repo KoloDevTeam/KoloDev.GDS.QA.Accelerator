@@ -1099,7 +1099,6 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
             }
-            TestContext.WriteLine((xpath));
             return xpath;
         }
 
