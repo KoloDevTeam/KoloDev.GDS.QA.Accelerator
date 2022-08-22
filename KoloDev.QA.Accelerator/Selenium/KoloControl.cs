@@ -518,12 +518,14 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                     try
                     {
                         string vidurl = session.AutomationSession.VideoUrl.ToString();
+                        string seleniumurl = session.AutomationSession.SeleniumLogsUrl.ToString();
                         var array = new[] { session.AutomationSession.Name.Trim(), session.AutomationSession.Os.ToUpper(), session.AutomationSession.OsVersion, session.AutomationSession.Device, session.AutomationSession.Browser, session.AutomationSession.BrowserVersion, session.AutomationSession.Status };
                         string filename = string.Join("-", array.Where(s => !string.IsNullOrEmpty(s))).Trim();
+                        TestContext.WriteLine("FileName is: " + filename);
                         await vidurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + ".mp4");
                         string json = JsonSerializer.Serialize(session);
                         File.WriteAllText("TestResults/" + filename + ".json", json);
-                        string log = await session.AutomationSession.SeleniumLogsUrl.WithBasicAuth(username, password).GetJsonAsync();
+                        string log = await seleniumurl.WithBasicAuth(username, password).GetJsonAsync();
                         string seleniumlog = JsonSerializer.Serialize(log);
                         File.WriteAllText("TestResults/" + filename + "_SeleniumLog" + ".json", seleniumlog);
 
