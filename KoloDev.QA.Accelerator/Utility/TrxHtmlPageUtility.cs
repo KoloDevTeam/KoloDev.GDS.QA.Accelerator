@@ -22,10 +22,23 @@ public static class TrxHtmlPageUtility
     /// </summary>
     /// <param name="fileLocation"></param>
     /// <exception cref="FileNotFoundException"></exception>
-    public static void TrxToHtml(string fileLocation)
+    public static async Task TrxToHtmlAsync(string fileLocation)
     {
+        TimeSpan span = TimeSpan.FromMinutes(1);
+        await WaitForFile(fileLocation, span);
         var file = new FileInfo(fileLocation);
         ProcessTrx(file);
+    }
+
+    private static async Task<bool> WaitForFile(string path, TimeSpan timeout)
+    {
+        DateTimeOffset timeoutAt = DateTimeOffset.UtcNow + timeout;
+        while (true)
+        {
+            if (File.Exists(path)) return true;
+            if (DateTimeOffset.UtcNow >= timeoutAt) return false;
+            await Task.Delay(10);
+        }
     }
 
     private static void ProcessTrx(FileInfo file)
