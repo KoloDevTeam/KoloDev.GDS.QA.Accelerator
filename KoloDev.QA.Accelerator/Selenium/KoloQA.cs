@@ -1099,6 +1099,33 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
                 TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
             }
+            if(xpath.Length > 1)
+            {
+                try
+                {
+                    WaitUntilPageFullyLoaded();
+                    string PageHtml = Driver.PageSource;
+                    var pagemaster = new HtmlDocument();
+                    pagemaster.LoadHtml(PageHtml);
+                    var document = pagemaster.DocumentNode;
+                    if (CSSSelector.Contains("nth-of-type"))
+                    {
+                        HtmlNode nodenth = document.NthOfTypeQuerySelector(CSSSelector);
+                        xpath = nodenth.XPath;
+                    }
+                    else
+                    {
+                        HtmlNode node = document.QuerySelector(CSSSelector);
+                        xpath = node.XPath;
+                        TestContext.WriteLine("KoloQA: Calculated XPath: " + xpath);
+                    }
+                }
+                catch (Exception e)
+                {
+                    TestContext.WriteLine("KoloQA: Selector Was: " + CSSSelector);
+                    TestContext.WriteLine("KoloQA: Can not find or generate " + e.Message);
+                }
+            }
             return xpath;
         }
 
