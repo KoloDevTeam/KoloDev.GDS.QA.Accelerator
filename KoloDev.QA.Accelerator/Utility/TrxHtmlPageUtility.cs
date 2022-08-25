@@ -24,7 +24,7 @@ public static class TrxHtmlPageUtility
     /// <exception cref="FileNotFoundException"></exception>
     public static async Task TrxToHtmlAsync(string fileLocation)
     {
-        TimeSpan span = TimeSpan.FromMinutes(1);
+        TimeSpan span = TimeSpan.FromMinutes(3);
         await WaitForFile(fileLocation, span);
         var file = new FileInfo(fileLocation);
         ProcessTrx(file);
