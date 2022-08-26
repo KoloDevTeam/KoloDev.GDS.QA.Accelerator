@@ -33,7 +33,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             if (!Directory.Exists("../../../ComplexPages")) Directory.CreateDirectory("../../../ComplexPages");
             var usingDirectives = new List<string>
             {
-                "KoloDev.GDS.QA.Accelerator;",
+                "KoloDev.GDS.QA.Accelerator.Data;",
                 "System.ComponentModel;"
             };
             string fileNameSpace = "KoloDev.GDS.QA.Accelerator.Pages." + ClassName + "";
@@ -69,7 +69,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             if (!Directory.Exists("../../../KoloPages")) Directory.CreateDirectory("../../../KoloPages");
             var usingDirectives = new List<string>
             {
-                "KoloDev.GDS.QA.Accelerator;",
+                "KoloDev.GDS.QA.Accelerator.Data;",
                 "System.ComponentModel;"
             };
             string fileNameSpace = "KoloDev.GDS.QA.Accelerator.Pages.Kolo";
