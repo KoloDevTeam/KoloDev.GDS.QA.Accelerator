@@ -517,7 +517,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "SamsungGalaxyAndroidPortrait")
@@ -531,7 +531,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "GooglePixel4XLAndroidLandscape")
@@ -545,7 +545,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "GooglePixel4XLAndroidPortrait")
@@ -559,7 +559,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
                     Driver = new RemoteWebDriver(
-                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                    new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
                 if (client.ToString() == "OSXSafari")
@@ -1374,6 +1374,109 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        public KoloQA FindCSSSelectorNearThenClick(string CSSSelector, BrowserStackBrowsers client)
+        {
+            if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
+            {
+                string xpath = GetXpathFromCSS(CSSSelector);
+
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                    ScrollIntoViewAndClick(link);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(xpath)));
+                            ScrollIntoViewAndClick(link);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: Error FindByCSSSelectorThenType, Selector " + CSSSelector);
+                            throw;
+                        }
+
+                    }
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                    ScrollIntoViewAndClick(link);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                        ScrollIntoViewAndClick(link);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.CssSelector(CSSSelector)));
+                            ScrollIntoViewAndClick(link);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + CSSSelector + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
+                            throw;
+                        }
+                    }
+                }
+            }
+            return this;
+        }
+
         /// <summary>
         /// Find by CSS Selector then Click Without Scroll Into View
         /// </summary>
@@ -1479,6 +1582,56 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     }
                 }
             }
+            return this;
+        }
+
+        public KoloQA FindXPathThenClickWithoutScrollIntoView(string Xpath, BrowserStackBrowsers client)
+        {
+            try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(Xpath)));
+                    link.Click();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                        fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                        fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                        fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(Xpath)));
+                        link.Click();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                            fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                            fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                            IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(Xpath)));
+                            link.Click();
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+                        }
+                        catch
+                        {
+                            TestContext.WriteLine("KoloQA: Error FindByCSSSelectorThenType, Selector " + Xpath);
+                            throw;
+                        }
+
+                    }
+                }
             return this;
         }
 
