@@ -841,6 +841,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
 
+        public KoloQA SaveScreenshotPNG(string filename)
+        {
+            Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();
+            string Screenshot = filename;
+            ss.SaveAsFile(Screenshot, ScreenshotImageFormat.Png);
+            return this;
+        }
+
         /// <summary>
         /// Quit the active session and dispose of the driver
         /// </summary>
