@@ -1086,8 +1086,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA UploadFileByName(string FileName, string Id = "file")
         {
-            IWebElement upload = FluentWaitByIdReturnElement(Id);
-            string path = "../../../FileUploads/" + FileName;
+            IWebElement upload = FluentWaitByNameReturnElement(Id);
+            string path = "./FileUploads/" + FileName;
             LocalFileDetector detector = new LocalFileDetector();
             var allowsDetection = Driver as IAllowsFileDetection;
             if (allowsDetection != null)
