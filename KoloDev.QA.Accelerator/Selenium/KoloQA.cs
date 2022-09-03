@@ -843,9 +843,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA SaveScreenshotPNG(string filename)
         {
-            Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();
-            string Screenshot = filename;
-            ss.SaveAsFile(Screenshot, ScreenshotImageFormat.Png);
+            //Take the screenshot
+            Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
+            //Save the screenshot
+            image.SaveAsFile(filename, ScreenshotImageFormat.Png);
             return this;
         }
 
