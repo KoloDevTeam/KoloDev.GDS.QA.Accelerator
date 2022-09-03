@@ -843,12 +843,20 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA SaveScreenshotPNG(string filename)
         {
-            //Take the screenshot
-            Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
-            //Save the screenshot
-            string screenshot = image.AsBase64EncodedString;
-            byte[] screenshotAsByteArray = image.AsByteArray;
-            image.SaveAsFile(filename, ScreenshotImageFormat.Png);
+            try
+            {
+                //Take the screenshot
+                Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
+                //Save the screenshot
+                string screenshot = image.AsBase64EncodedString;
+                byte[] screenshotAsByteArray = image.AsByteArray;
+                image.SaveAsFile(filename, ScreenshotImageFormat.Png);
+            }
+            catch (Exception ex)
+            {
+                TestContext.Write("KoloQA: " + ex.InnerException + " " + ex.Message);
+            }
+            
             return this;
         }
 
@@ -956,7 +964,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             catch(Exception e)
             {
                 TestContext.Write("KoloQA: " + CSSSelector + "' not found in current context page.");
-                throw e;
+                throw;
             }
             return this;
         }
