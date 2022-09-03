@@ -1027,13 +1027,64 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
         }
 
+        public IWebElement FluentWaitByNameReturnElement(string Name)
+        {
+            try
+            {
+                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement link = fluentWait.Until(x => x.FindElement(By.Name(Name)));
+                ScrollIntoViewUsingJavaScript(link);
+                return link;
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.Name(Name)));
+                    ScrollIntoViewUsingJavaScript(link);
+                    return link;
+                }
+                catch
+                {
+                    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                    fluentWait.Timeout = TimeSpan.FromSeconds(20);
+                    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(250);
+                    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement link = fluentWait.Until(x => x.FindElement(By.Name(Name)));
+                    ScrollIntoViewUsingJavaScript(link);
+                    return link;
+                }
+            }
+        }
+
         /// <summary>
         /// Uploads a file from the File Uploads Folder
         /// </summary>
         /// <param name="FileName">The filename to upload</param>
         /// <param name="Id">Optional Override for the Id if not marked as file</param>
         /// <returns></returns>
-        public KoloQA UploadFile(string FileName, string Id = "file")
+        public KoloQA UploadFileById(string FileName, string Id = "file")
+        {
+            IWebElement upload = FluentWaitByIdReturnElement(Id);
+            string path = "../../../FileUploads/" + FileName;
+            LocalFileDetector detector = new LocalFileDetector();
+            var allowsDetection = Driver as IAllowsFileDetection;
+            if (allowsDetection != null)
+            {
+                allowsDetection.FileDetector = detector;
+            }
+            upload.SendKeys(path);
+            return this;
+        }
+
+        public KoloQA UploadFileByName(string FileName, string Id = "file")
         {
             IWebElement upload = FluentWaitByIdReturnElement(Id);
             string path = "../../../FileUploads/" + FileName;
