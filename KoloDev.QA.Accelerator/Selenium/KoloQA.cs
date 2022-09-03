@@ -846,6 +846,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             //Take the screenshot
             Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
             //Save the screenshot
+            string screenshot = image.AsBase64EncodedString;
+            byte[] screenshotAsByteArray = image.AsByteArray;
             image.SaveAsFile(filename, ScreenshotImageFormat.Png);
             return this;
         }
