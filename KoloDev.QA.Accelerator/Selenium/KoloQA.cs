@@ -953,10 +953,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
                 wait.Until(c => c.FindElement(By.CssSelector(CSSSelector)));
             }
-            catch
+            catch(Exception e)
             {
                 TestContext.Write("KoloQA: " + CSSSelector + "' not found in current context page.");
-                throw;
+                throw e;
             }
             return this;
         }
