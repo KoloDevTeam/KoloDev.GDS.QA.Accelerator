@@ -843,20 +843,9 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA SaveScreenshotPNG(string filename)
         {
-            try
-            {
-                //Take the screenshot
-                Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
-                //Save the screenshot
-                string screenshot = image.AsBase64EncodedString;
-                byte[] screenshotAsByteArray = image.AsByteArray;
-                image.SaveAsFile(filename, ScreenshotImageFormat.Png);
-            }
-            catch (Exception ex)
-            {
-                TestContext.Write("KoloQA: " + ex.InnerException + " " + ex.Message);
-            }
-            
+            //Take the screenshot
+            Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
+            image.SaveAsFile("./" + filename, ScreenshotImageFormat.Png);
             return this;
         }
 
@@ -943,7 +932,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
             catch
             {
-                SaveScreenshotPNG("./" + TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
+                SaveScreenshotPNG(TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
                 throw;
             }
             return this;
@@ -965,7 +954,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             catch(Exception e)
             {
                 TestContext.Write("KoloQA: " + CSSSelector + "' not found in current context page.");
-                SaveScreenshotPNG("./" + TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
+                SaveScreenshotPNG(TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
                 throw;
             }
             return this;
@@ -1227,7 +1216,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                         catch
                         {
                             TestContext.WriteLine("KoloQA: Error FindByCSSSelectorThenType, Selector " + CSSSelector);
-                            SaveScreenshotPNG("./" + TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
+                            SaveScreenshotPNG( TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
                             throw;
                         }
 
@@ -1280,7 +1269,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                         catch
                         {
                             TestContext.WriteLine("KoloQA Error: FindByCSSSelectorThenType, Selector " + CSSSelector);
-                            SaveScreenshotPNG("./" + TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
+                            SaveScreenshotPNG( TestContext.CurrentContext.Test.Name.Trim() + "_FAILED.png");
                             throw;
                         }
                     }
