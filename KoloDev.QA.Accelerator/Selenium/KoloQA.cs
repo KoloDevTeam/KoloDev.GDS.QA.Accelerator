@@ -21,6 +21,25 @@ using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
 namespace KoloDev.GDS.QA.Accelerator
 {
+    public class ScreenShotRemoteWebDriver : RemoteWebDriver, ITakesScreenshot
+    {
+        public ScreenShotRemoteWebDriver(Uri remoteAddress, DriverOptions options) : base(remoteAddress, options)
+        {
+        }
+
+        public ScreenShotRemoteWebDriver(Uri uri, ICapabilities dc, TimeSpan timeSpan)
+          : base(uri, dc)
+        {
+        }
+
+        public new Screenshot GetScreenshot()
+        {
+            Response screenshotResponse = this.Execute(DriverCommand.Screenshot, null);
+            string base64 = screenshotResponse.Value.ToString();
+            return new Screenshot(base64);
+        }
+    }
+
     /// <summary>
     /// KoloQA is the main object for manipulating Selenium Sessions.
     /// </summary>
@@ -461,7 +480,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -475,7 +494,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -488,7 +507,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -502,7 +521,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("deviceOrientation", "landscape");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -516,7 +535,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -530,7 +549,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -544,7 +563,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -558,7 +577,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("appiumVersion", "2.0.0");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities.ToCapabilities(), TimeSpan.FromSeconds(120));
                     return this;
                 }
@@ -574,7 +593,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("safari", safariOptions);
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     Driver.Manage().Window.Maximize();
                     return this;
@@ -591,7 +610,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("safari", safariOptions);
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     Driver.Manage().Window.Maximize();
                     return this;
@@ -608,7 +627,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("safari", safariOptions);
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     Driver.Manage().Window.Maximize();
                     return this;
@@ -625,7 +644,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("safari", safariOptions);
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     Driver.Manage().Window.Maximize();
                     return this;
@@ -642,7 +661,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                     browserstackOptions.Add("safari", safariOptions);
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
 
-                    Driver = new RemoteWebDriver(
+                    Driver = new ScreenShotRemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
                     Driver.Manage().Window.Maximize();
                     return this;
@@ -843,9 +862,9 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA SaveScreenshotPNG(string filename)
         {
-            //Take the screenshot
-            Screenshot image = ((ITakesScreenshot)Driver).GetScreenshot();
-            image.SaveAsFile("./" + filename, ScreenshotImageFormat.Png);
+            ITakesScreenshot screenshotDriver = Driver as ITakesScreenshot;
+            Screenshot screenshot = screenshotDriver.GetScreenshot();
+            screenshot.SaveAsFile(filename, ScreenshotImageFormat.Png);
             return this;
         }
 
