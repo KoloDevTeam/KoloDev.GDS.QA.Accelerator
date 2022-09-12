@@ -528,7 +528,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 if (client.ToString() == "SamsungGalaxyAndroidLandscape")
                 {
                     ChromeOptions capabilities = new ChromeOptions();
-                    browserstackOptions.Add("osVersion", "11.0");
+                    browserstackOptions.Add("osVersion", "latest");
                     browserstackOptions.Add("deviceName", "Samsung Galaxy S21");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "landscape");
@@ -542,7 +542,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 if (client.ToString() == "SamsungGalaxyAndroidPortrait")
                 {
                     ChromeOptions capabilities = new ChromeOptions();
-                    browserstackOptions.Add("osVersion", "11.0");
+                    browserstackOptions.Add("osVersion", "latest");
                     browserstackOptions.Add("deviceName", "Samsung Galaxy S21");
                     browserstackOptions.Add("realMobile", "true");
                     browserstackOptions.Add("deviceOrientation", "portrait");
