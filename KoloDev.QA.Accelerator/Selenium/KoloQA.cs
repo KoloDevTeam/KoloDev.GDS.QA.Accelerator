@@ -956,6 +956,24 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        public string GetTextOfCSSElement(string CSSSelector, int timeout = 10)
+        {
+            string TxtOfElement = "";
+            try
+            {
+                var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+                wait.Until(c => c.FindElement(By.CssSelector(CSSSelector)));
+                TxtOfElement = Driver.FindElement(By.CssSelector(CSSSelector)).Text;
+            }
+            catch (Exception e)
+            {
+                TestContext.Write("KoloQA: " + CSSSelector + "' not found in current context page.");
+                throw;
+            }
+            return TxtOfElement;
+
+        }
+
         /// <summary>
         /// Waits until an element exists on page
         /// </summary>
