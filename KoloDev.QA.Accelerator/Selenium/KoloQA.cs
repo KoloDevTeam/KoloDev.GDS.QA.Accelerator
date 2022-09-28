@@ -956,6 +956,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        public List<IWebElement> FindListOfValuesByCSS(string CSSSelector)
+        {
+            List<IWebElement> Values = Driver.FindElements(By.CssSelector(CSSSelector)).ToList();
+            return Values;
+        }
+
         public string GetTextOfCSSElement(string CSSSelector, int timeout = 10)
         {
             string TxtOfElement = "";
