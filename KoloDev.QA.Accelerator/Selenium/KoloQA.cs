@@ -969,6 +969,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return Elements;
         }
 
+        public List<IWebElement> GetListOfElementsByXPath(string XPath)
+        {
+            List<IWebElement> Elements = Driver.FindElements(By.XPath(XPath)).ToList();
+            return Elements;
+        }
+
         public List<IWebElement> FindListOfValuesByXPath(string XPath)
         {
             List<IWebElement> Values = Driver.FindElements(By.XPath(XPath)).ToList();
