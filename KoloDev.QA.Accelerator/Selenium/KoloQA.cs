@@ -1815,6 +1815,29 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        public KoloQA FindXPathThenClickFailFast(string XPath, BrowserStackBrowsers client)
+        {
+
+            try
+            {
+                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
+                fluentWait.Timeout = TimeSpan.FromSeconds(5);
+                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(25);
+                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                ScrollIntoViewAndClick(link);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
+            }
+            catch
+            {
+                TestContext.WriteLine("KoloQA: Error FindByXPathThenClick, Selector " + XPath);
+                throw;
+            }
+
+            return this;
+        }
+
         public KoloQA FindXPathTypeThenTabThenType(string XPath, string FirstInput, string SecondInput, BrowserStackBrowsers client)
         {
 
