@@ -996,7 +996,67 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 throw;
             }
             return TxtOfElement;
+        }
 
+        public string GetTextOfXPathElement(string XPath, int timeout = 10)
+        {
+            string TxtOfElement = "";
+            try
+            {
+                var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+                wait.Until(c => c.FindElement(By.XPath(XPath)));
+                TxtOfElement = Driver.FindElement(By.XPath(XPath)).Text;
+            }
+            catch (Exception e)
+            {
+                TestContext.Write("KoloQA: " + XPath + "' not found in current context page.");
+                throw;
+            }
+            return TxtOfElement;
+        }
+
+        public bool ValidateTextOfCSSElement(string CSSSelector, string Value, int timeout = 10)
+        {
+            string TxtOfElement = "";
+            try
+            {
+                var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+                wait.Until(c => c.FindElement(By.CssSelector(CSSSelector)));
+                TxtOfElement = Driver.FindElement(By.CssSelector(CSSSelector)).Text;
+
+                if(TxtOfElement == Value)
+                { 
+                    return true; 
+                }
+            }
+            catch (Exception e)
+            {
+                TestContext.Write("KoloQA: " + CSSSelector + "' not found in current context page.");
+                throw;
+            }
+            return false;
+        }
+
+        public bool ValidateTextOfXPathElement(string XPath, string Value, int timeout = 10)
+        {
+            string TxtOfElement = "";
+            try
+            {
+                var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+                wait.Until(c => c.FindElement(By.XPath(XPath)));
+                TxtOfElement = Driver.FindElement(By.XPath(XPath)).Text;
+
+                if (TxtOfElement == Value)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                TestContext.Write("KoloQA: " + XPath + "' not found in current context page.");
+                throw;
+            }
+            return false;
         }
 
         /// <summary>
