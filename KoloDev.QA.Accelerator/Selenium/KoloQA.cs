@@ -1900,6 +1900,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         public KoloQA FindXPathTypeThenTabThenType(string XPath, string FirstInput, string SecondInput, BrowserStackBrowsers client)
         {
+            if(FirstInput.ToLower() == "automated")
+            {
+                FirstInput = RandomString().ToUpper();
+            }
+            if (SecondInput.ToLower() == "automated")
+            {
+                FirstInput = RandomString().ToUpper();
+            }
 
             try
             {
@@ -2496,6 +2504,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <returns></returns>
         public KoloQA ScrollIntoViewAndTypeThenTab(IWebElement element, string input)
         {
+            if (input.ToLower() == "automated")
+            {
+                input = RandomString().ToUpper();
+            }
+
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
             js.ExecuteScript("arguments[0].click(); ", element);
@@ -2511,6 +2524,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <returns></returns>
         public KoloQA ScrollIntoViewAndType(IWebElement element, string input)
         {
+            if (input.ToLower() == "automated")
+            {
+                input = RandomString().ToUpper();
+            }
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("window.scroll(" + element.Location.X + "," + (element.Location.Y - 200) + ");");
             js.ExecuteScript("arguments[0].click(); ", element);
