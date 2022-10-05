@@ -796,7 +796,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         public void WriteFileToLocal(string FileName)
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
-            jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileContent\", \"arguments\": {\"fileName\": \"BrowserStack - List of devices to test on.csv\"}}");
+            jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileContent\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
             string base64encode = (string)jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileContent\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
             byte[] b = Convert.FromBase64String(base64encode);
             File.WriteAllBytes("./" + FileName, b);
