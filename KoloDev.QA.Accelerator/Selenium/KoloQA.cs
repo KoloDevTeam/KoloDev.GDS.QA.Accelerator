@@ -774,6 +774,33 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        public bool CheckIfFileExists(string FileName)
+        {
+            IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
+            // Check if file exists
+            bool val1 = (bool)jse.ExecuteScript("browserstack_executor: {\"action\": \"fileExists\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
+            TestContext.WriteLine("KoloQA: File Exists Check - " + FileName + " " + val1);
+            return val1;
+        }
+
+        public string GetFileProperties(string FileName)
+        {
+            IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
+            // Check if file exists
+            string fileprops = (string)jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileProperties\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
+            TestContext.WriteLine("KoloQA: File Exists Check - " + FileName + " " + fileprops);
+            return fileprops;
+        }
+
+        public void WriteFileToLocal(string FileName)
+        {
+            IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
+            jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileContent\", \"arguments\": {\"fileName\": \"BrowserStack - List of devices to test on.csv\"}}");
+            string base64encode = (string)jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileContent\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
+            byte[] b = Convert.FromBase64String(base64encode);
+            File.WriteAllBytes("./" + FileName, b);
+        }
+
         #region Timeouts
         /// <summary>
         /// Set Page Load Timeout
