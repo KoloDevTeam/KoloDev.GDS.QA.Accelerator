@@ -783,11 +783,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return val1;
         }
 
-        public string GetFileProperties(string FileName)
+        public IDictionary<string, string> GetFileProperties(string FileName)
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
             // Check if file exists
-            string fileprops = (string)jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileProperties\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
+            IDictionary<string, string> fileprops = new Dictionary<string, string>(); 
+            fileprops = (IDictionary<string, string>)jse.ExecuteScript("browserstack_executor: {\"action\": \"getFileProperties\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
             TestContext.WriteLine("KoloQA: File Exists Check - " + FileName + " " + fileprops);
             return fileprops;
         }
