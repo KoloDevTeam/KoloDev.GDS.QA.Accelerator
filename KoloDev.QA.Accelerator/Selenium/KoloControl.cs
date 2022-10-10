@@ -1,4 +1,17 @@
-﻿using CsCodeGenerator;
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 02-07-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 09-27-2022
+// ***********************************************************************
+// <copyright file="KoloControl.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using CsCodeGenerator;
 using CsCodeGenerator.Enums;
 using Flurl.Http;
 using Humanizer;
@@ -27,6 +40,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             TestContext.WriteLine(write);
         }
 
+        /// <summary>
+        /// Generates the page class.
+        /// </summary>
+        /// <param name="ClassName">Name of the class.</param>
+        /// <param name="pageModel">The page model.</param>
         public static void GeneratePageClass(string ClassName, GdsPageModel pageModel)
         {
             //Prep Directory and Top Levels
@@ -63,6 +81,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             Console.Write(modelFile);
         }
 
+        /// <summary>
+        /// Generates the simple page class.
+        /// </summary>
+        /// <param name="ClassName">Name of the class.</param>
+        /// <param name="pageModel">The page model.</param>
         public static void GenerateSimplePageClass(string ClassName, GdsPageModel pageModel)
         {
             //Prep Directory and Top Levels
@@ -99,6 +122,12 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             Console.Write(modelFile);
         }
 
+        /// <summary>
+        /// Generates the input methods.
+        /// </summary>
+        /// <param name="gdsPageModel">The GDS page model.</param>
+        /// <param name="ClassName">Name of the class.</param>
+        /// <returns>List&lt;Method&gt;.</returns>
         public static List<Method> GenerateInputMethods(GdsPageModel gdsPageModel, string ClassName)
         {
             List<Method> methods = new List<Method>();
@@ -285,6 +314,12 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             return final;
         }
 
+        /// <summary>
+        /// Generates the kolo methods.
+        /// </summary>
+        /// <param name="gdsPageModel">The GDS page model.</param>
+        /// <param name="ClassName">Name of the class.</param>
+        /// <returns>List&lt;Method&gt;.</returns>
         public static List<Method> GenerateKoloMethods(GdsPageModel gdsPageModel, string ClassName)
         {
             List<Method> methods = new List<Method>();
@@ -444,6 +479,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             return final;
         }
 
+        /// <summary>
+        /// Checkers the specified inbound.
+        /// </summary>
+        /// <param name="inbound">The inbound.</param>
+        /// <returns>System.String.</returns>
         public static string Checker(string inbound)
         {
             string clean = Regex.Replace(inbound, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
@@ -478,6 +518,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             return trim2;
         }
 
+        /// <summary>
+        /// Gets the screen shot base64 string.
+        /// </summary>
+        /// <param name="driver">The driver.</param>
+        /// <returns>System.String.</returns>
         public static string GetScreenShotBase64String(IWebDriver driver)
         {
             byte[] screenshot = null;
@@ -494,6 +539,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             return base64String;
         }
 
+        /// <summary>
+        /// Takes the screenshot.
+        /// </summary>
+        /// <param name="Driver">The driver.</param>
+        /// <param name="filename">The filename.</param>
         public static void TakeScreenshot(IWebDriver Driver, string filename)
         {
             Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();
@@ -501,6 +551,9 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             ss.SaveAsFile(Screenshot);
         }
 
+        /// <summary>
+        /// Gets the test videos.
+        /// </summary>
         public static async Task GetTestVideos()
         {
             try
@@ -537,6 +590,11 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             }
         }
 
+        /// <summary>
+        /// Strings the translater.
+        /// </summary>
+        /// <param name="translate">The translate.</param>
+        /// <returns>System.String.</returns>
         public static string StringTranslater(string translate)
         {
             if (translate.ToLower() == "todaysday")
@@ -566,6 +624,10 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             return translate;
         }
 
+        /// <summary>
+        /// Randoms the string generator.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public static string RandomStringGenerator()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

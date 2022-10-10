@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 08-18-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 10-06-2022
+// ***********************************************************************
+// <copyright file="KoloQA.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using BrowserStack;
 using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
@@ -21,17 +34,39 @@ using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
 
 namespace KoloDev.GDS.QA.Accelerator
 {
+    /// <summary>
+    /// Class ScreenShotRemoteWebDriver.
+    /// Implements the <see cref="RemoteWebDriver" />
+    /// Implements the <see cref="ITakesScreenshot" />
+    /// </summary>
+    /// <seealso cref="RemoteWebDriver" />
+    /// <seealso cref="ITakesScreenshot" />
     public class ScreenShotRemoteWebDriver : RemoteWebDriver, ITakesScreenshot
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScreenShotRemoteWebDriver"/> class.
+        /// </summary>
+        /// <param name="remoteAddress">The remote address.</param>
+        /// <param name="options">The options.</param>
         public ScreenShotRemoteWebDriver(Uri remoteAddress, DriverOptions options) : base(remoteAddress, options)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScreenShotRemoteWebDriver"/> class.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <param name="dc">The dc.</param>
+        /// <param name="timeSpan">The time span.</param>
         public ScreenShotRemoteWebDriver(Uri uri, ICapabilities dc, TimeSpan timeSpan)
           : base(uri, dc)
         {
         }
 
+        /// <summary>
+        /// Gets the screenshot.
+        /// </summary>
+        /// <returns>Screenshot.</returns>
         public new Screenshot GetScreenshot()
         {
             Response screenshotResponse = this.Execute(DriverCommand.Screenshot, null);
@@ -45,43 +80,61 @@ namespace KoloDev.GDS.QA.Accelerator
     /// </summary>
     public partial class KoloQA
     {
+        /// <summary>
+        /// The test suite
+        /// </summary>
         private KoloTestSuite? testSuite;
 
         /// <summary>
         /// Kolo Test Suite Information
         /// </summary>
+        /// <value>The test suite.</value>
         public KoloTestSuite? TestSuite { get => testSuite; set => testSuite = value; }
+        /// <summary>
+        /// Gets or sets the local.
+        /// </summary>
+        /// <value>The local.</value>
         private Local local { get; set; } = new Local();
 
         /// <summary>
         /// Remote Web Driver Instance
         /// </summary>
+        /// <value>The driver.</value>
         private IWebDriver Driver { get; set; } = null!;
         /// <summary>
         /// BrowserStack Project Name
         /// </summary>
+        /// <value>The name of the project.</value>
         private string ProjectName { get; set; } = "";
 
         /// <summary>
         /// BrowserStack Build Name
         /// </summary>
+        /// <value>The name of the build.</value>
         private string BuildName { get; set; } = "";
 
         /// <summary>
         /// BrowserStack Test Name
         /// </summary>
+        /// <value>The name of the test.</value>
         private string TestName { get; set; } = "";
 
         /// <summary>
         /// Browserstack User Name
         /// </summary>
+        /// <value>The name of the user.</value>
         private string UserName { get; set; } = "";
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [local test].
+        /// </summary>
+        /// <value><c>true</c> if [local test]; otherwise, <c>false</c>.</value>
         private bool LocalTest { get; set; } = false;
 
         /// <summary>
         /// BrowserStack Access Key
         /// </summary>
+        /// <value>The access key.</value>
         private string AccessKey { get; set; } = "";
 
         /// <summary>
@@ -92,7 +145,7 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <param name="Name">The Name of the Test Step</param>
         /// <param name="Description">The Description of the Test Step</param>
         /// <param name="Passed">Whether the Test Step Passed or Not</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA AddStepToTestCase(string Id, int StepNumber, string Name, string Description, bool Passed)
         {
             try
@@ -144,9 +197,10 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <summary>
         /// Check the Accessibility of the Page
         /// </summary>
-        /// <param name="pageName"></param>
-        /// <param name="wcagLevel"></param>
-        /// <returns></returns>
+        /// <param name="pageName">Name of the page.</param>
+        /// <param name="client">The client.</param>
+        /// <param name="wcagLevel">The wcag level.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA AccessibilityOnPage(string pageName, BrowserStackBrowsers client, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
             if (TestContext.Parameters["Accessibility"] == "true" && !client.ToString().Contains("iP"))
@@ -177,6 +231,13 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
+        /// <summary>
+        /// Accessibilities the on page json.
+        /// </summary>
+        /// <param name="pageName">Name of the page.</param>
+        /// <param name="client">The client.</param>
+        /// <param name="wcagLevel">The wcag level.</param>
+        /// <returns><br /></returns>
         public KoloQA AccessibilityOnPageJson(string pageName, BrowserStackBrowsers client, WcagLevel wcagLevel = WcagLevel.wcag2aa)
         {
             if (TestContext.Parameters["Accessibility"] == "true" && !client.ToString().Contains("iP"))
@@ -286,6 +347,10 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
+        /// <summary>
+        /// Randoms the string.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string RandomString()
         {
             string randomString = KoloControl.RandomStringGenerator();
@@ -376,6 +441,7 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <summary>
         /// Maximises the Browser Window
         /// </summary>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA MaximiseBrowser(BrowserStackBrowsers client)
         {
@@ -774,6 +840,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Checks if file exists.
+        /// </summary>
+        /// <param name="FileName">Name of the file.</param>
+        /// <returns><br /></returns>
         public bool CheckIfFileExists(string FileName)
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
@@ -783,6 +854,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return val1;
         }
 
+        /// <summary>
+        /// Gets the file properties.
+        /// </summary>
+        /// <param name="FileName">Name of the file.</param>
+        /// <returns>IDictionary&lt;System.String, System.Object&gt;.</returns>
         public IDictionary<string, object> GetFileProperties(string FileName)
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
@@ -793,6 +869,10 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return fileprops;
         }
 
+        /// <summary>
+        /// Writes the file to local.
+        /// </summary>
+        /// <param name="FileName">Name of the file.</param>
         public void WriteFileToLocal(string FileName)
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
@@ -829,7 +909,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Set Async JavaScript Timeout
         /// </summary>
         /// <param name="timeout">Timeout in seconds</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA SetAsyncExecuteScriptTimeout(int timeout)
         {
             Driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(timeout);
@@ -864,7 +944,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <param name="Priority">The Priority of the defect</param>
         /// <param name="Severity">The Severity of the defect 1-4 with 1 being Highest</param>
         /// <param name="AssignTo">Assign the defect to someone, will default to empty</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA AzureDevopsRaiseDefect(string Id, BrowserStackBrowsers Browser, int Priority, int Severity, string AssignTo = "")
         {
             KoloTestCase testCase;
@@ -888,6 +968,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
 
+        /// <summary>
+        /// Saves the screenshot PNG.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA SaveScreenshotPNG(string filename)
         {
             ITakesScreenshot screenshotDriver = Driver as ITakesScreenshot;
@@ -969,7 +1054,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="Text">Text to search for</param>
         /// <param name="timeout">The timeout to wait for the text to be displayed</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA WaitForText(string Text, int timeout = 10)
         {
             try
@@ -984,12 +1069,22 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Finds the list of values by CSS.
+        /// </summary>
+        /// <param name="CSSSelector">The CSS selector.</param>
+        /// <returns>List&lt;IWebElement&gt;.</returns>
         public List<IWebElement> FindListOfValuesByCSS(string CSSSelector)
         {
             List<IWebElement> Values = Driver.FindElements(By.CssSelector(CSSSelector)).ToList();
             return Values;
         }
 
+        /// <summary>
+        /// Gets the list of elements beneath x path.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <returns>List&lt;IWebElement&gt;.</returns>
         public List<IWebElement> GetListOfElementsBeneathXPath(string XPath)
         {
             IWebElement Root = Driver.FindElement(By.XPath(XPath));
@@ -997,18 +1092,34 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return Elements;
         }
 
+        /// <summary>
+        /// Gets the list of elements by x path.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <returns>List&lt;IWebElement&gt;.</returns>
         public List<IWebElement> GetListOfElementsByXPath(string XPath)
         {
             List<IWebElement> Elements = Driver.FindElements(By.XPath(XPath)).ToList();
             return Elements;
         }
 
+        /// <summary>
+        /// Finds the list of values by x path.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <returns>List&lt;IWebElement&gt;.</returns>
         public List<IWebElement> FindListOfValuesByXPath(string XPath)
         {
             List<IWebElement> Values = Driver.FindElements(By.XPath(XPath)).ToList();
             return Values;
         }
 
+        /// <summary>
+        /// Gets the text of CSS element.
+        /// </summary>
+        /// <param name="CSSSelector">The CSS selector.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>System.String.</returns>
         public string GetTextOfCSSElement(string CSSSelector, int timeout = 10)
         {
             string TxtOfElement = "";
@@ -1026,6 +1137,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return TxtOfElement;
         }
 
+        /// <summary>
+        /// Gets the text of x path element.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>System.String.</returns>
         public string GetTextOfXPathElement(string XPath, int timeout = 10)
         {
             string TxtOfElement = "";
@@ -1043,6 +1160,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return TxtOfElement;
         }
 
+        /// <summary>
+        /// Validates the text of CSS element.
+        /// </summary>
+        /// <param name="CSSSelector">The CSS selector.</param>
+        /// <param name="Value">The value.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool ValidateTextOfCSSElement(string CSSSelector, string Value, int timeout = 10)
         {
             string TxtOfElement = "";
@@ -1065,6 +1189,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return false;
         }
 
+        /// <summary>
+        /// Validates the text of x path element.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <param name="Value">The value.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool ValidateTextOfXPathElement(string XPath, string Value, int timeout = 10)
         {
             string TxtOfElement = "";
@@ -1092,7 +1223,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="CSSSelector">The CSS Selector of the Element</param>
         /// <param name="timeout">The timeout before abandoning the wait</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA WaitUntilElementExists(string CSSSelector, int timeout = 10)
         {
             try
@@ -1121,6 +1252,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         #endregion
 
         #region Fluents
+        /// <summary>
+        /// Fluents the wait by identifier return element.
+        /// </summary>
+        /// <param name="LinkText">The link text.</param>
+        /// <returns>IWebElement.</returns>
         public IWebElement FluentWaitByIdReturnElement(string LinkText)
         {
             try
@@ -1158,6 +1294,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
         }
 
+        /// <summary>
+        /// Fluents the wait by name return element.
+        /// </summary>
+        /// <param name="Name">The name.</param>
+        /// <returns>IWebElement.</returns>
         public IWebElement FluentWaitByNameReturnElement(string Name)
         {
             try
@@ -1200,7 +1341,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="FileName">The filename to upload</param>
         /// <param name="Id">Optional Override for the Id if not marked as file</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA UploadFileById(string FileName, string Id = "file")
         {
             IWebElement upload = FluentWaitByIdReturnElement(Id);
@@ -1215,6 +1356,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Uploads the name of the file by.
+        /// </summary>
+        /// <param name="FileName">Name of the file.</param>
+        /// <param name="Id">The identifier.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA UploadFileByName(string FileName, string Id = "file")
         {
             IWebElement upload = FluentWaitByNameReturnElement(Id);
@@ -1279,7 +1426,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Retrieves XPath from CSS Selector provided
         /// </summary>
         /// <param name="CSSSelector">CSS Selector for the element</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public string GetXpathFromCSS(string CSSSelector)
         {
             string xpath = "";
@@ -1366,6 +1513,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         }
 
 
+        /// <summary>
+        /// Finds the CSS selector then click with offset.
+        /// </summary>
+        /// <param name="CSSSelector">The CSS selector.</param>
+        /// <param name="X">The x.</param>
+        /// <param name="Y">The y.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindCSSSelectorThenClickWithOffset(string CSSSelector, int X, int Y, BrowserStackBrowsers client)
         {
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
@@ -1481,6 +1636,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Find by CSS Selector then Click
         /// </summary>
         /// <param name="CSSSelector">CSS Selector to find</param>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindCSSSelectorThenClick(string CSSSelector, BrowserStackBrowsers client)
         {
@@ -1585,6 +1741,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Finds the CSS selector near then click.
+        /// </summary>
+        /// <param name="CSSSelector">The CSS selector.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindCSSSelectorNearThenClick(string CSSSelector, BrowserStackBrowsers client)
         {
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
@@ -1692,6 +1854,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Find by CSS Selector then Click Without Scroll Into View
         /// </summary>
         /// <param name="CSSSelector">CSS Selector to find</param>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindCSSSelectorThenClickWithoutScrollIntoView(string CSSSelector, BrowserStackBrowsers client)
         {
@@ -1796,6 +1959,12 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Finds the x path then click without scroll into view.
+        /// </summary>
+        /// <param name="Xpath">The xpath.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindXPathThenClickWithoutScrollIntoView(string Xpath, BrowserStackBrowsers client)
         {
             try
@@ -1850,6 +2019,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Find by XPath Selector then Click
         /// </summary>
         /// <param name="XPath">XPath to find</param>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindXPathThenClick(string XPath, BrowserStackBrowsers client)
         {
@@ -1903,16 +2073,18 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Finds the x path then click fail fast.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindXPathThenClickFailFast(string XPath, BrowserStackBrowsers client)
         {
 
             try
             {
-                DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
-                fluentWait.Timeout = TimeSpan.FromSeconds(5);
-                fluentWait.PollingInterval = TimeSpan.FromMilliseconds(25);
-                fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
-                IWebElement link = fluentWait.Until(x => x.FindElement(By.XPath(XPath)));
+                IWebElement link = Driver.FindElement(By.XPath(XPath));
                 ScrollIntoViewAndClick(link);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("KoloQA: Found " + XPath + " and clicked");
@@ -1926,6 +2098,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Finds the type of the x path type then tab then.
+        /// </summary>
+        /// <param name="XPath">The x path.</param>
+        /// <param name="FirstInput">The first input.</param>
+        /// <param name="SecondInput">The second input.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindXPathTypeThenTabThenType(string XPath, string FirstInput, string SecondInput, BrowserStackBrowsers client)
         {
             if(FirstInput.ToLower() == "automated")
@@ -1994,7 +2174,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="SelectListCSS">CSS Selector of the List</param>
         /// <param name="ValueInList">The Value to select</param>
-        /// <returns></returns>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA DropDownByCSSSelectorThenSelectValue(string SelectListCSS, string ValueInList, BrowserStackBrowsers client)
         {
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
@@ -2080,6 +2261,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Drops down by CSS selector then select value without scroll.
+        /// </summary>
+        /// <param name="SelectListCSS">The select list CSS.</param>
+        /// <param name="ValueInList">The value in list.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA DropDownByCSSSelectorThenSelectValueWithoutScroll(string SelectListCSS, string ValueInList, BrowserStackBrowsers client)
         {
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape)
@@ -2204,6 +2392,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="SelectListName">The select list name attribute</param>
         /// <param name="ValueInList">The value to select in the list</param>
+        /// <param name="appium">if set to <c>true</c> [appium].</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA DropDownByNameThenSelectValue(string SelectListName, string ValueInList, bool appium = false)
         {
@@ -2244,7 +2433,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="SelectListName">The Select List XPath</param>
         /// <param name="ValueInList">The Value to Select</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA DropDownByXpathThenSelectValue(string SelectListName, string ValueInList)
         {
             try
@@ -2285,7 +2474,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="CSSSelector">The CSS Selector of the element</param>
         /// <param name="ValueToType">The value to type into the element</param>
-        /// <returns></returns>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindByCSSSelectorThenType(string CSSSelector, string ValueToType, BrowserStackBrowsers client)
         {
             ValueToType = KoloControl.StringTranslater(ValueToType);
@@ -2359,7 +2549,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="XPath">The XPath of the element</param>
         /// <param name="ValueToType">The value to type into the element</param>
-        /// <returns></returns>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindByXPathThenType(string XPath, string ValueToType, BrowserStackBrowsers client)
         {
             ValueToType = KoloControl.StringTranslater(ValueToType);
@@ -2397,8 +2588,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// Find an Element by CSS Selector and then type the value provided into it
         /// </summary>
         /// <param name="CSSSelector">The CSS Selector of the element</param>
-        /// <param name="ValueToType">The value to type into the element</param>
-        /// <returns></returns>
+        /// <param name="client">The client.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindByCSSSelectorThenPressEnter(string CSSSelector, BrowserStackBrowsers client)
         {
             if (client == BrowserStackBrowsers.iPhonePortrait || client == BrowserStackBrowsers.iPhoneLandscape || client == BrowserStackBrowsers.iPadLandscape || client == BrowserStackBrowsers.iPadPortrait)
@@ -2468,15 +2659,21 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
         #region Controls
         /// <summary>
-        /// Download Videos 
+        /// Download Videos
         /// </summary>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA BrowserStackDownloadVideos()
         {
             KoloControl.GetTestVideos().Wait();
             return this;
         }
 
+        /// <summary>
+        /// Sets the nunit test context.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA SetNunitTestContext(string key, string value)
         {
             SetNunitTestContext(key, value);
@@ -2529,7 +2726,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="element">The Element to be scrolled in to view</param>
         /// <param name="input">The Value to be typed into the element</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA ScrollIntoViewAndTypeThenTab(IWebElement element, string input)
         {
             if (input.ToLower() == "automated")
@@ -2549,7 +2746,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="element">The Element to be scrolled in to view</param>
         /// <param name="input">The Value to be typed into the element</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA ScrollIntoViewAndType(IWebElement element, string input)
         {
             if (input.ToLower() == "automated")
@@ -2563,6 +2760,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             return this;
         }
 
+        /// <summary>
+        /// Scrolls the into view and type the press enter.
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <returns>KoloQA.</returns>
         public KoloQA ScrollIntoViewAndTypeThePressEnter(IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
@@ -2614,7 +2816,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <summary>
         /// Find an Input by its CssSelector and Clear its Contents
         /// </summary>
-        /// <param name="CssSelector"></param>
+        /// <param name="CssSelector">The CSS selector.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindByCssSelectorClearInputField(string CssSelector)
         {
@@ -2734,7 +2936,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <summary>
         /// Find an Input by its Id and Clear its Contents
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="Id">The identifier.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA FindByIdClearInputField(string Id)
         {
@@ -2755,7 +2957,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// </summary>
         /// <param name="Id">The Id of the input box</param>
         /// <param name="InputText">The text to type into the input box</param>
-        /// <returns></returns>
+        /// <returns>KoloQA.</returns>
         public KoloQA FindByIdThenType(string Id, string InputText)
         {
             InputText = KoloControl.StringTranslater(InputText);
@@ -2775,6 +2977,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <summary>
         /// Marks the Test as Passed on BrowserStack
         /// </summary>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA BrowserStackMarkTestPassed(BrowserStackBrowsers client)
         {
@@ -2807,6 +3010,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         /// <summary>
         /// Marks the Test as Failed on BrowserStack
         /// </summary>
+        /// <param name="client">The client.</param>
         /// <returns>KoloQA Instance</returns>
         public KoloQA BrowserStackMarkTestFailed(BrowserStackBrowsers client)
         {
@@ -2830,6 +3034,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         #endregion
 
         #region GdsPageIndexing
+        /// <summary>
+        /// Index GDS page model as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageModelName">Name of the page model.</param>
+        /// <param name="Element">The element.</param>
+        /// <param name="Ignores">The ignores.</param>
+        /// <returns>A Task&lt;KoloQA&gt; representing the asynchronous operation.</returns>
         public async Task<KoloQA> IndexGdsPageModelAsync(string PageModelName, string Element = "", List<string> Ignores = null)
         {
             if (TestContext.Parameters["GeneratePages"] == "true")

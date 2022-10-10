@@ -1,4 +1,17 @@
-﻿using System.Text;
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 07-01-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 07-01-2022
+// ***********************************************************************
+// <copyright file="GdsHtmlPage.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Text;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
@@ -12,9 +25,9 @@ public static class GdsHtmlPage
     /// <summary>
     /// Create a HTML page with page title
     /// </summary>
-    /// <param name="pageTitle"></param>
-    /// <param name="customBodyContent"></param>
-    /// <returns></returns>
+    /// <param name="pageTitle">The page title.</param>
+    /// <param name="customBodyContent">Content of the custom body.</param>
+    /// <returns>System.String.</returns>
     public static string CreateGdsHtmlPage(string pageTitle, string customBodyContent = "")
     {
         return $@"<!DOCTYPE html>
@@ -120,7 +133,7 @@ public static class GdsHtmlPage
     /// </summary>
     /// <param name="pageContent">HTML page content of report</param>
     /// <param name="pageName">Page name of report</param>
-    /// <returns></returns>
+    /// <returns>System.String.</returns>
     public static string ApplyGdsStylingToAccessibilityReport(string pageContent, string pageName)
     {
         var gdsHeaderTag = @"

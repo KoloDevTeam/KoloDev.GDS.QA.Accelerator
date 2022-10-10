@@ -1,4 +1,17 @@
-﻿using Fizzler.Systems.HtmlAgilityPack;
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 07-14-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 07-14-2022
+// ***********************************************************************
+// <copyright file="GdsPageModelGenerator.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using KoloDev.GDS.QA.Accelerator.Data;
 using Newtonsoft.Json;
@@ -7,8 +20,18 @@ using OpenQA.Selenium;
 
 namespace KoloDev.GDS.QA.Accelerator.Utility
 {
+    /// <summary>
+    /// Class GdsPageModelGenerator.
+    /// </summary>
     public class GdsPageModelGenerator
     {
+        /// <summary>
+        /// GDS page generator as an asynchronous operation.
+        /// </summary>
+        /// <param name="driver">The driver.</param>
+        /// <param name="element">The element.</param>
+        /// <param name="ignores">The ignores.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> GDSPageGeneratorAsync(IWebDriver driver, string element = "", List<string> ignores = null)
         {
             string PageHtml;
@@ -46,6 +69,11 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             // Console.WriteLine(pagejson);
             return pageModel;
         }
+        /// <summary>
+        /// Gets the text from page.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="pageModel">The page model.</param>
         public void GetTextFromPage(string PageHtml, GdsPageModel pageModel)
         {
             try
@@ -70,6 +98,11 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 
             }
         }
+        /// <summary>
+        /// Counts the HTML nodes.
+        /// </summary>
+        /// <param name="nodes">The nodes.</param>
+        /// <returns>System.Int32.</returns>
         public static int CountHtmlNodes(IEnumerable<HtmlNode> nodes)
         {
             int count = 0;
@@ -79,6 +112,12 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return count;
         }
+        /// <summary>
+        /// Accordians the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPage">The g ds page.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel AccordianDetect(string PageHtml, GdsPageModel gDSPage)
         {
             var pagemaster = new HtmlDocument();
@@ -159,6 +198,13 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
+        /// <summary>
+        /// Back link detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPage">The g ds page.</param>
+        /// <param name="ignores">The ignores.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> BackLinkDetectAsync(string PageHtml, GdsPageModel gDSPage, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
@@ -175,6 +221,12 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
+        /// <summary>
+        /// Bread crumbs detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPage">The g ds page.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> BreadCrumbsDetectAsync(string PageHtml, GdsPageModel gDSPage)
         {
             var pagemaster = new HtmlDocument();
@@ -222,6 +274,13 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
+        /// <summary>
+        /// Buttton detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPage">The g ds page.</param>
+        /// <param name="ignores">The ignores.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> ButttonDetectAsync(string PageHtml, GdsPageModel gDSPage, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
@@ -356,6 +415,13 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPage;
         }
+        /// <summary>
+        /// Checkbox detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <param name="ignores">The ignores.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> CheckboxDetectAsync(string PageHtml, GdsPageModel gDSPageModel, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
@@ -455,6 +521,12 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+        /// <summary>
+        /// Date input detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> DateInputDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
         {
             var pagemaster = new HtmlDocument();
@@ -557,6 +629,12 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+        /// <summary>
+        /// Details detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> DetailsDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
         {
             var pagemaster = new HtmlDocument();
@@ -580,42 +658,102 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+        /// <summary>
+        /// Errors the messages detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel ErrorMessagesDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Summaries the errors detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel SummaryErrorsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Files the uploads detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel FileUploadsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Footers the present detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel FooterPresentDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Headers the present detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel HeaderPresentDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Headers the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel HeaderDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Insets the texts detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel InsetTextsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Panelses the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel PanelsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Phases the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel PhaseDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Radios detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> RadiosDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
         {
             var pagemaster = new HtmlDocument();
@@ -731,6 +869,13 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+        /// <summary>
+        /// Selects detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <param name="ignores">The ignores.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> SelectsDetectAsync(string PageHtml, GdsPageModel gDSPageModel, List<string> ignores = null)
         {
             var pagemaster = new HtmlDocument();
@@ -834,26 +979,62 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             }
             return gDSPageModel;
         }
+        /// <summary>
+        /// Skips the link detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel SkipLinkDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Summaries the lists detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel SummaryListsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Tableses the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel TablesDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Tabses the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel TabsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Tagses the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel TagsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Text inputs detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> TextInputsDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
         {
             var pagemaster = new HtmlDocument();
@@ -991,10 +1172,22 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
         //        TestContext.WriteLine("KoloQA: Failure to process TextAreas");
         //    }
         //}
+        /// <summary>
+        /// Warningses the detect.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>GdsPageModel.</returns>
         public GdsPageModel WarningsDetect(string PageHtml, GdsPageModel gDSPageModel)
         {
             return gDSPageModel;
         }
+        /// <summary>
+        /// Hyper links detect as an asynchronous operation.
+        /// </summary>
+        /// <param name="PageHtml">The page HTML.</param>
+        /// <param name="gDSPageModel">The g ds page model.</param>
+        /// <returns>A Task&lt;GdsPageModel&gt; representing the asynchronous operation.</returns>
         public async Task<GdsPageModel> HyperLinksDetectAsync(string PageHtml, GdsPageModel gDSPageModel)
         {
             var pagemaster = new HtmlDocument();
@@ -1132,11 +1325,21 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
 
             return gDSPageModel;
         }
+        /// <summary>
+        /// Determines whether [is absolute URL] [the specified URL].
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns><c>true</c> if [is absolute URL] [the specified URL]; otherwise, <c>false</c>.</returns>
         public static bool IsAbsoluteUrl(string url)
         {
             Uri result;
             return Uri.TryCreate(url, UriKind.Relative, out result);
         }
+        /// <summary>
+        /// Determines whether the specified URL is parameter.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns><c>true</c> if the specified URL is parameter; otherwise, <c>false</c>.</returns>
         public static bool IsParameter(string url)
         {
             bool result = url.Trim().StartsWith("?");

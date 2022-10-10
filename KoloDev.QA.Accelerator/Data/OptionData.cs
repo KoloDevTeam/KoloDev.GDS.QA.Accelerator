@@ -1,4 +1,17 @@
-﻿namespace KoloDev.GDS.QA.Accelerator.Data
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 02-07-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 06-28-2022
+// ***********************************************************************
+// <copyright file="OptionData.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace KoloDev.GDS.QA.Accelerator.Data
 {
     /// <summary>
     /// WCAG Level to be used for Accessibility
@@ -148,7 +161,7 @@
         /// </summary>
         SamsungGalaxyAndroidPortrait,
         /// <summary>
-        /// iPad Landscape 
+        /// iPad Landscape
         /// </summary>
         iPadLandscape,
         /// <summary>

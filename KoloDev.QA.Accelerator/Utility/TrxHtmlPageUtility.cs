@@ -1,4 +1,17 @@
-﻿using System.Text;
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 08-18-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 08-25-2022
+// ***********************************************************************
+// <copyright file="TrxHtmlPageUtility.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Text;
 using TRexLib;
 
 namespace KoloDev.GDS.QA.Accelerator.Utility;
@@ -11,7 +24,7 @@ public static class TrxHtmlPageUtility
     /// <summary>
     /// TRX file to HTML via it's FileInfo
     /// </summary>
-    /// <param name="file"></param>
+    /// <param name="file">The file.</param>
     public static void TrxToHtml(this FileInfo file)
     {
         ProcessTrx(file);
@@ -20,7 +33,8 @@ public static class TrxHtmlPageUtility
     /// <summary>
     /// TRX file to HTML via it's location
     /// </summary>
-    /// <param name="fileLocation"></param>
+    /// <param name="fileLocation">The file location.</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     /// <exception cref="FileNotFoundException"></exception>
     public static async Task TrxToHtmlAsync(string fileLocation)
     {
@@ -30,6 +44,12 @@ public static class TrxHtmlPageUtility
         ProcessTrx(file);
     }
 
+    /// <summary>
+    /// Waits for file.
+    /// </summary>
+    /// <param name="path">The path.</param>
+    /// <param name="timeout">The timeout.</param>
+    /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     private static async Task<bool> WaitForFile(string path, TimeSpan timeout)
     {
         DateTimeOffset timeoutAt = DateTimeOffset.UtcNow + timeout;
@@ -41,6 +61,10 @@ public static class TrxHtmlPageUtility
         }
     }
 
+    /// <summary>
+    /// Processes the TRX.
+    /// </summary>
+    /// <param name="file">The file.</param>
     private static void ProcessTrx(FileInfo file)
     {
         var trxResultSet = file.Parse();
@@ -64,6 +88,11 @@ public static class TrxHtmlPageUtility
         File.WriteAllText(@"TestResults\" + Path.GetFileNameWithoutExtension(file.Name) + ".html", template);
     }
 
+    /// <summary>
+    /// Gets the GDS tag for outcome.
+    /// </summary>
+    /// <param name="outcome">The outcome.</param>
+    /// <returns>System.String.</returns>
     private static string GetGdsTagForOutcome(TestOutcome outcome)
     {
         return outcome switch
@@ -78,6 +107,12 @@ public static class TrxHtmlPageUtility
         };
     }
 
+    /// <summary>
+    /// Creates the result set accordion.
+    /// </summary>
+    /// <param name="testResults">The test results.</param>
+    /// <param name="type">The type.</param>
+    /// <returns>System.String.</returns>
     private static string CreateResultSetAccordion(IReadOnlyCollection<TestResult> testResults, TestOutcome type)
     {
         // If there are no results then we need to return an inset text to inform
@@ -122,6 +157,12 @@ public static class TrxHtmlPageUtility
         return content.ToString();
     }
 
+    /// <summary>
+    /// Adds the spaces to sentence.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <param name="preserveAcronyms">if set to <c>true</c> [preserve acronyms].</param>
+    /// <returns>System.String.</returns>
     private static string AddSpacesToSentence(string text, bool preserveAcronyms)
     {
         if (string.IsNullOrWhiteSpace(text))

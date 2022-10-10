@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="5ae05f9a-d173-4912-b872-ea06a76d7411" Title="KoloDev.GDS.QA.Accelerator Namespace" Url="html/N-KoloDev.GDS.QA.Accelerator.htm">
+    <HelpTOCNode Id="8d97ea9a-0819-453f-865a-c663d4d87e29" Title="KoloQA Class" Url="html/T-KoloDev.GDS.QA.Accelerator.KoloQA.htm">
+      <HelpTOCNode Title="KoloQA Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.KoloQA.htm" />
+      <HelpTOCNode Id="3395070d-fa20-4f91-aed0-d070668a71b2" Title="KoloQA Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.KoloQA.htm">
+        <HelpTOCNode Title="AccessibilityOnPage Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.AccessibilityOnPage.htm" />
+        <HelpTOCNode Title="AccessibilityOnPageJson Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.AccessibilityOnPageJson.htm" />
+        <HelpTOCNode Title="AddStepToTestCase Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.AddStepToTestCase.htm" />
+        <HelpTOCNode Title="AzureDevopsRaiseDefect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.AzureDevopsRaiseDefect.htm" />
+        <HelpTOCNode Title="BrowserstackAccessKey Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserstackAccessKey.htm" />
+        <HelpTOCNode Title="BrowserstackBuildName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserstackBuildName.htm" />
+        <HelpTOCNode Title="BrowserStackDownloadVideos Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserStackDownloadVideos.htm" />
+        <HelpTOCNode Title="BrowserStackMarkTestFailed Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserStackMarkTestFailed.htm" />
+        <HelpTOCNode Title="BrowserStackMarkTestPassed Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserStackMarkTestPassed.htm" />
+        <HelpTOCNode Title="BrowserstackProjectName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserstackProjectName.htm" />
+        <HelpTOCNode Title="BrowserStackSession Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserStackSession.htm" />
+        <HelpTOCNode Title="BrowserstackTestName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserstackTestName.htm" />
+        <HelpTOCNode Title="BrowserstackUserName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.BrowserstackUserName.htm" />
+        <HelpTOCNode Title="CheckIfFileExists Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.CheckIfFileExists.htm" />
+        <HelpTOCNode Title="ClickById Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ClickById.htm" />
+        <HelpTOCNode Title="ClickLinkByLinkText Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ClickLinkByLinkText.htm" />
+        <HelpTOCNode Title="ClickLinkByPartialLinkText Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ClickLinkByPartialLinkText.htm" />
+        <HelpTOCNode Title="CloseBrowser Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.CloseBrowser.htm" />
+        <HelpTOCNode Title="CloseBrowserStackLocalConnection Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.CloseBrowserStackLocalConnection.htm" />
+        <HelpTOCNode Title="DisposeBrowser Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DisposeBrowser.htm" />
+        <HelpTOCNode Title="DropDownByCSSSelectorThenSelectValue Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DropDownByCSSSelectorThenSelectValue.htm" />
+        <HelpTOCNode Title="DropDownByCSSSelectorThenSelectValueWithoutScroll Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DropDownByCSSSelectorThenSelectValueWithoutScroll.htm" />
+        <HelpTOCNode Title="DropDownByIdThenSelectValue Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DropDownByIdThenSelectValue.htm" />
+        <HelpTOCNode Title="DropDownByNameThenSelectValue Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DropDownByNameThenSelectValue.htm" />
+        <HelpTOCNode Title="DropDownByXpathThenSelectValue Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.DropDownByXpathThenSelectValue.htm" />
+        <HelpTOCNode Title="FindByCssSelectorClearInputField Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByCssSelectorClearInputField.htm" />
+        <HelpTOCNode Title="FindByCSSSelectorThenPressEnter Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByCSSSelectorThenPressEnter.htm" />
+        <HelpTOCNode Title="FindByCSSSelectorThenType Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByCSSSelectorThenType.htm" />
+        <HelpTOCNode Title="FindByIdClearInputField Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByIdClearInputField.htm" />
+        <HelpTOCNode Title="FindByIdThenType Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByIdThenType.htm" />
+        <HelpTOCNode Title="FindByXPathThenType Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindByXPathThenType.htm" />
+        <HelpTOCNode Title="FindCSSSelectorNearThenClick Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindCSSSelectorNearThenClick.htm" />
+        <HelpTOCNode Title="FindCSSSelectorThenClick Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindCSSSelectorThenClick.htm" />
+        <HelpTOCNode Title="FindCSSSelectorThenClickWithOffset Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindCSSSelectorThenClickWithOffset.htm" />
+        <HelpTOCNode Title="FindCSSSelectorThenClickWithoutScrollIntoView Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindCSSSelectorThenClickWithoutScrollIntoView.htm" />
+        <HelpTOCNode Title="FindLinkTextThenClick Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindLinkTextThenClick.htm" />
+        <HelpTOCNode Title="FindListOfValuesByCSS Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindListOfValuesByCSS.htm" />
+        <HelpTOCNode Title="FindListOfValuesByXPath Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindListOfValuesByXPath.htm" />
+        <HelpTOCNode Title="FindXPathThenClick Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindXPathThenClick.htm" />
+        <HelpTOCNode Title="FindXPathThenClickFailFast Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindXPathThenClickFailFast.htm" />
+        <HelpTOCNode Title="FindXPathThenClickWithoutScrollIntoView Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindXPathThenClickWithoutScrollIntoView.htm" />
+        <HelpTOCNode Title="FindXPathTypeThenTabThenType Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FindXPathTypeThenTabThenType.htm" />
+        <HelpTOCNode Title="FluentWaitByIdReturnElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FluentWaitByIdReturnElement.htm" />
+        <HelpTOCNode Title="FluentWaitByNameReturnElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.FluentWaitByNameReturnElement.htm" />
+        <HelpTOCNode Title="GetFileProperties Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetFileProperties.htm" />
+        <HelpTOCNode Title="GetListOfElementsBeneathXPath Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetListOfElementsBeneathXPath.htm" />
+        <HelpTOCNode Title="GetListOfElementsByXPath Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetListOfElementsByXPath.htm" />
+        <HelpTOCNode Title="GetTextOfCSSElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetTextOfCSSElement.htm" />
+        <HelpTOCNode Title="GetTextOfXPathElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetTextOfXPathElement.htm" />
+        <HelpTOCNode Title="GetXpathFromCSS Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GetXpathFromCSS.htm" />
+        <HelpTOCNode Title="GoBack Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GoBack.htm" />
+        <HelpTOCNode Title="GoForward Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.GoForward.htm" />
+        <HelpTOCNode Title="IndexGdsPageModelAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.IndexGdsPageModelAsync.htm" />
+        <HelpTOCNode Title="LaunchChrome Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.LaunchChrome.htm" />
+        <HelpTOCNode Title="LaunchChromeDeviceMode Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.LaunchChromeDeviceMode.htm" />
+        <HelpTOCNode Title="LocalTestRun Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.LocalTestRun.htm" />
+        <HelpTOCNode Title="MaximiseBrowser Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.MaximiseBrowser.htm" />
+        <HelpTOCNode Title="OpenBrowserStackLocalConnection Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.OpenBrowserStackLocalConnection.htm" />
+        <HelpTOCNode Title="OpenURL Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.OpenURL.htm" />
+        <HelpTOCNode Title="OutputCompletedStepsToThisPoint Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.OutputCompletedStepsToThisPoint.htm" />
+        <HelpTOCNode Title="PageContainsText Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.PageContainsText.htm" />
+        <HelpTOCNode Title="PageTitleEquals Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.PageTitleEquals.htm" />
+        <HelpTOCNode Title="QuitSession Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.QuitSession.htm" />
+        <HelpTOCNode Title="RandomString Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.RandomString.htm" />
+        <HelpTOCNode Title="RefreshPage Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.RefreshPage.htm" />
+        <HelpTOCNode Title="SaveScreenshotPNG Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SaveScreenshotPNG.htm" />
+        <HelpTOCNode Title="ScrollDownSpecificPixel Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollDownSpecificPixel.htm" />
+        <HelpTOCNode Title="ScrollIntoView Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoView.htm" />
+        <HelpTOCNode Title="ScrollIntoViewAndClick Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoViewAndClick.htm" />
+        <HelpTOCNode Title="ScrollIntoViewAndType Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoViewAndType.htm" />
+        <HelpTOCNode Title="ScrollIntoViewAndTypeThenTab Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoViewAndTypeThenTab.htm" />
+        <HelpTOCNode Title="ScrollIntoViewAndTypeThePressEnter Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoViewAndTypeThePressEnter.htm" />
+        <HelpTOCNode Title="ScrollIntoViewUsingJavaScript Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ScrollIntoViewUsingJavaScript.htm" />
+        <HelpTOCNode Title="SetAsyncExecuteScriptTimeout Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SetAsyncExecuteScriptTimeout.htm" />
+        <HelpTOCNode Title="SetImplicitTimeout Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SetImplicitTimeout.htm" />
+        <HelpTOCNode Title="SetImplicitWait Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SetImplicitWait.htm" />
+        <HelpTOCNode Title="SetNunitTestContext Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SetNunitTestContext.htm" />
+        <HelpTOCNode Title="SetPageLoadTimeout Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.SetPageLoadTimeout.htm" />
+        <HelpTOCNode Title="UploadFileById Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.UploadFileById.htm" />
+        <HelpTOCNode Title="UploadFileByName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.UploadFileByName.htm" />
+        <HelpTOCNode Title="ValidateTextOfCSSElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ValidateTextOfCSSElement.htm" />
+        <HelpTOCNode Title="ValidateTextOfXPathElement Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.ValidateTextOfXPathElement.htm" />
+        <HelpTOCNode Title="WaitForText Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WaitForText.htm" />
+        <HelpTOCNode Title="WaitInMilliseconds Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WaitInMilliseconds.htm" />
+        <HelpTOCNode Title="WaitUntilElementExists Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WaitUntilElementExists.htm" />
+        <HelpTOCNode Title="WaitUntilPageFullyLoaded Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WaitUntilPageFullyLoaded.htm" />
+        <HelpTOCNode Title="WriteFileToLocal Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WriteFileToLocal.htm" />
+        <HelpTOCNode Title="WriteOutput Method " Url="html/M-KoloDev.GDS.QA.Accelerator.KoloQA.WriteOutput.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c4814a3a-c204-4ef1-b71c-2506a2b23a9e" Title="KoloQA Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.KoloQA.htm">
+        <HelpTOCNode Title="TestSuite Property " Url="html/P-KoloDev.GDS.QA.Accelerator.KoloQA.TestSuite.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="76c3d71f-e288-46f5-91e4-ae1b3b194479" Title="ScreenShotRemoteWebDriver Class" Url="html/T-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.htm">
+      <HelpTOCNode Title="ScreenShotRemoteWebDriver Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.htm" />
+      <HelpTOCNode Id="761866d7-bd61-4d0d-a7cb-c961b44500b1" Title="ScreenShotRemoteWebDriver Constructor " Url="html/Overload-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.-ctor.htm">
+        <HelpTOCNode Title="ScreenShotRemoteWebDriver Constructor (Uri, DriverOptions)" Url="html/M-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.-ctor.htm" />
+        <HelpTOCNode Title="ScreenShotRemoteWebDriver Constructor (Uri, ICapabilities, TimeSpan)" Url="html/M-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="cf8dbf8a-7dfc-4f29-bf3e-e133b962c2bd" Title="ScreenShotRemoteWebDriver Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.htm">
+        <HelpTOCNode Title="GetScreenshot Method " Url="html/M-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.GetScreenshot.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ScreenShotRemoteWebDriver Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.ScreenShotRemoteWebDriver.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="cbf5308d-662d-42da-91ec-7393ff87d28f" Title="KoloDev.GDS.QA.Accelerator.ADO Namespace" Url="html/N-KoloDev.GDS.QA.Accelerator.ADO.htm">
+    <HelpTOCNode Id="735d9891-ca8e-4b2f-be44-15acd0c05b56" Title="AzureDevopsClient Class" Url="html/T-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.htm">
+      <HelpTOCNode Title="AzureDevopsClient Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.htm" />
+      <HelpTOCNode Id="2bb96a40-c7f5-4b22-bf44-48460c2263d2" Title="AzureDevopsClient Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.htm">
+        <HelpTOCNode Title="CreateConnection Method " Url="html/M-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.CreateConnection.htm" />
+        <HelpTOCNode Title="GetAllWorkItemsReadyToRelease Method " Url="html/M-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.GetAllWorkItemsReadyToRelease.htm" />
+        <HelpTOCNode Title="GetWikiByName Method " Url="html/M-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.GetWikiByName.htm" />
+        <HelpTOCNode Title="GetWorkItemDetail Method " Url="html/M-KoloDev.GDS.QA.Accelerator.ADO.AzureDevopsClient.GetWorkItemDetail.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="b2ea6c79-48fe-488b-9dad-abcbaf1f67de" Title="KoloDev.GDS.QA.Accelerator.Data Namespace" Url="html/N-KoloDev.GDS.QA.Accelerator.Data.htm">
+    <HelpTOCNode Id="00119586-39e7-42fa-9534-86e8d2d42c0a" Title="Accordian Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Accordian.htm">
+      <HelpTOCNode Title="Accordian Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Accordian.htm" />
+      <HelpTOCNode Title="Accordian Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Accordian.htm" />
+      <HelpTOCNode Id="992e3500-eb9a-4bae-9a5e-7eb303588deb" Title="Accordian Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Accordian.htm">
+        <HelpTOCNode Title="Entries Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.Entries.htm" />
+        <HelpTOCNode Title="EntryCount Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.EntryCount.htm" />
+        <HelpTOCNode Title="ID Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.ID.htm" />
+        <HelpTOCNode Title="OpenallLink Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.OpenallLink.htm" />
+        <HelpTOCNode Title="OpenallLinkAriaActive Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.OpenallLinkAriaActive.htm" />
+        <HelpTOCNode Title="OpenallLinkClass Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.OpenallLinkClass.htm" />
+        <HelpTOCNode Title="OpenallLinkText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Accordian.OpenallLinkText.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f82e933a-04a8-4f1c-922e-44a3b9c6c043" Title="AccordianEntries Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.htm">
+      <HelpTOCNode Title="AccordianEntries Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.htm" />
+      <HelpTOCNode Title="AccordianEntries Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.htm" />
+      <HelpTOCNode Id="5ed6021e-795b-4daa-9e67-d02e9e532b72" Title="AccordianEntries Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.htm">
+        <HelpTOCNode Title="EntryContent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.EntryContent.htm" />
+        <HelpTOCNode Title="EntryText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.EntryText.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.Id.htm" />
+        <HelpTOCNode Title="OtherContentThanTextPresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.AccordianEntries.OtherContentThanTextPresent.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="17316773-bdc5-4d27-a0ee-bb32e00a7c9f" Title="Breadcrumb Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.htm">
+      <HelpTOCNode Title="Breadcrumb Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.htm" />
+      <HelpTOCNode Title="Breadcrumb Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.htm" />
+      <HelpTOCNode Id="fb54ce79-ba51-4c53-8d69-84115c8237d2" Title="Breadcrumb Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.htm">
+        <HelpTOCNode Title="BreadCrumbLink Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.BreadCrumbLink.htm" />
+        <HelpTOCNode Title="BreadCrumbText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.BreadCrumbText.htm" />
+        <HelpTOCNode Title="PresentPage Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Breadcrumb.PresentPage.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="BrowserStackBrowsers Enumeration" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackBrowsers.htm" />
+    <HelpTOCNode Id="79c5fdbb-9cd6-46b5-a803-19a96ddf8a8a" Title="BrowserStackModels Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.htm">
+      <HelpTOCNode Title="BrowserStackModels Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="a4e15c41-4a15-4cdb-ac22-9714d4b255d9" Title="BrowserStackModels.AutomationBuild Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.htm">
+      <HelpTOCNode Title="BrowserStackModels.AutomationBuild Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.htm" />
+      <HelpTOCNode Title="BrowserStackModels.AutomationBuild Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.htm" />
+      <HelpTOCNode Id="c1074993-3c90-4b4b-80f2-26b04a8797a9" Title="BrowserStackModels.AutomationBuild Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.htm">
+        <HelpTOCNode Title="BuildTag Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.BuildTag.htm" />
+        <HelpTOCNode Title="Duration Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.Duration.htm" />
+        <HelpTOCNode Title="HashedId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.HashedId.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.Name.htm" />
+        <HelpTOCNode Title="Status Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationBuild.Status.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="cf3040b3-f75f-4d90-b1f9-11c7f9f36b52" Title="BrowserStackModels.AutomationSession Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.htm">
+      <HelpTOCNode Title="BrowserStackModels.AutomationSession Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.htm" />
+      <HelpTOCNode Title="BrowserStackModels.AutomationSession Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.htm" />
+      <HelpTOCNode Id="e1a1c9da-6d8a-4ebd-aa26-e52c87bad8a9" Title="BrowserStackModels.AutomationSession Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.htm">
+        <HelpTOCNode Title="AppiumLogsUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.AppiumLogsUrl.htm" />
+        <HelpTOCNode Title="Browser Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Browser.htm" />
+        <HelpTOCNode Title="BrowserConsoleLogsUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.BrowserConsoleLogsUrl.htm" />
+        <HelpTOCNode Title="BrowserstackStatus Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.BrowserstackStatus.htm" />
+        <HelpTOCNode Title="BrowserUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.BrowserUrl.htm" />
+        <HelpTOCNode Title="BrowserVersion Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.BrowserVersion.htm" />
+        <HelpTOCNode Title="BuildName Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.BuildName.htm" />
+        <HelpTOCNode Title="CreatedAt Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.CreatedAt.htm" />
+        <HelpTOCNode Title="Device Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Device.htm" />
+        <HelpTOCNode Title="Duration Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Duration.htm" />
+        <HelpTOCNode Title="HarLogsUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.HarLogsUrl.htm" />
+        <HelpTOCNode Title="HashedId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.HashedId.htm" />
+        <HelpTOCNode Title="Logs Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Logs.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Name.htm" />
+        <HelpTOCNode Title="Os Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Os.htm" />
+        <HelpTOCNode Title="OsVersion Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.OsVersion.htm" />
+        <HelpTOCNode Title="ProjectName Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.ProjectName.htm" />
+        <HelpTOCNode Title="PublicUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.PublicUrl.htm" />
+        <HelpTOCNode Title="Reason Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Reason.htm" />
+        <HelpTOCNode Title="SeleniumLogsUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.SeleniumLogsUrl.htm" />
+        <HelpTOCNode Title="Status Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.Status.htm" />
+        <HelpTOCNode Title="TestPriority Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.TestPriority.htm" />
+        <HelpTOCNode Title="VideoUrl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.AutomationSession.VideoUrl.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="22f73040-1d1f-4c92-8a4a-451244354463" Title="BrowserStackModels.Build Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Build.htm">
+      <HelpTOCNode Title="BrowserStackModels.Build Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Build.htm" />
+      <HelpTOCNode Title="BrowserStackModels.Build Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Build.htm" />
+      <HelpTOCNode Id="e05a2b2b-ce86-45ab-acc9-bb0b9983ac39" Title="BrowserStackModels.Build Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Build.htm">
+        <HelpTOCNode Title="AutomationBuild Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Build.AutomationBuild.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3b7ff5ac-72bc-4e8f-a1ce-6e8df48c8a98" Title="BrowserStackModels.Sessions Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Sessions.htm">
+      <HelpTOCNode Title="BrowserStackModels.Sessions Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Sessions.htm" />
+      <HelpTOCNode Title="BrowserStackModels.Sessions Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Sessions.htm" />
+      <HelpTOCNode Id="099a56f4-c11f-4b70-891c-98fea044d08d" Title="BrowserStackModels.Sessions Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Sessions.htm">
+        <HelpTOCNode Title="AutomationSession Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels.Sessions.AutomationSession.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="32318563-4508-4700-b24c-51b5401963ec" Title="Button Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Button.htm">
+      <HelpTOCNode Title="Button Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Button.htm" />
+      <HelpTOCNode Title="Button Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Button.htm" />
+      <HelpTOCNode Id="ea3c96a4-be92-402a-8470-c1daec329c88" Title="Button Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Button.htm">
+        <HelpTOCNode Title="ButtonText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.ButtonText.htm" />
+        <HelpTOCNode Title="Enabled Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.Enabled.htm" />
+        <HelpTOCNode Title="Form Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.Form.htm" />
+        <HelpTOCNode Title="ID Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.ID.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.Name.htm" />
+        <HelpTOCNode Title="PreventDoubleClick Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.PreventDoubleClick.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Button.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="af3a1be9-7f62-4f41-afb9-3271a6f3cc9d" Title="Checkbox Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Checkbox.htm">
+      <HelpTOCNode Title="Checkbox Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Checkbox.htm" />
+      <HelpTOCNode Title="Checkbox Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Checkbox.htm" />
+      <HelpTOCNode Id="c86ec567-a74a-4594-aa81-876e45db0360" Title="Checkbox Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Checkbox.htm">
+        <HelpTOCNode Title="Conditionalerrormessage Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Conditionalerrormessage.htm" />
+        <HelpTOCNode Title="Conditionalid Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Conditionalid.htm" />
+        <HelpTOCNode Title="Conditionalname Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Conditionalname.htm" />
+        <HelpTOCNode Title="Conditionaltype Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Conditionaltype.htm" />
+        <HelpTOCNode Title="Errormessage Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Errormessage.htm" />
+        <HelpTOCNode Title="Fieldset Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Fieldset.htm" />
+        <HelpTOCNode Title="Fieldsethint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Fieldsethint.htm" />
+        <HelpTOCNode Title="Form Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Form.htm" />
+        <HelpTOCNode Title="Hasconditional Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Hasconditional.htm" />
+        <HelpTOCNode Title="Hint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Hint.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Id.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Label.htm" />
+        <HelpTOCNode Title="Legend Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Legend.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Name.htm" />
+        <HelpTOCNode Title="Size Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Checkbox.Size.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="ChromeDeviceSim Enumeration" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.ChromeDeviceSim.htm" />
+    <HelpTOCNode Id="ff001bc6-ecd0-4a1f-9902-f8bacab70aa8" Title="Column Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Column.htm">
+      <HelpTOCNode Title="Column Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Column.htm" />
+      <HelpTOCNode Title="Column Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Column.htm" />
+      <HelpTOCNode Id="414791d5-8c33-4459-8088-12e0714de7e6" Title="Column Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Column.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Column.Class.htm" />
+        <HelpTOCNode Title="Title Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Column.Title.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ea32eb58-8604-427c-bdc8-c0cc5e0df7c9" Title="DateInput Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.DateInput.htm">
+      <HelpTOCNode Title="DateInput Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.DateInput.htm" />
+      <HelpTOCNode Title="DateInput Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.DateInput.htm" />
+      <HelpTOCNode Id="71f3731b-f268-40cd-97e6-43244b4de870" Title="DateInput Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.DateInput.htm">
+        <HelpTOCNode Title="Autocomplete Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Autocomplete.htm" />
+        <HelpTOCNode Title="AutocompletePresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.AutocompletePresent.htm" />
+        <HelpTOCNode Title="ErrorMessage Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.ErrorMessage.htm" />
+        <HelpTOCNode Title="FixedInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.FixedInput.htm" />
+        <HelpTOCNode Title="For Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.For.htm" />
+        <HelpTOCNode Title="Form Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Form.htm" />
+        <HelpTOCNode Title="Heading Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Heading.htm" />
+        <HelpTOCNode Title="Hint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Hint.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Id.htm" />
+        <HelpTOCNode Title="Legend Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Legend.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Name.htm" />
+        <HelpTOCNode Title="Pattern Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Pattern.htm" />
+        <HelpTOCNode Title="RegexInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.RegexInput.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.DateInput.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7dfc172c-60ef-4b1e-aa59-6ecfdedfe446" Title="Detail Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Detail.htm">
+      <HelpTOCNode Title="Detail Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Detail.htm" />
+      <HelpTOCNode Title="Detail Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Detail.htm" />
+      <HelpTOCNode Id="d845640e-486c-4f6d-8840-eea8d137794d" Title="Detail Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Detail.htm">
+        <HelpTOCNode Title="Description Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Detail.Description.htm" />
+        <HelpTOCNode Title="ShortText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Detail.ShortText.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="93307377-ddc2-40b5-8dae-662999647aef" Title="Error Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Error.htm">
+      <HelpTOCNode Title="Error Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Error.htm" />
+      <HelpTOCNode Title="Error Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Error.htm" />
+      <HelpTOCNode Id="aeb6c440-de3e-4959-886e-599c1a7055e9" Title="Error Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Error.htm">
+        <HelpTOCNode Title="AttachedTo Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Error.AttachedTo.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Error.Href.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Error.Id.htm" />
+        <HelpTOCNode Title="Message Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Error.Message.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8589d9a5-0e22-46cd-b758-cd3498ee86b1" Title="FieldSet Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.FieldSet.htm">
+      <HelpTOCNode Title="FieldSet Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.FieldSet.htm" />
+      <HelpTOCNode Title="FieldSet Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.FieldSet.htm" />
+      <HelpTOCNode Id="252b34a6-bbe8-4d35-9a8a-81f280d68ac9" Title="FieldSet Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.FieldSet.htm">
+        <HelpTOCNode Title="FormComponents Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FieldSet.FormComponents.htm" />
+        <HelpTOCNode Title="Heading Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FieldSet.Heading.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f26fef99-5d1a-43d5-b2ad-4e2598fd3d3c" Title="FileUpload Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.FileUpload.htm">
+      <HelpTOCNode Title="FileUpload Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.FileUpload.htm" />
+      <HelpTOCNode Title="FileUpload Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.FileUpload.htm" />
+      <HelpTOCNode Id="274893ed-de39-4e26-84ff-7e95765cd835" Title="FileUpload Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.FileUpload.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.Class.htm" />
+        <HelpTOCNode Title="FixedInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.FixedInput.htm" />
+        <HelpTOCNode Title="For Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.For.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.Id.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.Label.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.Name.htm" />
+        <HelpTOCNode Title="RegexInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.RegexInput.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FileUpload.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f7ae3248-3cc0-4a4f-8d60-cfaae5e90886" Title="FormComponent Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.FormComponent.htm">
+      <HelpTOCNode Title="FormComponent Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.FormComponent.htm" />
+      <HelpTOCNode Title="FormComponent Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.FormComponent.htm" />
+      <HelpTOCNode Id="4b63f5b8-adc0-46f7-ad9b-80cf9b085180" Title="FormComponent Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.FormComponent.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FormComponent.Class.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FormComponent.Id.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FormComponent.Name.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.FormComponent.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="522d74db-fdac-45fb-b696-dcc08710d204" Title="GdsPageModel Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.htm">
+      <HelpTOCNode Title="GdsPageModel Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.htm" />
+      <HelpTOCNode Title="GdsPageModel Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.htm" />
+      <HelpTOCNode Id="516bd77c-7b12-4d12-84a2-9584d9108a75" Title="GdsPageModel Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.htm">
+        <HelpTOCNode Title="Accordians Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Accordians.htm" />
+        <HelpTOCNode Title="BackLink Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.BackLink.htm" />
+        <HelpTOCNode Title="Breadcrumbs Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Breadcrumbs.htm" />
+        <HelpTOCNode Title="Buttons Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Buttons.htm" />
+        <HelpTOCNode Title="CheckBoxes Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.CheckBoxes.htm" />
+        <HelpTOCNode Title="DateInputs Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.DateInputs.htm" />
+        <HelpTOCNode Title="Details Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Details.htm" />
+        <HelpTOCNode Title="ErrorMessages Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.ErrorMessages.htm" />
+        <HelpTOCNode Title="FieldSets Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.FieldSets.htm" />
+        <HelpTOCNode Title="FileUploads Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.FileUploads.htm" />
+        <HelpTOCNode Title="FooterPresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.FooterPresent.htm" />
+        <HelpTOCNode Title="Header Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Header.htm" />
+        <HelpTOCNode Title="HeaderPresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.HeaderPresent.htm" />
+        <HelpTOCNode Title="HyperLinks Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.HyperLinks.htm" />
+        <HelpTOCNode Title="InsetTexts Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.InsetTexts.htm" />
+        <HelpTOCNode Title="PageType Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.PageType.htm" />
+        <HelpTOCNode Title="Panels Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Panels.htm" />
+        <HelpTOCNode Title="Patterns Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Patterns.htm" />
+        <HelpTOCNode Title="Phase Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Phase.htm" />
+        <HelpTOCNode Title="ProgressSteps Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.ProgressSteps.htm" />
+        <HelpTOCNode Title="Radios Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Radios.htm" />
+        <HelpTOCNode Title="Selects Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Selects.htm" />
+        <HelpTOCNode Title="SkipLink Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.SkipLink.htm" />
+        <HelpTOCNode Title="Spans Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Spans.htm" />
+        <HelpTOCNode Title="SummaryErrors Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.SummaryErrors.htm" />
+        <HelpTOCNode Title="SummaryLists Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.SummaryLists.htm" />
+        <HelpTOCNode Title="Tables Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Tables.htm" />
+        <HelpTOCNode Title="Tabs Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Tabs.htm" />
+        <HelpTOCNode Title="Tags Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Tags.htm" />
+        <HelpTOCNode Title="TextAreas Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.TextAreas.htm" />
+        <HelpTOCNode Title="TextInputs Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.TextInputs.htm" />
+        <HelpTOCNode Title="TextOnPage Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.TextOnPage.htm" />
+        <HelpTOCNode Title="Validator Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Validator.htm" />
+        <HelpTOCNode Title="Warnings Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.GdsPageModel.Warnings.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6edc6e51-29af-4b95-bc12-29a27747cc00" Title="Header Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Header.htm">
+      <HelpTOCNode Title="Header Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Header.htm" />
+      <HelpTOCNode Title="Header Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Header.htm" />
+      <HelpTOCNode Id="399c8ab6-4c2f-48ff-a691-f949a970ffb4" Title="Header Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Header.htm">
+        <HelpTOCNode Title="NavigationItems Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Header.NavigationItems.htm" />
+        <HelpTOCNode Title="ServiceName Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Header.ServiceName.htm" />
+        <HelpTOCNode Title="ShowHideButton Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Header.ShowHideButton.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Header.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1bfaa94f-fbea-464e-86bf-dc368511fa39" Title="HyperLink Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.HyperLink.htm">
+      <HelpTOCNode Title="HyperLink Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.HyperLink.htm" />
+      <HelpTOCNode Title="HyperLink Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.HyperLink.htm" />
+      <HelpTOCNode Id="1d5fe9e1-43c2-4ab5-a5f7-0b8ddb7d46f7" Title="HyperLink Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.HyperLink.htm">
+        <HelpTOCNode Title="AsssociatedControl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.AsssociatedControl.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.Href.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.Id.htm" />
+        <HelpTOCNode Title="IsParameter Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.IsParameter.htm" />
+        <HelpTOCNode Title="IsRelative Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.IsRelative.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.Name.htm" />
+        <HelpTOCNode Title="NoAssociatedControl Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.NoAssociatedControl.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.Text.htm" />
+        <HelpTOCNode Title="XPath Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.HyperLink.XPath.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fc8ecf41-ead2-4092-acb7-0f0e603d94bf" Title="InsetText Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.InsetText.htm">
+      <HelpTOCNode Title="InsetText Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.InsetText.htm" />
+      <HelpTOCNode Title="InsetText Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.InsetText.htm" />
+      <HelpTOCNode Id="1ae576dc-7cdf-4f24-a916-8b573ec70ebc" Title="InsetText Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.InsetText.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.InsetText.Class.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.InsetText.Text.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="1469e3e1-aa00-478d-a84e-af11e169c652" Title="KoloTestSuite Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.htm">
+      <HelpTOCNode Title="KoloTestSuite Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.htm" />
+      <HelpTOCNode Title="KoloTestSuite Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.htm" />
+      <HelpTOCNode Id="f7c69971-3930-4136-936f-080d36cd7692" Title="KoloTestSuite Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.htm">
+        <HelpTOCNode Title="TestCases Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.TestCases.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fc564d33-6439-4ea7-a10c-5e6ea17c8ff4" Title="KoloTestSuite.KoloTestCase Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.htm">
+      <HelpTOCNode Title="KoloTestSuite.KoloTestCase Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.htm" />
+      <HelpTOCNode Title="KoloTestSuite.KoloTestCase Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.htm" />
+      <HelpTOCNode Id="43e4a727-3a49-4e7a-bd54-e07d0f4f9ad8" Title="KoloTestSuite.KoloTestCase Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.htm">
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.Id.htm" />
+        <HelpTOCNode Title="TestSteps Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestCase.TestSteps.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="66420c13-3923-4f25-a215-9f08b9cff979" Title="KoloTestSuite.KoloTestSteps Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.htm">
+      <HelpTOCNode Title="KoloTestSuite.KoloTestSteps Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.htm" />
+      <HelpTOCNode Title="KoloTestSuite.KoloTestSteps Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.htm" />
+      <HelpTOCNode Id="e79a0081-2df1-4b81-8783-f0168630f743" Title="KoloTestSuite.KoloTestSteps Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.htm">
+        <HelpTOCNode Title="Description Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.Description.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.Name.htm" />
+        <HelpTOCNode Title="Passed Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.Passed.htm" />
+        <HelpTOCNode Title="StepNumber Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite.KoloTestSteps.StepNumber.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4ec80429-f17b-42a9-86be-39aac6cf030f" Title="NavigationItem Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.htm">
+      <HelpTOCNode Title="NavigationItem Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.htm" />
+      <HelpTOCNode Title="NavigationItem Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.htm" />
+      <HelpTOCNode Id="7152d62e-10f2-4709-a8d5-5d8cd192a0e2" Title="NavigationItem Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.Class.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.Href.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.NavigationItem.Text.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6ee10d73-0c9f-41f2-9aee-d9be650d564b" Title="Panel Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Panel.htm">
+      <HelpTOCNode Title="Panel Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Panel.htm" />
+      <HelpTOCNode Title="Panel Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Panel.htm" />
+      <HelpTOCNode Id="e007d1c5-c9c9-437c-a22e-7d4bb185ecb3" Title="Panel Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Panel.htm">
+        <HelpTOCNode Title="Body Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Panel.Body.htm" />
+        <HelpTOCNode Title="Header Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Panel.Header.htm" />
+        <HelpTOCNode Title="Important Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Panel.Important.htm" />
+        <HelpTOCNode Title="Reference Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Panel.Reference.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9ead0afb-a218-4ad6-bb71-699286069138" Title="Phase Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Phase.htm">
+      <HelpTOCNode Title="Phase Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Phase.htm" />
+      <HelpTOCNode Title="Phase Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Phase.htm" />
+      <HelpTOCNode Id="36c741b2-befc-4de3-bea2-9a6b06a2881d" Title="Phase Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Phase.htm">
+        <HelpTOCNode Title="BannerPresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Phase.BannerPresent.htm" />
+        <HelpTOCNode Title="BannerTag Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Phase.BannerTag.htm" />
+        <HelpTOCNode Title="BannerText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Phase.BannerText.htm" />
+        <HelpTOCNode Title="FeedbackLink Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Phase.FeedbackLink.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f97c667a-dc44-42b1-a051-dbcf5c002fce" Title="Radio Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Radio.htm">
+      <HelpTOCNode Title="Radio Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Radio.htm" />
+      <HelpTOCNode Title="Radio Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Radio.htm" />
+      <HelpTOCNode Id="21243752-3afb-49b6-8aed-c162b6a24124" Title="Radio Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Radio.htm">
+        <HelpTOCNode Title="ConditionalClass Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.ConditionalClass.htm" />
+        <HelpTOCNode Title="ConditionalId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.ConditionalId.htm" />
+        <HelpTOCNode Title="ConditionalName Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.ConditionalName.htm" />
+        <HelpTOCNode Title="ConditionalType Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.ConditionalType.htm" />
+        <HelpTOCNode Title="Fieldset Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Fieldset.htm" />
+        <HelpTOCNode Title="Fieldsethint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Fieldsethint.htm" />
+        <HelpTOCNode Title="For Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.For.htm" />
+        <HelpTOCNode Title="HasConditional Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.HasConditional.htm" />
+        <HelpTOCNode Title="Hint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Hint.htm" />
+        <HelpTOCNode Title="HintClass Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.HintClass.htm" />
+        <HelpTOCNode Title="HintId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.HintId.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Id.htm" />
+        <HelpTOCNode Title="Inline Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Inline.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Label.htm" />
+        <HelpTOCNode Title="Legend Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Legend.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Name.htm" />
+        <HelpTOCNode Title="Preselected Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Preselected.htm" />
+        <HelpTOCNode Title="RadioDividerAbove Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.RadioDividerAbove.htm" />
+        <HelpTOCNode Title="RadioDividerId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.RadioDividerId.htm" />
+        <HelpTOCNode Title="RadioDividerText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.RadioDividerText.htm" />
+        <HelpTOCNode Title="Size Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Size.htm" />
+        <HelpTOCNode Title="Stacked Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Stacked.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Type.htm" />
+        <HelpTOCNode Title="Value Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Radio.Value.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0a05209c-5838-4792-bbdf-d763bdb7971d" Title="Row Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Row.htm">
+      <HelpTOCNode Title="Row Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Row.htm" />
+      <HelpTOCNode Title="Row Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Row.htm" />
+      <HelpTOCNode Id="cd39afe8-3eb9-4162-9b89-39615df6eef8" Title="Row Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Row.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Row.Class.htm" />
+        <HelpTOCNode Title="FollowedBySeperator Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Row.FollowedBySeperator.htm" />
+        <HelpTOCNode Title="IsTag Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Row.IsTag.htm" />
+        <HelpTOCNode Title="Value Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Row.Value.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="a15eb5a3-1ecc-4890-bfdf-b1d11ea33ad9" Title="Select Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Select.htm">
+      <HelpTOCNode Title="Select Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Select.htm" />
+      <HelpTOCNode Title="Select Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Select.htm" />
+      <HelpTOCNode Id="e3cc7ff8-4d94-4873-bd48-122b0f773659" Title="Select Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Select.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.Class.htm" />
+        <HelpTOCNode Title="FixedInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.FixedInput.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.Id.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.Label.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.Name.htm" />
+        <HelpTOCNode Title="Options Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.Options.htm" />
+        <HelpTOCNode Title="RegexInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Select.RegexInput.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="68b24635-0ada-44b8-9124-a5c40d34424a" Title="SelectOption Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.SelectOption.htm">
+      <HelpTOCNode Title="SelectOption Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.SelectOption.htm" />
+      <HelpTOCNode Title="SelectOption Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.SelectOption.htm" />
+      <HelpTOCNode Id="c898b0f1-70d7-4024-8bbe-62c06e73bb0f" Title="SelectOption Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.SelectOption.htm">
+        <HelpTOCNode Title="FixedInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SelectOption.FixedInput.htm" />
+        <HelpTOCNode Title="RegexInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SelectOption.RegexInput.htm" />
+        <HelpTOCNode Title="Selected Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SelectOption.Selected.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SelectOption.Text.htm" />
+        <HelpTOCNode Title="Value Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SelectOption.Value.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="3cc2bf87-4628-4cc0-8785-cf86d2a27541" Title="SkipLink Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.SkipLink.htm">
+      <HelpTOCNode Title="SkipLink Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.SkipLink.htm" />
+      <HelpTOCNode Title="SkipLink Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.SkipLink.htm" />
+      <HelpTOCNode Id="56852cc6-0f4c-4e0f-bf9d-e73b9678e57c" Title="SkipLink Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.SkipLink.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SkipLink.Class.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SkipLink.Href.htm" />
+        <HelpTOCNode Title="LinkText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SkipLink.LinkText.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="71bae8cc-59c5-4b98-952b-009914dc7e44" Title="Span Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Span.htm">
+      <HelpTOCNode Title="Span Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Span.htm" />
+      <HelpTOCNode Title="Span Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Span.htm" />
+      <HelpTOCNode Id="3a876def-a750-4a5f-a103-a912e920157e" Title="Span Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Span.htm">
+        <HelpTOCNode Title="Identifier Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Span.Identifier.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Span.Text.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Span.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="93adfa8a-595b-4d06-91f4-e47857dfc748" Title="Step Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Step.htm">
+      <HelpTOCNode Title="Step Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Step.htm" />
+      <HelpTOCNode Title="Step Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Step.htm" />
+      <HelpTOCNode Id="6fe436e1-9718-4a9c-b054-392f7e7a347f" Title="Step Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Step.htm">
+        <HelpTOCNode Title="Action Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Step.Action.htm" />
+        <HelpTOCNode Title="Component Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Step.Component.htm" />
+        <HelpTOCNode Title="Identifier Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Step.Identifier.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Step.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="01d0f5f2-8ea6-43db-92a7-5a1da0b44c4d" Title="SummaryError Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.SummaryError.htm">
+      <HelpTOCNode Title="SummaryError Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.SummaryError.htm" />
+      <HelpTOCNode Title="SummaryError Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.SummaryError.htm" />
+      <HelpTOCNode Id="3f4e0f55-7828-49f8-a3d1-cd7a34dd9962" Title="SummaryError Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.SummaryError.htm">
+        <HelpTOCNode Title="Errors Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryError.Errors.htm" />
+        <HelpTOCNode Title="SummaryTitle Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryError.SummaryTitle.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="60570609-4ac1-4d12-8281-6cca91d20a09" Title="SummaryList Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.SummaryList.htm">
+      <HelpTOCNode Title="SummaryList Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.SummaryList.htm" />
+      <HelpTOCNode Title="SummaryList Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.SummaryList.htm" />
+      <HelpTOCNode Id="fe55ecd4-4bbe-4a46-be74-5ed89e8acdcd" Title="SummaryList Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.SummaryList.htm">
+        <HelpTOCNode Title="Rows Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryList.Rows.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0857486f-4d5f-44df-99b0-80b5160212d8" Title="SummaryListRow Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.htm">
+      <HelpTOCNode Title="SummaryListRow Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.htm" />
+      <HelpTOCNode Title="SummaryListRow Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.htm" />
+      <HelpTOCNode Id="cb902fbe-988b-4d4e-9a06-1ad9916fa5ff" Title="SummaryListRow Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.htm">
+        <HelpTOCNode Title="Actions Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.Actions.htm" />
+        <HelpTOCNode Title="Change Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.Change.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.Href.htm" />
+        <HelpTOCNode Title="Key Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.Key.htm" />
+        <HelpTOCNode Title="Value Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.SummaryListRow.Value.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d178988d-9609-47a5-acee-72f3f4910e6c" Title="Tab Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Tab.htm">
+      <HelpTOCNode Title="Tab Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Tab.htm" />
+      <HelpTOCNode Title="Tab Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Tab.htm" />
+      <HelpTOCNode Id="f23d280a-ee44-42f2-a342-31b03d3576d0" Title="Tab Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Tab.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.Class.htm" />
+        <HelpTOCNode Title="Href Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.Href.htm" />
+        <HelpTOCNode Title="Selected Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.Selected.htm" />
+        <HelpTOCNode Title="TabContent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.TabContent.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.Text.htm" />
+        <HelpTOCNode Title="Title Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tab.Title.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="aae03d1c-86f1-40c2-ac29-f9bb2f344cb8" Title="TabContent Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.TabContent.htm">
+      <HelpTOCNode Title="TabContent Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.TabContent.htm" />
+      <HelpTOCNode Title="TabContent Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.TabContent.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="87450f4d-7a4c-4bcd-a074-a48045c49b6b" Title="Table Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Table.htm">
+      <HelpTOCNode Title="Table Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Table.htm" />
+      <HelpTOCNode Title="Table Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Table.htm" />
+      <HelpTOCNode Id="c6635445-9584-426a-adb5-493e264e2709" Title="Table Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Table.htm">
+        <HelpTOCNode Title="Caption Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Table.Caption.htm" />
+        <HelpTOCNode Title="Columns Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Table.Columns.htm" />
+        <HelpTOCNode Title="Rows Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Table.Rows.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="83488505-fc0a-400e-a297-d435aa426166" Title="Tag Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Tag.htm">
+      <HelpTOCNode Title="Tag Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Tag.htm" />
+      <HelpTOCNode Title="Tag Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Tag.htm" />
+      <HelpTOCNode Id="de2fe96b-54c6-4e67-a436-6ea4a001cbc1" Title="Tag Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Tag.htm">
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tag.Class.htm" />
+        <HelpTOCNode Title="Colour Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tag.Colour.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Tag.Text.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="acdb7912-1ae8-4be3-a885-8d7f423634fb" Title="TextArea Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.TextArea.htm">
+      <HelpTOCNode Title="TextArea Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.TextArea.htm" />
+      <HelpTOCNode Title="TextArea Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.TextArea.htm" />
+      <HelpTOCNode Id="5d27e0f1-a497-44ba-ac8b-2c678b4fb8c8" Title="TextArea Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.TextArea.htm">
+        <HelpTOCNode Title="CharacterCount Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.CharacterCount.htm" />
+        <HelpTOCNode Title="CharacterCountNumber Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.CharacterCountNumber.htm" />
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.Class.htm" />
+        <HelpTOCNode Title="For Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.For.htm" />
+        <HelpTOCNode Title="HintClass Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.HintClass.htm" />
+        <HelpTOCNode Title="HintId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.HintId.htm" />
+        <HelpTOCNode Title="HintText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.HintText.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.Id.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.Label.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.Name.htm" />
+        <HelpTOCNode Title="Rows Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextArea.Rows.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0eca5980-2861-4baf-92f8-fbc8989307af" Title="TextInput Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.TextInput.htm">
+      <HelpTOCNode Title="TextInput Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.TextInput.htm" />
+      <HelpTOCNode Title="TextInput Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.TextInput.htm" />
+      <HelpTOCNode Id="ea1fdfed-5a42-4798-85ff-be5ebd93aa71" Title="TextInput Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.TextInput.htm">
+        <HelpTOCNode Title="AutoComplete Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.AutoComplete.htm" />
+        <HelpTOCNode Title="AutompleteType Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.AutompleteType.htm" />
+        <HelpTOCNode Title="Class Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Class.htm" />
+        <HelpTOCNode Title="CSSSelector Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.CSSSelector.htm" />
+        <HelpTOCNode Title="Fieldset Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Fieldset.htm" />
+        <HelpTOCNode Title="Fieldsethint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Fieldsethint.htm" />
+        <HelpTOCNode Title="FixedInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.FixedInput.htm" />
+        <HelpTOCNode Title="For Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.For.htm" />
+        <HelpTOCNode Title="Hint Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Hint.htm" />
+        <HelpTOCNode Title="HintText Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.HintText.htm" />
+        <HelpTOCNode Title="HintTextId Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.HintTextId.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Id.htm" />
+        <HelpTOCNode Title="InputType Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.InputType.htm" />
+        <HelpTOCNode Title="Label Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Label.htm" />
+        <HelpTOCNode Title="Legend Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Legend.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.Name.htm" />
+        <HelpTOCNode Title="RegexInput Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.RegexInput.htm" />
+        <HelpTOCNode Title="SpellCheckPresent Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.SpellCheckPresent.htm" />
+        <HelpTOCNode Title="SpellCheckValue Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.TextInput.SpellCheckValue.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="893917d5-0e34-48a3-b669-e39b205c74ef" Title="Validator Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Validator.htm">
+      <HelpTOCNode Title="Validator Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Validator.htm" />
+      <HelpTOCNode Title="Validator Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Validator.htm" />
+      <HelpTOCNode Id="fa3c1cd2-7406-4058-95f5-ee1a542d0eed" Title="Validator Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Validator.htm">
+        <HelpTOCNode Title="Fixed Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.Fixed.htm" />
+        <HelpTOCNode Title="FixedBased Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.FixedBased.htm" />
+        <HelpTOCNode Title="Identifier Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.Identifier.htm" />
+        <HelpTOCNode Title="Regex Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.Regex.htm" />
+        <HelpTOCNode Title="RegexBased Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.RegexBased.htm" />
+        <HelpTOCNode Title="Type Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Validator.Type.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="05b1dc40-370f-4b62-87b6-7c364b5ed7d4" Title="Warning Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.Warning.htm">
+      <HelpTOCNode Title="Warning Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Data.Warning.htm" />
+      <HelpTOCNode Title="Warning Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Data.Warning.htm" />
+      <HelpTOCNode Id="15b06940-eb4d-4f69-a50f-106240a4a10d" Title="Warning Properties" Url="html/Properties.T-KoloDev.GDS.QA.Accelerator.Data.Warning.htm">
+        <HelpTOCNode Title="AssociatedWith Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Warning.AssociatedWith.htm" />
+        <HelpTOCNode Title="Generic Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Warning.Generic.htm" />
+        <HelpTOCNode Title="Icon Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Warning.Icon.htm" />
+        <HelpTOCNode Title="Text Property " Url="html/P-KoloDev.GDS.QA.Accelerator.Data.Warning.Text.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="WcagLevel Enumeration" Url="html/T-KoloDev.GDS.QA.Accelerator.Data.WcagLevel.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="b54f1bdc-b1d0-4907-8ef1-e90a1a33f36f" Title="KoloDev.GDS.QA.Accelerator.Selenium Namespace" Url="html/N-KoloDev.GDS.QA.Accelerator.Selenium.htm">
+    <HelpTOCNode Id="be8f8860-d204-417f-b8a4-a92a881b3db1" Title="KoloControl Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.htm">
+      <HelpTOCNode Title="KoloControl Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.htm" />
+      <HelpTOCNode Id="46d870b1-ca81-4d37-84c4-06f5334aec59" Title="KoloControl Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.htm">
+        <HelpTOCNode Title="Checker Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.Checker.htm" />
+        <HelpTOCNode Title="GenerateInputMethods Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GenerateInputMethods.htm" />
+        <HelpTOCNode Title="GenerateKoloMethods Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GenerateKoloMethods.htm" />
+        <HelpTOCNode Title="GeneratePageClass Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GeneratePageClass.htm" />
+        <HelpTOCNode Title="GenerateSimplePageClass Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GenerateSimplePageClass.htm" />
+        <HelpTOCNode Title="GetScreenShotBase64String Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GetScreenShotBase64String.htm" />
+        <HelpTOCNode Title="GetTestVideos Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.GetTestVideos.htm" />
+        <HelpTOCNode Title="KoloTestWriteToLog Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.KoloTestWriteToLog.htm" />
+        <HelpTOCNode Title="RandomStringGenerator Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.RandomStringGenerator.htm" />
+        <HelpTOCNode Title="StringTranslater Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.StringTranslater.htm" />
+        <HelpTOCNode Title="TakeScreenshot Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Selenium.KoloControl.TakeScreenshot.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="9be202be-7562-4f6a-bdbc-97554eabc6a7" Title="KoloDev.GDS.QA.Accelerator.Utility Namespace" Url="html/N-KoloDev.GDS.QA.Accelerator.Utility.htm">
+    <HelpTOCNode Id="6f9c3796-f5f4-4c27-9f57-1d171d246791" Title="BugRaiser Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Utility.BugRaiser.htm">
+      <HelpTOCNode Title="BugRaiser Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Utility.BugRaiser.htm" />
+      <HelpTOCNode Title="BugRaiser Constructor " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.BugRaiser.-ctor.htm" />
+      <HelpTOCNode Id="55b06a13-ebb6-4247-9875-53b094bd86ce" Title="BugRaiser Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Utility.BugRaiser.htm">
+        <HelpTOCNode Title="CreateBugUsingClientLib Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.BugRaiser.CreateBugUsingClientLib.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="74714329-899e-4639-92e8-2357d1c4df7c" Title="GdsHtmlPage Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Utility.GdsHtmlPage.htm">
+      <HelpTOCNode Title="GdsHtmlPage Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Utility.GdsHtmlPage.htm" />
+      <HelpTOCNode Id="626d49e3-4c1c-4dc8-bcbd-c98135afd595" Title="GdsHtmlPage Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Utility.GdsHtmlPage.htm">
+        <HelpTOCNode Title="ApplyGdsStylingToAccessibilityReport Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsHtmlPage.ApplyGdsStylingToAccessibilityReport.htm" />
+        <HelpTOCNode Title="CreateGdsHtmlPage Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsHtmlPage.CreateGdsHtmlPage.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9bef5429-bbbc-477f-ad1b-5986459e5de0" Title="GdsPageModelGenerator Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.htm">
+      <HelpTOCNode Title="GdsPageModelGenerator Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.htm" />
+      <HelpTOCNode Id="7110487b-a2ef-4232-bf10-70a702df7675" Title="GdsPageModelGenerator Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.htm">
+        <HelpTOCNode Title="AccordianDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.AccordianDetect.htm" />
+        <HelpTOCNode Title="BackLinkDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.BackLinkDetectAsync.htm" />
+        <HelpTOCNode Title="BreadCrumbsDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.BreadCrumbsDetectAsync.htm" />
+        <HelpTOCNode Title="ButttonDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.ButttonDetectAsync.htm" />
+        <HelpTOCNode Title="CheckboxDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.CheckboxDetectAsync.htm" />
+        <HelpTOCNode Title="CountHtmlNodes Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.CountHtmlNodes.htm" />
+        <HelpTOCNode Title="DateInputDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.DateInputDetectAsync.htm" />
+        <HelpTOCNode Title="DetailsDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.DetailsDetectAsync.htm" />
+        <HelpTOCNode Title="ErrorMessagesDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.ErrorMessagesDetect.htm" />
+        <HelpTOCNode Title="FileUploadsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.FileUploadsDetect.htm" />
+        <HelpTOCNode Title="FooterPresentDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.FooterPresentDetect.htm" />
+        <HelpTOCNode Title="GDSPageGeneratorAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.GDSPageGeneratorAsync.htm" />
+        <HelpTOCNode Title="GetTextFromPage Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.GetTextFromPage.htm" />
+        <HelpTOCNode Title="HeaderDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.HeaderDetect.htm" />
+        <HelpTOCNode Title="HeaderPresentDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.HeaderPresentDetect.htm" />
+        <HelpTOCNode Title="HyperLinksDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.HyperLinksDetectAsync.htm" />
+        <HelpTOCNode Title="InsetTextsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.InsetTextsDetect.htm" />
+        <HelpTOCNode Title="IsAbsoluteUrl Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.IsAbsoluteUrl.htm" />
+        <HelpTOCNode Title="IsParameter Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.IsParameter.htm" />
+        <HelpTOCNode Title="PanelsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.PanelsDetect.htm" />
+        <HelpTOCNode Title="PhaseDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.PhaseDetect.htm" />
+        <HelpTOCNode Title="RadiosDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.RadiosDetectAsync.htm" />
+        <HelpTOCNode Title="SelectsDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.SelectsDetectAsync.htm" />
+        <HelpTOCNode Title="SkipLinkDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.SkipLinkDetect.htm" />
+        <HelpTOCNode Title="SummaryErrorsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.SummaryErrorsDetect.htm" />
+        <HelpTOCNode Title="SummaryListsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.SummaryListsDetect.htm" />
+        <HelpTOCNode Title="TablesDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.TablesDetect.htm" />
+        <HelpTOCNode Title="TabsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.TabsDetect.htm" />
+        <HelpTOCNode Title="TagsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.TagsDetect.htm" />
+        <HelpTOCNode Title="TextInputsDetectAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.TextInputsDetectAsync.htm" />
+        <HelpTOCNode Title="WarningsDetect Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.GdsPageModelGenerator.WarningsDetect.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4d4d7c88-e81f-4688-81cd-6db9cf25aea5" Title="QuerySelectorExtensions Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Utility.QuerySelectorExtensions.htm">
+      <HelpTOCNode Title="QuerySelectorExtensions Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Utility.QuerySelectorExtensions.htm" />
+      <HelpTOCNode Id="55a8b906-9afe-430a-900b-eb45e874d33a" Title="QuerySelectorExtensions Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Utility.QuerySelectorExtensions.htm">
+        <HelpTOCNode Title="NthOfTypeQuerySelector Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.QuerySelectorExtensions.NthOfTypeQuerySelector.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8c4858f6-1ef9-4013-a4ab-bf2f9cd9b5b0" Title="TrxHtmlPageUtility Class" Url="html/T-KoloDev.GDS.QA.Accelerator.Utility.TrxHtmlPageUtility.htm">
+      <HelpTOCNode Title="TrxHtmlPageUtility Members" Url="html/AllMembers.T-KoloDev.GDS.QA.Accelerator.Utility.TrxHtmlPageUtility.htm" />
+      <HelpTOCNode Id="a8c18143-5d31-4523-ad5f-3597213e38c8" Title="TrxHtmlPageUtility Methods" Url="html/Methods.T-KoloDev.GDS.QA.Accelerator.Utility.TrxHtmlPageUtility.htm">
+        <HelpTOCNode Title="TrxToHtml Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.TrxHtmlPageUtility.TrxToHtml.htm" />
+        <HelpTOCNode Title="TrxToHtmlAsync Method " Url="html/M-KoloDev.GDS.QA.Accelerator.Utility.TrxHtmlPageUtility.TrxToHtmlAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

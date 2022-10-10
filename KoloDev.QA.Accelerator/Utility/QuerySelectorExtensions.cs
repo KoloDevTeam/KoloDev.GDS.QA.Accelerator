@@ -1,17 +1,33 @@
-﻿using Fizzler.Systems.HtmlAgilityPack;
+﻿// ***********************************************************************
+// Assembly         : KoloDev.GDS.QA.Accelerator
+// Author           : KoloDev
+// Created          : 07-26-2022
+//
+// Last Modified By : KoloDev
+// Last Modified On : 07-26-2022
+// ***********************************************************************
+// <copyright file="QuerySelectorExtensions.cs" company="KoloDev Ltd.">
+//     Copyright © 2022 KoloDev Ltd. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 
 namespace KoloDev.GDS.QA.Accelerator.Utility
 {
+    /// <summary>
+    /// Class QuerySelectorExtensions.
+    /// </summary>
     public static class QuerySelectorExtensions
     {
         /// <summary>
-        /// Override to handle 
+        /// Override to handle
         /// </summary>
-        /// <param name="element"></param>
-        /// <param name="selector"></param>
-        /// <returns></returns>
+        /// <param name="element">The element.</param>
+        /// <param name="selector">The selector.</param>
+        /// <returns>HtmlNode.</returns>
         public static HtmlNode NthOfTypeQuerySelector(this HtmlNode element, string selector)
         {
             if (selector.Contains("nth-of-type"))
