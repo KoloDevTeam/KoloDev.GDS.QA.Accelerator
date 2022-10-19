@@ -2084,6 +2084,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
 
             try
             {
+                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
                 IWebElement link = Driver.FindElement(By.XPath(XPath));
                 ScrollIntoViewAndClick(link);
                 Console.ForegroundColor = ConsoleColor.Red;
