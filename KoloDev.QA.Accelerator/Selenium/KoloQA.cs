@@ -355,6 +355,7 @@ namespace KoloDev.GDS.QA.Accelerator
         {
             string randomString = KoloControl.RandomStringGenerator();
             return randomString;
+
         }
 
         /// <summary>
@@ -496,6 +497,26 @@ namespace KoloDev.GDS.QA.Accelerator
         {
             local.stop();
             TestContext.WriteLine("KoloQA: Closing Local Connection to Route traffic to protected services");
+            return this;
+        }
+
+        public KoloQA StartSession(BrowserStackBrowsers client)
+        {
+            try
+            {
+                BrowserStackSession(client);
+            }
+            catch
+            {
+                try
+                {
+                    BrowserStackSession(client);
+                }
+                catch(Exception e)
+                {
+                    TestContext.WriteLine("KoloQA: Retried Twice:  " + e.Message);
+                }
+            }
             return this;
         }
 
@@ -821,6 +842,7 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
             catch (Exception e)
             {
+
                 TestContext.WriteLine(e.Message);
                 System.Diagnostics.Debug.WriteLine(e.Message);
             }
