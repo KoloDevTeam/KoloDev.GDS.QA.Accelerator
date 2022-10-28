@@ -506,8 +506,9 @@ namespace KoloDev.GDS.QA.Accelerator
             {
                 BrowserStackSession(client);
             }
-            catch
+            catch(Exception ex)
             {
+                TestContext.WriteLine("KoloQA: Retried Twice:  " + ex.Message);
                 try
                 {
                     BrowserStackSession(client);
