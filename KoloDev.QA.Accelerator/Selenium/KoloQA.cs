@@ -758,13 +758,13 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 {
                     ChromeOptions capabilities = new ChromeOptions();
                     capabilities.BrowserVersion = "latest";
+                    Dictionary<string, object> win11chromeoptions = new Dictionary<string, object>();
                     browserstackOptions.Add("os", "Windows");
                     browserstackOptions.Add("osVersion", "11");
-                    Dictionary<string, object> safariOptions = new Dictionary<string, object>();
-                    safariOptions.Add("enablePopups", "true");
-                    safariOptions.Add("allowAllCookies", "true");
-                    browserstackOptions.Add("safari", safariOptions);
-                    capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
+                    browserstackOptions.Add("local", "false");
+                    browserstackOptions.Add("seleniumVersion", "4.5.0");
+                    browserstackOptions.Add("browserName", "Chrome");
+                    capabilities.AddAdditionalOption("bstack:options", win11chromeoptions);
 
                     Driver = new RemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
@@ -809,13 +809,14 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
                 {
                     ChromeOptions capabilities = new ChromeOptions();
                     capabilities.BrowserVersion = "latest";
+                    Dictionary<string, object> win10chrome = new Dictionary<string, object>();
                     browserstackOptions.Add("os", "Windows");
                     browserstackOptions.Add("osVersion", "10");
-                    Dictionary<string, object> safariOptions = new Dictionary<string, object>();
-                    safariOptions.Add("enablePopups", "true");
-                    safariOptions.Add("allowAllCookies", "true");
-                    browserstackOptions.Add("safari", safariOptions);
+                    browserstackOptions.Add("local", "false");
+                    browserstackOptions.Add("seleniumVersion", "4.5.0");
+                    browserstackOptions.Add("browserName", "Chrome");
                     capabilities.AddAdditionalOption("bstack:options", browserstackOptions);
+
 
                     Driver = new RemoteWebDriver(
                     new Uri("https://hub-cloud.browserstack.com/wd/hub/"), capabilities);
