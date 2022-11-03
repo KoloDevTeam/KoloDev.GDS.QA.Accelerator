@@ -231,6 +231,41 @@ namespace KoloDev.GDS.QA.Accelerator
             return this;
         }
 
+
+        /// <summary>
+        /// Check the Accessibility of the Page
+        /// </summary>
+        /// <param name="pageName">Name of the page.</param>
+        /// <param name="client">The client.</param>
+        /// <param name="wcagLevel">The wcag level.</param>
+        /// <returns>KoloQA.</returns>
+        public KoloQA AccessibilityOnPageAxeReport(string pageName, BrowserStackBrowsers client, WcagLevel wcagLevel = WcagLevel.wcag2aa)
+        {
+            if (TestContext.Parameters["Accessibility"] == "true" && !client.ToString().Contains("iP"))
+            {
+                try
+                {
+                    var folderName = @"TestResults";
+                    // If directory does not exist, create it
+                    if (!Directory.Exists(folderName))
+                    {
+                        Directory.CreateDirectory(folderName);
+                    }
+
+                    var axeResult = new AxeBuilder(Driver)
+                    .WithTags(wcagLevel.ToString())
+                    .Analyze();
+                    Driver.CreateAxeHtmlReport(axeResult, "TestResults/" + pageName + ".html");
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
+            return this;
+        }
+
+
         /// <summary>
         /// Accessibilities the on page json.
         /// </summary>
