@@ -843,9 +843,8 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
             }
             catch (Exception e)
             {
-
-                TestContext.WriteLine(e.Message);
-                System.Diagnostics.Debug.WriteLine(e.Message);
+                TestContext.WriteLine("KoloQA: Erro Starting " + e.Message);
+                throw e;
             }
 #pragma warning restore CS0618 // Type or member is obsolete
             //Driver = null;
