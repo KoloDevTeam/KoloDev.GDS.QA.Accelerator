@@ -293,7 +293,7 @@ namespace KoloDev.GDS.QA.Accelerator
                     AxeResult axeResult = new AxeBuilder(Driver)
                     .WithTags(wcagLevel.ToString())
                     .Analyze();
-                    string json = JsonSerializer.Serialize(axeResult);
+                    string json = System.Text.Json.JsonSerializer.Serialize(axeResult);
                     File.WriteAllText("TestResults/" + pageName + ".json", json);
                 }
                 catch (Exception e)
