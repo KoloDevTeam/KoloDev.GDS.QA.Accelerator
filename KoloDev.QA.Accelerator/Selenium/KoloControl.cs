@@ -16,6 +16,7 @@ using CsCodeGenerator.Enums;
 using Flurl.Http;
 using Humanizer;
 using KoloDev.GDS.QA.Accelerator.Data;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Globalization;
@@ -23,6 +24,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using static KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels;
+using static System.Collections.Specialized.BitVector32;
 
 namespace KoloDev.GDS.QA.Accelerator.Selenium
 {
@@ -589,6 +591,19 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                 TestContext.WriteLine(e.Message);
             }
         }
+
+        public static async Task DownloadVideo(Sessions session)
+        {
+            string username = TestContext.Parameters["BrowserStackUserName"];
+            string password = TestContext.Parameters["BrowserStackKey"];
+            string vidurl = session.AutomationSession.VideoUrl.ToString();
+            TestContext.WriteLine("KoloQA: Video URL: " + vidurl);
+            var array = new[] { session.AutomationSession.Name.Trim(), session.AutomationSession.Os.ToUpper(), session.AutomationSession.OsVersion, session.AutomationSession.Device, session.AutomationSession.Browser, session.AutomationSession.BrowserVersion, session.AutomationSession.Status };
+            string filename = string.Join("-", array.Where(s => !string.IsNullOrEmpty(s))).Trim();
+            await vidurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + ".mp4");
+            string json = JsonSerializer.Serialize(session);
+        }
+
 
         /// <summary>
         /// Strings the translater.

@@ -911,7 +911,7 @@ namespace KoloDev.GDS.QA.Accelerator
             return val1;
         }
 
-        public string GetVideoUrl()
+        public Sessions GetVideoUrl()
         {
             // get details of the session
             object sessionObject = ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"getSessionDetails\"}");
@@ -919,9 +919,7 @@ namespace KoloDev.GDS.QA.Accelerator
             string json_resp = Convert.ToString(sessionObject);
             // parse the data
             Sessions session_details = JsonConvert.DeserializeObject<Sessions>(json_resp);
-            string vidurl = session_details.AutomationSession.VideoUrl.ToString();
-            TestContext.WriteLine("KoloQA: Video URL: " + vidurl);
-            return vidurl;
+            return session_details;
 
         }
 
