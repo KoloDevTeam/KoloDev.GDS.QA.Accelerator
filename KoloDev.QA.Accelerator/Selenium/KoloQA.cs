@@ -564,13 +564,10 @@ namespace KoloDev.GDS.QA.Accelerator
         public KoloQA BrowserStackSession(BrowserStackBrowsers client)
         {
             TestContext.WriteLine(@"
-NNN/  :dNNd- .ohNMMNds:   -NNN.       :sdNMMNdo.  
-MMM/.yMMMo  sMMMmhydMMMd. -MMM.     .dMMMdyymMMMy`
-MMMhNMMh.  yMMm-    `yMMN`-MMM.    `mMMh`    -mMMh
-MMMMMMM/   NMM+      .MMM:-MMM.    -MMM.      +MMM
-MMMMyNMMh. yMMm-    `yMMN`-MMM.    `mMMh.    -mMMy
-MMM+ `hMMN+`sMMMmhydMMMd. -MMMhhhhh/.dMMMdyhmMMMy`
-mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
+  _  __    _      ___     _     _____       _     ___ _            _          _ 
+ | |/ /___| |___ / _ \   /_\   |_   _|__ __| |_  / __| |_ __ _ _ _| |_ ___ __| |
+ | ' </ _ \ / _ \ (_) | / _ \    | |/ -_|_-<  _| \__ \  _/ _` | '_|  _/ -_) _` |
+ |_|\_\___/_\___/\__\_\/_/ \_\   |_|\___/__/\__| |___/\__\__,_|_|  \__\___\__,_|");
             Dictionary<string, object> browserstackOptions = new Dictionary<string, object>();
             browserstackOptions.Add("projectName", ProjectName);
             browserstackOptions.Add("buildName", BuildName);
