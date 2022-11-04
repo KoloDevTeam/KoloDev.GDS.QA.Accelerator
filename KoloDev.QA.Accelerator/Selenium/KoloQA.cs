@@ -17,6 +17,8 @@ using HtmlAgilityPack;
 using KoloDev.GDS.QA.Accelerator.Data;
 using KoloDev.GDS.QA.Accelerator.Selenium;
 using KoloDev.GDS.QA.Accelerator.Utility;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -29,7 +31,9 @@ using OpenQA.Selenium.Support.UI;
 using Selenium.Axe;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using static KoloDev.GDS.QA.Accelerator.Data.BrowserStackModels;
 using static KoloDev.GDS.QA.Accelerator.Data.KoloTestSuite;
+using static System.Collections.Specialized.BitVector32;
 
 
 namespace KoloDev.GDS.QA.Accelerator
@@ -905,6 +909,20 @@ namespace KoloDev.GDS.QA.Accelerator
             bool val1 = (bool)jse.ExecuteScript("browserstack_executor: {\"action\": \"fileExists\", \"arguments\": {\"fileName\": \"" + FileName + "\"}}");
             TestContext.WriteLine("KoloQA: File Exists Check - " + FileName + " " + val1);
             return val1;
+        }
+
+        public string GetVideoUrl()
+        {
+            // get details of the session
+            object sessionObject = ((IJavaScriptExecutor)Driver).ExecuteScript("browserstack_executor: {\"action\": \"getSessionDetails\"}");
+            // convert Object to String for parsing
+            string json_resp = Convert.ToString(sessionObject);
+            // parse the data
+            Sessions session_details = JsonConvert.DeserializeObject<Sessions>(json_resp);
+            string vidurl = session_details.AutomationSession.VideoUrl.ToString();
+            TestContext.WriteLine("KoloQA: Video URL: " + vidurl);
+            return vidurl;
+
         }
 
         /// <summary>
