@@ -563,7 +563,7 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
                 string password = TestContext.Parameters["BrowserStackKey"];
                 string url = "https://api.browserstack.com/automate/builds.json?&limit=1";
                 builds = await url.WithBasicAuth(username, password).GetJsonAsync<List<Build>>();
-                AutomationBuild latest = builds.FirstOrDefault().AutomationBuild;
+                AutomationBuild latest = (AutomationBuild)builds.Where(e => e.AutomationBuild.Name == TestContext.Parameters["BuildName"]);
                 string sessionsurl = "https://api.browserstack.com/automate/builds/" + latest.HashedId + "/sessions.json";
                 List<Sessions> sessions = await sessionsurl.WithBasicAuth(username, password).GetJsonAsync<List<Sessions>>();
                 foreach (var session in sessions)
