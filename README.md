@@ -53,17 +53,6 @@ https://www.nuget.org/packages/KoloDev.GDS.QA/
 Install-Package KoloDev.GDS.QA -Version 1.2.67
 ```
     
-## FAQ
-
-#### Question 1
-
-Answer 1
-
-#### Question 2
-
-Answer 2
-
-
 ## License
 
 [License: GPL v3](https://www.gnu.org/licenses/gpl-3.0)
