@@ -1,0 +1,59 @@
+
+name: Publish Nuget
+
+on:
+  workflow_dispatch:
+  create:
+    branches: 
+      - release/**
+      - master
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  build:
+
+    env:
+      BUILD_CONFIG: 'Release'
+      SOLUTION: 'KoloDev.GDS.QA.Accelerator.sln'
+      VERSION: 1.2.${{ github.run_number }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+    - uses: actions/setup-dotnet@v2
+      with:
+          dotnet-version: '6.0.x'
+          include-prerelease: true
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore dependencies
+      run: nuget restore $SOLUTION
+
+    - name: Setup .NET
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$VERSION --no-restore
+    
+    - name: SonarScanner for .NET 6 with pull request decoration support
+      uses: highbyte/sonarscan-dotnet@v2.1.2
+      with:
+        # The key of the SonarQube project
+        sonarProjectKey: KoloDevTeam_KoloDev.GDS.QA.Accelerator
+        # The name of the SonarQube project
+        sonarProjectName:  KoloDev.GDS.QA.Accelerator
+        # The name of the SonarQube organization in SonarCloud. For hosted SonarQube, skip this setting.
+        sonarOrganization: kolodevteam
+        dotnetBuildArguments: -p:Version=$VERSION
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Publish
+      if: startsWith(github.ref, 'refs/heads/master')
+      run: nuget push **\*.nupkg -SkipDuplicate -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_KEY}}
