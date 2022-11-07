@@ -1,0 +1,71 @@
+trigger:
+  tags:
+    include:
+    - v*
+  branches:
+    include:
+    - main
+
+stages:
+
+- stage: 'Build'
+  variables:
+    - group: NuGetVariables
+    - name: BUILD_CONFIG
+      value: 'Release'
+    - name: SOLUTION
+      value: 'KoloDev.GDS.QA.Accelerator.sln'
+
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    workspace:
+      clean: all
+
+    steps:
+    - task: UseDotNet@2
+      displayName: Setup .NET 6.0
+      inputs:
+        packageType: "sdk"
+        version: "6.0.x"
+
+    - powershell: |
+        Import-Module .\build\GetBuildVersion.psm1
+        Write-Host $env:GIT_REF
+        $version = GetBuildVersion -VersionString $env:GIT_REF
+        Write-Host "##vso[task.setvariable variable=BUILD_VERSION;]$($version)"
+        Write-Host "Package Version: $env:BUILD_VERSION"
+      displayName: Get Build Version
+      env:
+        GIT_REF: $(Build.SourceBranch)
+    - task: DotNetCoreCLI@2
+      displayName: Restore dependencies
+      inputs:
+        command: 'restore'
+        projects: '$(SOLUTION)'
+
+    - task: DotNetCoreCLI@2
+      displayName: Build project
+      inputs:
+        command: 'build'
+        projects: '$(SOLUTION)'
+        arguments: '/p:Configuration=$(BUILD_CONFIG) -p:Version=$(BUILD_VERSION)'
+
+    - task: CopyFiles@2
+      displayName: Copy packages to pipeline artifacts
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: |
+          **/*.nupkg
+          **/*.snupkg
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/artifacts'
+
+    - script: |
+          nuget push $(Build.ArtifactStagingDirectory)/artifacts/**/*.nupkg -src https://api.nuget.org/v3/index.json -ApiKey $(NUGET_API_KEY)
+      displayName: "Push packages to NuGet"
+      condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
+    - publish: '$(Build.ArtifactStagingDirectory)/artifacts'
+      displayName: Publish pipeline artifacts
+      artifact: 'artifacts'
