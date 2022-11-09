@@ -46,6 +46,7 @@ namespace KoloDev.GDS.QA.Accelerator.Utility
             // Console.WriteLine(pagejson);
             return pageModel;
         }
+
         public void GetTextFromPage(string PageHtml, GdsPageModel pageModel)
         {
             try
