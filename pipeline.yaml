@@ -14,11 +14,6 @@ stages:
     minor: '0'
     revision: $[counter(variables['minor'], 1)] 
     nugetVersion: '$(major).$(minor).$(revision)'
-    - group: NuGetVariables
-    - name: BUILD_CONFIG
-      value: 'Release'
-    - name: SOLUTION
-      value: 'KoloDev.GDS.QA.Accelerator.sln'
 
   jobs:
   - job:
@@ -45,8 +40,8 @@ stages:
       displayName: Build project
       inputs:
         command: 'build'
-        projects: '$(SOLUTION)'
-        arguments: '/p:Configuration=$(BUILD_CONFIG) -p:Version=$(nugetVersion)'
+        projects: 'KoloDev.GDS.QA.Accelerator.sln'
+        arguments: '/p:Configuration=Release -p:Version=$(nugetVersion)'
 
     - task: CopyFiles@2
       displayName: Copy packages to pipeline artifacts
