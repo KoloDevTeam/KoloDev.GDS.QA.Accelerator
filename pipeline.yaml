@@ -16,7 +16,7 @@ stages:
     - name: minor
       value: '0'
     - name: revision
-      value: '$[counter(variables['minor'], 1)]'
+      value: $[counter(variables['minor'], 1)]
     - name: nugetVersion
       value: '$(major).$(minor).$(revision)'
   
