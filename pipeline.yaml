@@ -12,7 +12,7 @@ stages:
   variables:
     - group: NuGetVariables
     - name: major
-      value: '1'
+      value: '2'
     - name: minor
       value: '0'
     - name: revision
