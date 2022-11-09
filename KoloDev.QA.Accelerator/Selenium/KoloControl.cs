@@ -537,6 +537,28 @@ namespace KoloDev.GDS.QA.Accelerator.Selenium
             }
         }
 
+        public static async Task DownloadVideo(BrowserStackModels.Sessions session)
+        {
+            string username = TestContext.Parameters["BrowserStackUserName"];
+            string password = TestContext.Parameters["BrowserStackKey"];
+            string vidurl = session.AutomationSession!.VideoUrl!.ToString();
+            TestContext.WriteLine("KoloQA: Video URL: " + vidurl);
+            string[] array = new string[7]
+            {
+                session.AutomationSession!.Name!.Trim(),
+                session.AutomationSession!.Os!.ToUpper(),
+                session.AutomationSession!.OsVersion,
+                session.AutomationSession!.Device,
+                session.AutomationSession!.Browser,
+                session.AutomationSession!.BrowserVersion,
+                session.AutomationSession!.Status
+            };
+            string filename = string.Join("-", array.Where((string s) => !string.IsNullOrEmpty(s))).Trim();
+            await vidurl.WithBasicAuth(username, password).DownloadFileAsync("TestResults/", filename + ".mp4");
+            TestContext.AddTestAttachment("./TestResults/" + filename + ".mp4");
+            JsonSerializer.Serialize(session);
+        }
+
         public static string StringTranslater(string translate)
         {
             if (translate.ToLower() == "todaysday")

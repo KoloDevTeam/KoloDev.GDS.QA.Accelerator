@@ -557,6 +557,206 @@ namespace KoloDev.GDS.QA.Accelerator
             }
         }
 
+        public IWebElement FluentWaitByNameReturnElement(string Name)
+        {
+            string Name2 = Name;
+            try
+            {
+                DefaultWait<IWebDriver> defaultWait = new DefaultWait<IWebDriver>(Driver);
+                defaultWait.Timeout = TimeSpan.FromSeconds(20.0);
+                defaultWait.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                defaultWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement webElement = defaultWait.Until((IWebDriver x) => x.FindElement(By.Name(Name2)));
+                ScrollIntoViewUsingJavaScript(webElement);
+                return webElement;
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> defaultWait2 = new DefaultWait<IWebDriver>(Driver);
+                    defaultWait2.Timeout = TimeSpan.FromSeconds(20.0);
+                    defaultWait2.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                    defaultWait2.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement webElement2 = defaultWait2.Until((IWebDriver x) => x.FindElement(By.Name(Name2)));
+                    ScrollIntoViewUsingJavaScript(webElement2);
+                    return webElement2;
+                }
+                catch
+                {
+                    DefaultWait<IWebDriver> defaultWait3 = new DefaultWait<IWebDriver>(Driver);
+                    defaultWait3.Timeout = TimeSpan.FromSeconds(20.0);
+                    defaultWait3.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                    defaultWait3.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement webElement3 = defaultWait3.Until((IWebDriver x) => x.FindElement(By.Name(Name2)));
+                    ScrollIntoViewUsingJavaScript(webElement3);
+                    return webElement3;
+                }
+            }
+        }
+
+        public List<IWebElement> FindListOfValuesByXPath(string XPath)
+        {
+            return Driver.FindElements(By.XPath(XPath)).ToList();
+        }
+
+        public KoloQA UploadFileByName(string FileName, string Id = "file")
+        {
+            IWebElement webElement = FluentWaitByNameReturnElement(Id);
+            string text = "./FileUploads/" + FileName;
+            LocalFileDetector fileDetector = new LocalFileDetector();
+            IAllowsFileDetection allowsFileDetection = Driver as IAllowsFileDetection;
+            if (allowsFileDetection != null)
+            {
+                allowsFileDetection.FileDetector = fileDetector;
+            }
+
+            webElement.SendKeys(text);
+            return this;
+        }
+
+        public string GetTextOfCSSElement(string CSSSelector, int timeout = 10)
+        {
+            string CSSSelector2 = CSSSelector;
+            string text = "";
+            try
+            {
+                WebDriverWait webDriverWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeout));
+                webDriverWait.Until((IWebDriver c) => c.FindElement(By.CssSelector(CSSSelector2)));
+                return Driver.FindElement(By.CssSelector(CSSSelector2)).Text;
+            }
+            catch (Exception)
+            {
+                TestContext.Write("KoloQA: " + CSSSelector2 + "' not found in current context page.");
+                throw;
+            }
+        }
+
+        public KoloQA FindXPathTypeThenTabThenType(string XPath, string FirstInput, string SecondInput, BrowserStackBrowsers client)
+        {
+            string XPath2 = XPath;
+            if (FirstInput.ToLower() == "automated")
+            {
+                FirstInput = RandomString().ToUpper();
+            }
+
+            if (SecondInput.ToLower() == "automated")
+            {
+                FirstInput = RandomString().ToUpper();
+            }
+
+            try
+            {
+                DefaultWait<IWebDriver> defaultWait = new DefaultWait<IWebDriver>(Driver);
+                defaultWait.Timeout = TimeSpan.FromSeconds(20.0);
+                defaultWait.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                defaultWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                IWebElement webElement = defaultWait.Until((IWebDriver x) => x.FindElement(By.XPath(XPath2)));
+                ScrollIntoViewAndClick(webElement);
+                webElement.SendKeys(FirstInput + Keys.Tab + SecondInput);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("KoloQA: Found " + XPath2 + " and clicked");
+            }
+            catch
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> defaultWait2 = new DefaultWait<IWebDriver>(Driver);
+                    defaultWait2.Timeout = TimeSpan.FromSeconds(20.0);
+                    defaultWait2.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                    defaultWait2.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                    IWebElement webElement2 = defaultWait2.Until((IWebDriver x) => x.FindElement(By.XPath(XPath2)));
+                    ScrollIntoViewAndClick(webElement2);
+                    webElement2.SendKeys(FirstInput + Keys.Tab + SecondInput);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + XPath2 + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> defaultWait3 = new DefaultWait<IWebDriver>(Driver);
+                        defaultWait3.Timeout = TimeSpan.FromSeconds(20.0);
+                        defaultWait3.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                        defaultWait3.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException));
+                        IWebElement webElement3 = defaultWait3.Until((IWebDriver x) => x.FindElement(By.XPath(XPath2)));
+                        ScrollIntoViewAndClick(webElement3);
+                        webElement3.SendKeys(FirstInput + Keys.Tab + SecondInput);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + XPath2 + " and clicked");
+                    }
+                    catch
+                    {
+                        TestContext.WriteLine("KoloQA: Error FindByXPathThenClick, Selector " + XPath2);
+                        throw;
+                    }
+                }
+            }
+
+            return this;
+        }
+
+
+
+        public KoloQA FindXPathThenClickWithoutScrollIntoView(string Xpath, BrowserStackBrowsers client)
+        {
+            try
+            {
+                DefaultWait<IWebDriver> defaultWait = new DefaultWait<IWebDriver>(Driver);
+                defaultWait.Timeout = TimeSpan.FromSeconds(20.0);
+                defaultWait.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                defaultWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException), typeof(ElementNotVisibleException));
+                IWebElement webElement = defaultWait.Until((IWebDriver x) => x.FindElement(By.XPath(Xpath)));
+                webElement.Click();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+            }
+            catch
+            {
+                try
+                {
+                    DefaultWait<IWebDriver> defaultWait2 = new DefaultWait<IWebDriver>(Driver);
+                    defaultWait2.Timeout = TimeSpan.FromSeconds(20.0);
+                    defaultWait2.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                    defaultWait2.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException), typeof(ElementNotVisibleException));
+                    IWebElement webElement2 = defaultWait2.Until((IWebDriver x) => x.FindElement(By.XPath(Xpath)));
+                    webElement2.Click();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+                }
+                catch
+                {
+                    try
+                    {
+                        DefaultWait<IWebDriver> defaultWait3 = new DefaultWait<IWebDriver>(Driver);
+                        defaultWait3.Timeout = TimeSpan.FromSeconds(20.0);
+                        defaultWait3.PollingInterval = TimeSpan.FromMilliseconds(250.0);
+                        defaultWait3.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotInteractableException), typeof(ElementNotVisibleException));
+                        IWebElement webElement3 = defaultWait3.Until((IWebDriver x) => x.FindElement(By.XPath(Xpath)));
+                        webElement3.Click();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("KoloQA: Found " + Xpath + " and clicked");
+                    }
+                    catch
+                    {
+                        TestContext.WriteLine("KoloQA: Error FindXPathThenClickWithoutScrollIntoView, Selector " + Xpath);
+                        throw;
+                    }
+                }
+            }
+
+            return this;
+        }
+
+
+        public KoloQA SaveScreenshotPNG(string filename)
+        {
+            ITakesScreenshot takesScreenshot = Driver as ITakesScreenshot;
+            Screenshot screenshot = takesScreenshot.GetScreenshot();
+            screenshot.SaveAsFile(filename, ScreenshotImageFormat.Png);
+            return this;
+        }
+
         public bool CheckIfFileExists(string FileName)
         {
             IJavaScriptExecutor javaScriptExecutor = (IJavaScriptExecutor)Driver;
