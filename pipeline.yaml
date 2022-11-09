@@ -65,7 +65,6 @@ stages:
     - script: |
           nuget push $(Build.ArtifactStagingDirectory)/artifacts/**/*.nupkg -src https://api.nuget.org/v3/index.json -ApiKey $(NUGET_API_KEY)
       displayName: "Push packages to NuGet"
-      condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
     - publish: '$(Build.ArtifactStagingDirectory)/artifacts'
       displayName: Publish pipeline artifacts
       artifact: 'artifacts'
