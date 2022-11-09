@@ -11,10 +11,17 @@ stages:
 - stage: 'Build'
   variables:
     - group: NuGetVariables
-    major: '1'
-    minor: '0'
-    revision: $[counter(variables['minor'], 1)] 
-    nugetVersion: '$(major).$(minor).$(revision)'
+    - name: major
+      value: '1'
+    - name: minor
+      value: '0'
+    - name: revision
+      value: '$[counter(variables['minor'], 1)]'
+    - name: nugetVersion
+      value: '$(major).$(minor).$(revision)'
+  
+    revision: 
+    nugetVersion: 
 
   jobs:
   - job:
