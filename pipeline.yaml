@@ -34,7 +34,7 @@ stages:
       displayName: Restore dependencies
       inputs:
         command: 'restore'
-        projects: '$(SOLUTION)'
+        projects: 'KoloDev.GDS.QA.Accelerator.sln'
 
     - task: DotNetCoreCLI@2
       displayName: Build project
