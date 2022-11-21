@@ -38,7 +38,7 @@ namespace KoloDev.GDS.QA.Accelerator
         /// <summary>
         /// Remote Web Driver Instance
         /// </summary>
-        private IWebDriver Driver { get; set; } = null!;
+        public IWebDriver Driver { get; set; } = null!;
         /// <summary>
         /// BrowserStack Project Name
         /// </summary>
@@ -1195,6 +1195,11 @@ mmm:   /mmmy`.ohmMMNds:   -mmmmmmmm+  -sdNMMNho.");
         {
             TestContext.Write(output);
             return this;
+        }
+
+        public IWebDriver GetDriver()
+        {
+            return Driver;
         }
 
         #region Timeouts
